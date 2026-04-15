@@ -1,70 +1,49 @@
-# Weather Trading en Polymarket
+# WeatherTrading Evo
 
-Base inicial para construir un sistema que detecte mercados meteorologicos en Polymarket, modele la variable exacta de resolucion del contrato y tome decisiones de trading con trazabilidad completa.
+Sistema de investigacion y validacion para operar mercados meteorologicos de Polymarket con foco en temperatura diaria.
 
-## Idea central
+El objetivo no es "predecir el tiempo" en abstracto, sino estimar con la mayor precision posible la variable contractual que resuelve cada mercado: estacion, proveedor, metrica, agregacion, redondeo y condiciones de settlement.
 
-El proyecto no busca "predecir el tiempo" en abstracto.
-Busca estimar mejor que el mercado la variable contractual que resuelve cada mercado:
+## Estado del proyecto
 
-- que estacion cuenta
-- que proveedor manda
-- que metrica se usa
-- que agregacion aplica
-- que precision o redondeo decide el resultado
+El proyecto se encuentra en fase de `late R&D / disciplined paper-trading`.
 
-La cadena de valor del sistema es:
+La base actual ya cubre de extremo a extremo:
 
-`discovery -> parseo de reglas -> mapeo estacion/fuente -> ingesta de observaciones -> forecast probabilistico -> pricing -> riesgo -> ejecucion -> auditoria`
+- discovery de mercados
+- parseo de reglas
+- mapeo de estaciones y fuentes
+- ingesta de observaciones y forecasts
+- construccion de distribuciones probabilisticas
+- pricing y filtros de calidad
+- gates de evidencia operativa
+- paper audit ex post
+- overlay de watchlist y veto de riesgo
 
-## Principios de construccion
+La operativa real sigue desactivada. El sistema esta orientado a:
 
-- La variable relevante es contractual, no meteorologica en abstracto.
-- El parser y la fuente de resolucion importan tanto como el modelo.
-- Se trabaja con probabilidades calibradas, no con una unica temperatura puntual.
-- El `risk manager` tiene poder de veto sobre cualquier orden.
-- El sistema debe poder explicar por que opero y por que decidio no operar.
-- Primero `paper trading`, despues tamano pequeno, y solo al final live controlado.
+1. validar edge en paper
+2. entender fallos de calibracion
+3. reforzar filtros antes de cualquier paso a `dry_run` o `live`
 
-## Alcance inicial recomendado
+## Principios de trabajo
 
-- Mercados de temperatura maxima diaria.
-- Estaciones aeroportuarias o estaciones claramente identificables.
-- Prioridad a mercados con reglas simples y alta confianza de parseo.
-- Operativa inicial en modo paper.
-- Uso de ordenes limit y filtros conservadores de edge neto.
+- La verdad relevante es contractual antes que meteorologica.
+- El parser, la estacion y la fuente de settlement importan tanto como el modelo.
+- Las decisiones se toman sobre distribuciones y probabilidades, no sobre un unico punto.
+- Riesgo y calidad de mercado pueden vetar cualquier operacion.
+- Todo cambio relevante queda registrado en `logs/`.
 
-## Estructura inicial del repo
+## Estructura
 
-- `docs/`: decisiones tecnicas y plan de MVP.
-- `logs/`: registro operativo y de cambios del proyecto.
-- `src/weather_trading/`: paquete Python con contratos base del dominio.
-- `config/`: configuracion general, catalogo de estaciones y registro de fuentes.
-- `polymarket_weather_*.txt`: documentos de contexto originales del proyecto.
+- `config/`: politica de forecast, settings, catalogo de estaciones, fuentes y watchlist.
+- `docs/`: notas tecnicas y documentos de referencia del proyecto.
+- `logs/`: snapshots, auditorias y registro versionado de cambios.
+- `scripts/`: runners operativos, backtests, auditorias y utilidades de validacion.
+- `src/weather_trading/`: codigo fuente del sistema.
+- `tests/`: suite automatizada de pruebas.
 
-## Documentos clave creados en esta base
-
-- `docs/mvp_foundation.md`
-- `logs/README.md`
-- `logs/entries/2026-04-05_initial_foundation.md`
-- `src/weather_trading/domain/models.py`
-- `pyproject.toml`
-- `config/station_catalog.yaml`
-- `config/source_registry.yaml`
-- `docs/station_catalog_and_sources.md`
-
-## Instalacion y portabilidad
-
-Las dependencias runtime y de desarrollo ya estan declaradas en `pyproject.toml`, asi que el proyecto puede reinstalarse en una maquina nueva sin depender del `venv` de este repo.
-
-Pasos base recomendados:
-
-1. Copia o clona el repo en la nueva maquina.
-2. Crea un entorno virtual nuevo.
-3. Instala el paquete en editable con extras de desarrollo.
-4. Ejecuta la suite para validar el entorno.
-
-Comandos genericos:
+## Instalacion
 
 ```bash
 python -m venv venv
@@ -73,17 +52,54 @@ pip install -e .[dev]
 python -m pytest -q
 ```
 
-Notas:
+## Notas de portabilidad
 
-- No copies `venv/` entre macOS y Windows; recrealo en la nueva maquina.
-- Si quieres conservar el estado local, copia tambien `logs/`, `config/` y opcionalmente `weather_trading.db`.
-- La guia especifica para Windows esta en `docs/windows_setup.md`.
+- No copies `venv/` entre maquinas; recrealo.
+- La base local `weather_trading.db` no forma parte del repositorio.
+- Las rutas y automatizaciones deben revisarse si cambias de sistema o workspace.
+- La guia de Windows esta en `docs/windows_setup.md`.
 
-## Siguientes pasos prioritarios
+## Ejecucion habitual
 
-1. Definir un esquema robusto de `MarketSpec` a partir de ejemplos reales de mercados.
-2. Crear un catalogo inicial de mercados, estaciones y fuentes de resolucion.
-3. Implementar un parser determinista con fallback asistido.
-4. Levantar el pipeline de observaciones con controles de calidad y freshness.
-5. Construir el baseline probabilistico y su capa de pricing.
-6. Conectar la capa de auditoria antes de cualquier decision automatica.
+Ejemplos de comandos utiles:
+
+```bash
+venv/bin/python scripts/run_blind_live_validation.py --as-of-date 2026-04-15 --max-events 20 --min-horizon-days 1 --max-horizon-days 4
+venv/bin/python scripts/run_observation_backfill.py --reference-date 2026-04-15
+venv/bin/python scripts/run_blind_snapshot_resolution_audit.py --reference-date 2026-04-15
+venv/bin/python scripts/run_watchlist_strategy_simulation.py --reference-date 2026-04-15
+```
+
+## Logs y trazabilidad
+
+Cada iteracion relevante se documenta con:
+
+- entrada versionada en `logs/entries/`
+- snapshot en `logs/snapshots/` cuando aplica
+
+Esto permite reconstruir:
+
+- que cambio
+- por que cambio
+- como se valido
+- que resultado dio
+
+## Seguridad del repositorio
+
+El repositorio ignora por defecto:
+
+- bases locales y caches
+- entornos virtuales
+- ficheros `.env`
+- certificados y claves
+- documentos privados de contexto no pensados para publicarse
+
+## Siguiente criterio de avance
+
+Los siguientes pasos del proyecto se deciden en funcion de evidencia, no de intuicion:
+
+- mejora en `paper PnL`
+- estabilidad de `ROI`
+- evolucion de `log loss` y `Brier`
+- comportamiento por cohorte, familia de bin y calidad de mercado
+- concordancia con settlement contractual real
