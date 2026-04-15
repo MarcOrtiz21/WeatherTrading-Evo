@@ -26,6 +26,11 @@ from weather_trading.services.evaluation.blind_snapshot_resolution import (
     is_event_eligible_for_resolution,
     summarize_blind_snapshot_evaluations,
 )
+from weather_trading.services.evaluation.watchlist_strategy_analysis import (
+    build_strategy_comparison_digest,
+    build_watchlist_strategy_summary,
+    persist_watchlist_strategy_snapshot,
+)
 from weather_trading.services.station_mapper.service import StationMapperService
 from weather_trading.services.weather_ingestion.openmeteo_client import OpenMeteoClient
 
@@ -247,6 +252,23 @@ async def main() -> None:
         evaluations,
         paper_edge_threshold=args.paper_edge_threshold,
     )
+    watchlist_strategy_summary = await build_watchlist_strategy_summary(
+        reference_date=reference_date,
+        audit_snapshot={
+            "evaluations": evaluation_rows,
+            "snapshot_files": [path.relative_to(ROOT).as_posix() for path in snapshot_paths],
+        },
+        root=ROOT,
+        allow_remote_reconstruction=False,
+    )
+    watchlist_strategy_summary["strategy_comparison_digest"] = build_strategy_comparison_digest(
+        watchlist_strategy_summary
+    )
+    watchlist_strategy_snapshot_path = persist_watchlist_strategy_snapshot(
+        root=ROOT,
+        reference_date=reference_date,
+        payload=watchlist_strategy_summary,
+    )
     coverage = summarize_resolution_coverage(
         snapshot_paths=snapshot_paths,
         evaluations=evaluations,
@@ -266,6 +288,8 @@ async def main() -> None:
             "remote_archive_available": actual_temp_resolver.remote_archive_available,
             "remote_archive_error": actual_temp_resolver.remote_archive_error,
         },
+        "watchlist_strategy_snapshot": watchlist_strategy_snapshot_path.relative_to(ROOT).as_posix(),
+        "watchlist_strategy_comparison": watchlist_strategy_summary["strategy_comparison_digest"],
         "coverage": coverage,
         "summary": summary,
         "evaluations": evaluation_rows,
@@ -311,6 +335,16 @@ async def main() -> None:
             f"Paper PnL: {summary['paper_total_pnl']:.3f} | "
             f"ROI sobre stake: {summary['paper_roi_on_stake']:.1%}"
         )
+        print("")
+        print("Comparativa filtros watchlist:")
+        for strategy_name, metrics in summary_top_strategies(
+            watchlist_strategy_summary["strategy_comparison_digest"]
+        ):
+            print(
+                f"  {strategy_name}: trades={metrics['trades']} | "
+                f"hit_rate={metrics['selected_market_hit_rate']:.1%} | "
+                f"pnl={metrics['total_pnl']:+.3f} | roi={metrics['roi_on_stake']:.1%}"
+            )
         print("")
         print("Por estrategia:")
         for strategy, strategy_summary in summary["by_strategy"].items():
@@ -385,6 +419,17 @@ def summarize_resolution_coverage(
         "skip_reason_counts": dict(sorted(skip_reason_counts.items())),
         "pending_reason_counts": dict(sorted(pending_reason_counts.items())),
     }
+
+
+def summary_top_strategies(strategy_digest: dict) -> list[tuple[str, dict]]:
+    selected = strategy_digest.get("selected_strategies", {})
+    order = [
+        "model_current",
+        "model_skip_opposed",
+        "model_skip_celsius_active_unclassified",
+        "model_skip_opposed_and_celsius_active_unclassified",
+    ]
+    return [(name, selected.get(name, {})) for name in order if name in selected]
 
 
 if __name__ == "__main__":

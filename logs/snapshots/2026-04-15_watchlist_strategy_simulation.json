@@ -1,5 +1,5 @@
 {
-  "captured_at_utc": "2026-04-15T08:05:20.031202",
+  "captured_at_utc": "2026-04-15T08:27:57.355190",
   "reference_date": "2026-04-15",
   "audit_snapshot": "logs/snapshots/2026-04-15_blind_snapshot_resolution_audit.json",
   "evaluated_events": 160,
@@ -166,5 +166,63 @@
     "model_skip_celsius_active_unclassified bloquea el top-edge si la watchlist esta en active_unclassified y el top-edge pertenece a celsius|range_bin",
     "model_skip_opposed_and_celsius_active_unclassified combina ambos filtros",
     "model_confirmed_only solo mantiene trades del modelo con watchlist aligned o mixed"
-  ]
+  ],
+  "strategy_comparison_digest": {
+    "selected_strategies": {
+      "model_current": {
+        "trades": 102,
+        "selected_market_hit_rate": 0.2647058823529412,
+        "total_stake": 15.074250000000001,
+        "total_pnl": 11.925749999999999,
+        "roi_on_stake": 0.7911338872580724,
+        "avg_execution_price": 0.13034313725490196
+      },
+      "model_skip_opposed": {
+        "trades": 97,
+        "selected_market_hit_rate": 0.27835051546391754,
+        "total_stake": 14.44075,
+        "total_pnl": 12.55925,
+        "roi_on_stake": 0.8697089832591798,
+        "avg_execution_price": 0.13194845360824742
+      },
+      "model_skip_celsius_active_unclassified": {
+        "trades": 90,
+        "selected_market_hit_rate": 0.2777777777777778,
+        "total_stake": 13.90825,
+        "total_pnl": 11.09175,
+        "roi_on_stake": 0.7974942929556198,
+        "avg_execution_price": 0.13798888888888888
+      },
+      "model_skip_opposed_and_celsius_active_unclassified": {
+        "trades": 85,
+        "selected_market_hit_rate": 0.29411764705882354,
+        "total_stake": 13.274750000000001,
+        "total_pnl": 11.725249999999999,
+        "roi_on_stake": 0.8832746379404507,
+        "avg_execution_price": 0.14027058823529412
+      }
+    },
+    "deltas_vs_model_current": {
+      "model_skip_opposed": {
+        "trades_delta": -5,
+        "hit_rate_delta": 0.013644633110976356,
+        "pnl_delta": 0.6335000000000015,
+        "roi_delta": 0.07857509600110735
+      },
+      "model_skip_celsius_active_unclassified": {
+        "trades_delta": -12,
+        "hit_rate_delta": 0.01307189542483661,
+        "pnl_delta": -0.8339999999999996,
+        "roi_delta": 0.006360405697547367
+      },
+      "model_skip_opposed_and_celsius_active_unclassified": {
+        "trades_delta": -17,
+        "hit_rate_delta": 0.02941176470588236,
+        "pnl_delta": -0.2004999999999999,
+        "roi_delta": 0.09214075068237826
+      }
+    },
+    "best_strategy_by_pnl": "model_skip_opposed",
+    "best_strategy_by_roi": "model_skip_opposed_and_celsius_active_unclassified"
+  }
 }

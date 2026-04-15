@@ -1,4 +1,7 @@
+import pytest
+
 from scripts.run_watchlist_strategy_simulation import (
+    build_strategy_comparison_digest,
     build_alignment_from_snapshot_event,
     build_trader_candidates,
     build_missing_alignment,
@@ -144,3 +147,41 @@ def test_should_skip_celsius_active_unclassified_ignores_other_signals():
         alignment=alignment,
         parser=parser,
     ) is False
+
+
+def test_build_strategy_comparison_digest_reports_best_strategies_and_deltas():
+    summary = {
+        "strategies": {
+            "model_current": {
+                "trades": 10,
+                "selected_market_hit_rate": 0.4,
+                "total_pnl": 1.0,
+                "roi_on_stake": 0.1,
+            },
+            "model_skip_opposed": {
+                "trades": 9,
+                "selected_market_hit_rate": 0.5,
+                "total_pnl": 1.4,
+                "roi_on_stake": 0.2,
+            },
+            "model_skip_celsius_active_unclassified": {
+                "trades": 8,
+                "selected_market_hit_rate": 0.45,
+                "total_pnl": 0.9,
+                "roi_on_stake": 0.11,
+            },
+            "model_skip_opposed_and_celsius_active_unclassified": {
+                "trades": 7,
+                "selected_market_hit_rate": 0.57,
+                "total_pnl": 1.3,
+                "roi_on_stake": 0.25,
+            },
+        }
+    }
+
+    digest = build_strategy_comparison_digest(summary)
+
+    assert digest["best_strategy_by_pnl"] == "model_skip_opposed"
+    assert digest["best_strategy_by_roi"] == "model_skip_opposed_and_celsius_active_unclassified"
+    assert digest["deltas_vs_model_current"]["model_skip_opposed"]["pnl_delta"] == pytest.approx(0.4)
+    assert digest["deltas_vs_model_current"]["model_skip_opposed"]["trades_delta"] == -1
