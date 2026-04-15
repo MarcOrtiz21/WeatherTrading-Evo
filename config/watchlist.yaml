@@ -1,0 +1,17 @@
+wallet_watchlist:
+  enabled: true
+  category: "WEATHER"
+  leaderboard_periods:
+    - "MONTH"
+    - "ALL"
+  leaderboard_limit: 50
+  recent_trade_limit: 150
+  recent_trade_pages: 8
+  recent_trade_lookback_hours: 168
+  traders:
+    - username: "ColdMath"
+      label: "ColdMath"
+    - username: "Poligarch"
+      label: "Poligarch"
+    - username: "Handsanitizer23"
+      label: "Handsanitizer23"

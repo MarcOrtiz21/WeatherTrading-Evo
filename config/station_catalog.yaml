@@ -1,0 +1,1461 @@
+stations:
+  LEMD:
+    city: "Madrid"
+    country: "Spain"
+    region: "Europe"
+    timezone: "Europe/Madrid"
+    latitude: 40.4839
+    longitude: -3.5670
+    aliases:
+      - "Madrid"
+      - "Madrid Airport"
+      - "Aeropuerto de Madrid"
+      - "Madrid Barajas"
+      - "Adolfo Suarez Madrid-Barajas"
+    provider_mappings:
+      aviation_weather: {icao: "LEMD"}
+      metar: {icao: "LEMD"}
+      wunderground: {airport_code: "LEMD"}
+      noaa: {icao: "LEMD"}
+      open_meteo: {latitude: 40.4839, longitude: -3.5670}
+      meteostat: {icao: "LEMD"}
+      ecmwf: {latitude: 40.4839, longitude: -3.5670}
+
+  LEBL:
+    city: "Barcelona"
+    country: "Spain"
+    region: "Europe"
+    timezone: "Europe/Madrid"
+    latitude: 41.2974
+    longitude: 2.0833
+    aliases:
+      - "Barcelona"
+      - "Barcelona Airport"
+      - "Aeropuerto de Barcelona"
+      - "Barcelona El Prat"
+      - "El Prat"
+    provider_mappings:
+      aviation_weather: {icao: "LEBL"}
+      metar: {icao: "LEBL"}
+      wunderground: {airport_code: "LEBL"}
+      noaa: {icao: "LEBL"}
+      open_meteo: {latitude: 41.2974, longitude: 2.0833}
+      meteostat: {icao: "LEBL"}
+      ecmwf: {latitude: 41.2974, longitude: 2.0833}
+
+  LEPA:
+    city: "Palma de Mallorca"
+    country: "Spain"
+    region: "Europe"
+    timezone: "Europe/Madrid"
+    latitude: 39.5517
+    longitude: 2.7388
+    aliases:
+      - "Palma"
+      - "Palma de Mallorca"
+      - "Mallorca Airport"
+      - "Aeropuerto de Palma"
+    provider_mappings:
+      aviation_weather: {icao: "LEPA"}
+      metar: {icao: "LEPA"}
+      wunderground: {airport_code: "LEPA"}
+      noaa: {icao: "LEPA"}
+      open_meteo: {latitude: 39.5517, longitude: 2.7388}
+      meteostat: {icao: "LEPA"}
+      ecmwf: {latitude: 39.5517, longitude: 2.7388}
+
+  LEVC:
+    city: "Valencia"
+    country: "Spain"
+    region: "Europe"
+    timezone: "Europe/Madrid"
+    latitude: 39.4893
+    longitude: -0.4816
+    aliases:
+      - "Valencia"
+      - "Valencia Airport"
+      - "Aeropuerto de Valencia"
+      - "Manises"
+    provider_mappings:
+      aviation_weather: {icao: "LEVC"}
+      metar: {icao: "LEVC"}
+      wunderground: {airport_code: "LEVC"}
+      noaa: {icao: "LEVC"}
+      open_meteo: {latitude: 39.4893, longitude: -0.4816}
+      meteostat: {icao: "LEVC"}
+      ecmwf: {latitude: 39.4893, longitude: -0.4816}
+
+  LEAL:
+    city: "Alicante"
+    country: "Spain"
+    region: "Europe"
+    timezone: "Europe/Madrid"
+    latitude: 38.2822
+    longitude: -0.5582
+    aliases:
+      - "Alicante"
+      - "Alicante Airport"
+      - "Aeropuerto de Alicante"
+      - "Alicante Elche"
+    provider_mappings:
+      aviation_weather: {icao: "LEAL"}
+      metar: {icao: "LEAL"}
+      wunderground: {airport_code: "LEAL"}
+      noaa: {icao: "LEAL"}
+      open_meteo: {latitude: 38.2822, longitude: -0.5582}
+      meteostat: {icao: "LEAL"}
+      ecmwf: {latitude: 38.2822, longitude: -0.5582}
+
+  LEMG:
+    city: "Malaga"
+    country: "Spain"
+    region: "Europe"
+    timezone: "Europe/Madrid"
+    latitude: 36.6749
+    longitude: -4.4991
+    aliases:
+      - "Malaga"
+      - "Málaga"
+      - "Malaga Airport"
+      - "Aeropuerto de Malaga"
+      - "Costa del Sol Airport"
+    provider_mappings:
+      aviation_weather: {icao: "LEMG"}
+      metar: {icao: "LEMG"}
+      wunderground: {airport_code: "LEMG"}
+      noaa: {icao: "LEMG"}
+      open_meteo: {latitude: 36.6749, longitude: -4.4991}
+      meteostat: {icao: "LEMG"}
+      ecmwf: {latitude: 36.6749, longitude: -4.4991}
+
+  GCLP:
+    city: "Las Palmas"
+    country: "Spain"
+    region: "Europe"
+    timezone: "Atlantic/Canary"
+    latitude: 27.9319
+    longitude: -15.3866
+    aliases:
+      - "Las Palmas"
+      - "Gran Canaria"
+      - "Gran Canaria Airport"
+      - "Aeropuerto de Gran Canaria"
+    provider_mappings:
+      aviation_weather: {icao: "GCLP"}
+      metar: {icao: "GCLP"}
+      wunderground: {airport_code: "GCLP"}
+      noaa: {icao: "GCLP"}
+      open_meteo: {latitude: 27.9319, longitude: -15.3866}
+      meteostat: {icao: "GCLP"}
+      ecmwf: {latitude: 27.9319, longitude: -15.3866}
+
+  GCTS:
+    city: "Tenerife"
+    country: "Spain"
+    region: "Europe"
+    timezone: "Atlantic/Canary"
+    latitude: 28.0445
+    longitude: -16.5725
+    aliases:
+      - "Tenerife"
+      - "Tenerife Sur"
+      - "Tenerife South"
+      - "Aeropuerto de Tenerife Sur"
+    provider_mappings:
+      aviation_weather: {icao: "GCTS"}
+      metar: {icao: "GCTS"}
+      wunderground: {airport_code: "GCTS"}
+      noaa: {icao: "GCTS"}
+      open_meteo: {latitude: 28.0445, longitude: -16.5725}
+      meteostat: {icao: "GCTS"}
+      ecmwf: {latitude: 28.0445, longitude: -16.5725}
+
+  LPPT:
+    city: "Lisbon"
+    country: "Portugal"
+    region: "Europe"
+    timezone: "Europe/Lisbon"
+    latitude: 38.7742
+    longitude: -9.1342
+    aliases:
+      - "Lisbon"
+      - "Lisboa"
+      - "Lisbon Airport"
+      - "Aeroporto de Lisboa"
+    provider_mappings:
+      aviation_weather: {icao: "LPPT"}
+      metar: {icao: "LPPT"}
+      wunderground: {airport_code: "LPPT"}
+      noaa: {icao: "LPPT"}
+      open_meteo: {latitude: 38.7742, longitude: -9.1342}
+      meteostat: {icao: "LPPT"}
+      ecmwf: {latitude: 38.7742, longitude: -9.1342}
+
+  LPPR:
+    city: "Porto"
+    country: "Portugal"
+    region: "Europe"
+    timezone: "Europe/Lisbon"
+    latitude: 41.2421
+    longitude: -8.6781
+    aliases:
+      - "Porto"
+      - "Oporto"
+      - "Porto Airport"
+      - "Aeroporto do Porto"
+    provider_mappings:
+      aviation_weather: {icao: "LPPR"}
+      metar: {icao: "LPPR"}
+      wunderground: {airport_code: "LPPR"}
+      noaa: {icao: "LPPR"}
+      open_meteo: {latitude: 41.2421, longitude: -8.6781}
+      meteostat: {icao: "LPPR"}
+      ecmwf: {latitude: 41.2421, longitude: -8.6781}
+
+  EGLL:
+    city: "London"
+    country: "United Kingdom"
+    region: "Europe"
+    timezone: "Europe/London"
+    latitude: 51.4700
+    longitude: -0.4543
+    aliases:
+      - "London"
+      - "Heathrow"
+      - "London Heathrow"
+      - "Heathrow Airport"
+    provider_mappings:
+      aviation_weather: {icao: "EGLL"}
+      metar: {icao: "EGLL"}
+      wunderground: {airport_code: "EGLL"}
+      noaa: {icao: "EGLL"}
+      open_meteo: {latitude: 51.4700, longitude: -0.4543}
+      meteostat: {icao: "EGLL"}
+      ecmwf: {latitude: 51.4700, longitude: -0.4543}
+
+  EGKK:
+    city: "London"
+    country: "United Kingdom"
+    region: "Europe"
+    timezone: "Europe/London"
+    latitude: 51.1481
+    longitude: -0.1903
+    aliases:
+      - "Gatwick"
+      - "London Gatwick"
+      - "Gatwick Airport"
+    provider_mappings:
+      aviation_weather: {icao: "EGKK"}
+      metar: {icao: "EGKK"}
+      wunderground: {airport_code: "EGKK"}
+      noaa: {icao: "EGKK"}
+      open_meteo: {latitude: 51.1481, longitude: -0.1903}
+      meteostat: {icao: "EGKK"}
+      ecmwf: {latitude: 51.1481, longitude: -0.1903}
+
+  EGCC:
+    city: "Manchester"
+    country: "United Kingdom"
+    region: "Europe"
+    timezone: "Europe/London"
+    latitude: 53.3537
+    longitude: -2.2749
+    aliases:
+      - "Manchester"
+      - "Manchester Airport"
+    provider_mappings:
+      aviation_weather: {icao: "EGCC"}
+      metar: {icao: "EGCC"}
+      wunderground: {airport_code: "EGCC"}
+      noaa: {icao: "EGCC"}
+      open_meteo: {latitude: 53.3537, longitude: -2.2749}
+      meteostat: {icao: "EGCC"}
+      ecmwf: {latitude: 53.3537, longitude: -2.2749}
+
+  EIDW:
+    city: "Dublin"
+    country: "Ireland"
+    region: "Europe"
+    timezone: "Europe/Dublin"
+    latitude: 53.4213
+    longitude: -6.2701
+    aliases:
+      - "Dublin"
+      - "Dublin Airport"
+    provider_mappings:
+      aviation_weather: {icao: "EIDW"}
+      metar: {icao: "EIDW"}
+      wunderground: {airport_code: "EIDW"}
+      noaa: {icao: "EIDW"}
+      open_meteo: {latitude: 53.4213, longitude: -6.2701}
+      meteostat: {icao: "EIDW"}
+      ecmwf: {latitude: 53.4213, longitude: -6.2701}
+
+  LFPG:
+    city: "Paris"
+    country: "France"
+    region: "Europe"
+    timezone: "Europe/Paris"
+    latitude: 49.0097
+    longitude: 2.5479
+    aliases:
+      - "Paris"
+      - "Charles de Gaulle"
+      - "Paris Charles de Gaulle"
+      - "CDG"
+    provider_mappings:
+      aviation_weather: {icao: "LFPG"}
+      metar: {icao: "LFPG"}
+      wunderground: {airport_code: "LFPG"}
+      noaa: {icao: "LFPG"}
+      open_meteo: {latitude: 49.0097, longitude: 2.5479}
+      meteostat: {icao: "LFPG"}
+      ecmwf: {latitude: 49.0097, longitude: 2.5479}
+
+  LFPO:
+    city: "Paris"
+    country: "France"
+    region: "Europe"
+    timezone: "Europe/Paris"
+    latitude: 48.7262
+    longitude: 2.3652
+    aliases:
+      - "Paris Orly"
+      - "Orly"
+      - "Orly Airport"
+    provider_mappings:
+      aviation_weather: {icao: "LFPO"}
+      metar: {icao: "LFPO"}
+      wunderground: {airport_code: "LFPO"}
+      noaa: {icao: "LFPO"}
+      open_meteo: {latitude: 48.7262, longitude: 2.3652}
+      meteostat: {icao: "LFPO"}
+      ecmwf: {latitude: 48.7262, longitude: 2.3652}
+
+  EHAM:
+    city: "Amsterdam"
+    country: "Netherlands"
+    region: "Europe"
+    timezone: "Europe/Amsterdam"
+    latitude: 52.3105
+    longitude: 4.7683
+    aliases:
+      - "Amsterdam"
+      - "Schiphol"
+      - "Amsterdam Schiphol"
+    provider_mappings:
+      aviation_weather: {icao: "EHAM"}
+      metar: {icao: "EHAM"}
+      wunderground: {airport_code: "EHAM"}
+      noaa: {icao: "EHAM"}
+      open_meteo: {latitude: 52.3105, longitude: 4.7683}
+      meteostat: {icao: "EHAM"}
+      ecmwf: {latitude: 52.3105, longitude: 4.7683}
+
+  EBBR:
+    city: "Brussels"
+    country: "Belgium"
+    region: "Europe"
+    timezone: "Europe/Brussels"
+    latitude: 50.9010
+    longitude: 4.4844
+    aliases:
+      - "Brussels"
+      - "Brussels Airport"
+      - "Zaventem"
+    provider_mappings:
+      aviation_weather: {icao: "EBBR"}
+      metar: {icao: "EBBR"}
+      wunderground: {airport_code: "EBBR"}
+      noaa: {icao: "EBBR"}
+      open_meteo: {latitude: 50.9010, longitude: 4.4844}
+      meteostat: {icao: "EBBR"}
+      ecmwf: {latitude: 50.9010, longitude: 4.4844}
+
+  EDDF:
+    city: "Frankfurt"
+    country: "Germany"
+    region: "Europe"
+    timezone: "Europe/Berlin"
+    latitude: 50.0379
+    longitude: 8.5622
+    aliases:
+      - "Frankfurt"
+      - "Frankfurt Airport"
+      - "Frankfurt Main"
+    provider_mappings:
+      aviation_weather: {icao: "EDDF"}
+      metar: {icao: "EDDF"}
+      wunderground: {airport_code: "EDDF"}
+      noaa: {icao: "EDDF"}
+      open_meteo: {latitude: 50.0379, longitude: 8.5622}
+      meteostat: {icao: "EDDF"}
+      ecmwf: {latitude: 50.0379, longitude: 8.5622}
+
+  EDDM:
+    city: "Munich"
+    country: "Germany"
+    region: "Europe"
+    timezone: "Europe/Berlin"
+    latitude: 48.3538
+    longitude: 11.7861
+    aliases:
+      - "Munich"
+      - "Munich Airport"
+      - "Muenchen"
+    provider_mappings:
+      aviation_weather: {icao: "EDDM"}
+      metar: {icao: "EDDM"}
+      wunderground: {airport_code: "EDDM"}
+      noaa: {icao: "EDDM"}
+      open_meteo: {latitude: 48.3538, longitude: 11.7861}
+      meteostat: {icao: "EDDM"}
+      ecmwf: {latitude: 48.3538, longitude: 11.7861}
+
+  LIMC:
+    city: "Milan"
+    country: "Italy"
+    region: "Europe"
+    timezone: "Europe/Rome"
+    latitude: 45.6301
+    longitude: 8.7231
+    aliases:
+      - "Milan"
+      - "Malpensa"
+      - "Milan Malpensa"
+    provider_mappings:
+      aviation_weather: {icao: "LIMC"}
+      metar: {icao: "LIMC"}
+      wunderground: {airport_code: "LIMC"}
+      noaa: {icao: "LIMC"}
+      open_meteo: {latitude: 45.6301, longitude: 8.7231}
+      meteostat: {icao: "LIMC"}
+      ecmwf: {latitude: 45.6301, longitude: 8.7231}
+
+  LIRF:
+    city: "Rome"
+    country: "Italy"
+    region: "Europe"
+    timezone: "Europe/Rome"
+    latitude: 41.8003
+    longitude: 12.2389
+    aliases:
+      - "Rome"
+      - "Fiumicino"
+      - "Rome Fiumicino"
+      - "Leonardo da Vinci Airport"
+    provider_mappings:
+      aviation_weather: {icao: "LIRF"}
+      metar: {icao: "LIRF"}
+      wunderground: {airport_code: "LIRF"}
+      noaa: {icao: "LIRF"}
+      open_meteo: {latitude: 41.8003, longitude: 12.2389}
+      meteostat: {icao: "LIRF"}
+      ecmwf: {latitude: 41.8003, longitude: 12.2389}
+
+  ESSA:
+    city: "Stockholm"
+    country: "Sweden"
+    region: "Europe"
+    timezone: "Europe/Stockholm"
+    latitude: 59.6519
+    longitude: 17.9186
+    aliases:
+      - "Stockholm"
+      - "Arlanda"
+      - "Stockholm Arlanda"
+    provider_mappings:
+      aviation_weather: {icao: "ESSA"}
+      metar: {icao: "ESSA"}
+      wunderground: {airport_code: "ESSA"}
+      noaa: {icao: "ESSA"}
+      open_meteo: {latitude: 59.6519, longitude: 17.9186}
+      meteostat: {icao: "ESSA"}
+      ecmwf: {latitude: 59.6519, longitude: 17.9186}
+
+  EKCH:
+    city: "Copenhagen"
+    country: "Denmark"
+    region: "Europe"
+    timezone: "Europe/Copenhagen"
+    latitude: 55.6181
+    longitude: 12.6561
+    aliases:
+      - "Copenhagen"
+      - "Kastrup"
+      - "Copenhagen Airport"
+    provider_mappings:
+      aviation_weather: {icao: "EKCH"}
+      metar: {icao: "EKCH"}
+      wunderground: {airport_code: "EKCH"}
+      noaa: {icao: "EKCH"}
+      open_meteo: {latitude: 55.6181, longitude: 12.6561}
+      meteostat: {icao: "EKCH"}
+      ecmwf: {latitude: 55.6181, longitude: 12.6561}
+
+  ENGM:
+    city: "Oslo"
+    country: "Norway"
+    region: "Europe"
+    timezone: "Europe/Oslo"
+    latitude: 60.1939
+    longitude: 11.1004
+    aliases:
+      - "Oslo"
+      - "Oslo Gardermoen"
+      - "Gardermoen"
+    provider_mappings:
+      aviation_weather: {icao: "ENGM"}
+      metar: {icao: "ENGM"}
+      wunderground: {airport_code: "ENGM"}
+      noaa: {icao: "ENGM"}
+      open_meteo: {latitude: 60.1939, longitude: 11.1004}
+      meteostat: {icao: "ENGM"}
+      ecmwf: {latitude: 60.1939, longitude: 11.1004}
+
+  EFHK:
+    city: "Helsinki"
+    country: "Finland"
+    region: "Europe"
+    timezone: "Europe/Helsinki"
+    latitude: 60.3172
+    longitude: 24.9633
+    aliases:
+      - "Helsinki"
+      - "Helsinki Vantaa"
+      - "Vantaa"
+    provider_mappings:
+      aviation_weather: {icao: "EFHK"}
+      metar: {icao: "EFHK"}
+      wunderground: {airport_code: "EFHK"}
+      noaa: {icao: "EFHK"}
+      open_meteo: {latitude: 60.3172, longitude: 24.9633}
+      meteostat: {icao: "EFHK"}
+      ecmwf: {latitude: 60.3172, longitude: 24.9633}
+
+  KJFK:
+    city: "New York"
+    country: "USA"
+    region: "North America"
+    timezone: "America/New_York"
+    latitude: 40.6413
+    longitude: -73.7781
+    aliases:
+      - "New York"
+      - "JFK"
+      - "John F Kennedy"
+      - "John F. Kennedy Airport"
+    provider_mappings:
+      aviation_weather: {icao: "KJFK"}
+      metar: {icao: "KJFK"}
+      wunderground: {airport_code: "KJFK"}
+      noaa: {icao: "KJFK"}
+      open_meteo: {latitude: 40.6413, longitude: -73.7781}
+      meteostat: {icao: "KJFK"}
+      nws: {station_id: "KJFK"}
+      ecmwf: {latitude: 40.6413, longitude: -73.7781}
+
+  KLGA:
+    city: "New York"
+    country: "USA"
+    region: "North America"
+    timezone: "America/New_York"
+    latitude: 40.7769
+    longitude: -73.8740
+    aliases:
+      - "LaGuardia"
+      - "LGA"
+      - "New York LaGuardia"
+    provider_mappings:
+      aviation_weather: {icao: "KLGA"}
+      metar: {icao: "KLGA"}
+      wunderground: {airport_code: "KLGA"}
+      noaa: {icao: "KLGA"}
+      open_meteo: {latitude: 40.7769, longitude: -73.8740}
+      meteostat: {icao: "KLGA"}
+      nws: {station_id: "KLGA"}
+      ecmwf: {latitude: 40.7769, longitude: -73.8740}
+
+  KEWR:
+    city: "Newark"
+    country: "USA"
+    region: "North America"
+    timezone: "America/New_York"
+    latitude: 40.6895
+    longitude: -74.1745
+    aliases:
+      - "Newark"
+      - "EWR"
+      - "Newark Liberty"
+    provider_mappings:
+      aviation_weather: {icao: "KEWR"}
+      metar: {icao: "KEWR"}
+      wunderground: {airport_code: "KEWR"}
+      noaa: {icao: "KEWR"}
+      open_meteo: {latitude: 40.6895, longitude: -74.1745}
+      meteostat: {icao: "KEWR"}
+      nws: {station_id: "KEWR"}
+      ecmwf: {latitude: 40.6895, longitude: -74.1745}
+
+  KBOS:
+    city: "Boston"
+    country: "USA"
+    region: "North America"
+    timezone: "America/New_York"
+    latitude: 42.3656
+    longitude: -71.0096
+    aliases:
+      - "Boston"
+      - "Boston Logan"
+      - "Logan Airport"
+    provider_mappings:
+      aviation_weather: {icao: "KBOS"}
+      metar: {icao: "KBOS"}
+      wunderground: {airport_code: "KBOS"}
+      noaa: {icao: "KBOS"}
+      open_meteo: {latitude: 42.3656, longitude: -71.0096}
+      meteostat: {icao: "KBOS"}
+      nws: {station_id: "KBOS"}
+      ecmwf: {latitude: 42.3656, longitude: -71.0096}
+
+  KDCA:
+    city: "Washington"
+    country: "USA"
+    region: "North America"
+    timezone: "America/New_York"
+    latitude: 38.8512
+    longitude: -77.0402
+    aliases:
+      - "Washington"
+      - "Reagan"
+      - "National Airport"
+      - "Washington National"
+    provider_mappings:
+      aviation_weather: {icao: "KDCA"}
+      metar: {icao: "KDCA"}
+      wunderground: {airport_code: "KDCA"}
+      noaa: {icao: "KDCA"}
+      open_meteo: {latitude: 38.8512, longitude: -77.0402}
+      meteostat: {icao: "KDCA"}
+      nws: {station_id: "KDCA"}
+      ecmwf: {latitude: 38.8512, longitude: -77.0402}
+
+  KIAD:
+    city: "Washington"
+    country: "USA"
+    region: "North America"
+    timezone: "America/New_York"
+    latitude: 38.9531
+    longitude: -77.4565
+    aliases:
+      - "Dulles"
+      - "Washington Dulles"
+      - "IAD"
+    provider_mappings:
+      aviation_weather: {icao: "KIAD"}
+      metar: {icao: "KIAD"}
+      wunderground: {airport_code: "KIAD"}
+      noaa: {icao: "KIAD"}
+      open_meteo: {latitude: 38.9531, longitude: -77.4565}
+      meteostat: {icao: "KIAD"}
+      nws: {station_id: "KIAD"}
+      ecmwf: {latitude: 38.9531, longitude: -77.4565}
+
+  KATL:
+    city: "Atlanta"
+    country: "USA"
+    region: "North America"
+    timezone: "America/New_York"
+    latitude: 33.6407
+    longitude: -84.4277
+    aliases:
+      - "Atlanta"
+      - "Atlanta Airport"
+      - "Hartsfield"
+    provider_mappings:
+      aviation_weather: {icao: "KATL"}
+      metar: {icao: "KATL"}
+      wunderground: {airport_code: "KATL"}
+      noaa: {icao: "KATL"}
+      open_meteo: {latitude: 33.6407, longitude: -84.4277}
+      meteostat: {icao: "KATL"}
+      nws: {station_id: "KATL"}
+      ecmwf: {latitude: 33.6407, longitude: -84.4277}
+
+  KORD:
+    city: "Chicago"
+    country: "USA"
+    region: "North America"
+    timezone: "America/Chicago"
+    latitude: 41.9742
+    longitude: -87.9073
+    aliases:
+      - "Chicago"
+      - "O'Hare"
+      - "OHare"
+      - "Chicago O'Hare"
+    provider_mappings:
+      aviation_weather: {icao: "KORD"}
+      metar: {icao: "KORD"}
+      wunderground: {airport_code: "KORD"}
+      noaa: {icao: "KORD"}
+      open_meteo: {latitude: 41.9742, longitude: -87.9073}
+      meteostat: {icao: "KORD"}
+      nws: {station_id: "KORD"}
+      ecmwf: {latitude: 41.9742, longitude: -87.9073}
+
+  KDFW:
+    city: "Dallas"
+    country: "USA"
+    region: "North America"
+    timezone: "America/Chicago"
+    latitude: 32.8998
+    longitude: -97.0403
+    aliases:
+      - "Dallas"
+      - "DFW"
+      - "Dallas Fort Worth"
+    provider_mappings:
+      aviation_weather: {icao: "KDFW"}
+      metar: {icao: "KDFW"}
+      wunderground: {airport_code: "KDFW"}
+      noaa: {icao: "KDFW"}
+      open_meteo: {latitude: 32.8998, longitude: -97.0403}
+      meteostat: {icao: "KDFW"}
+      nws: {station_id: "KDFW"}
+      ecmwf: {latitude: 32.8998, longitude: -97.0403}
+
+  KIAH:
+    city: "Houston"
+    country: "USA"
+    region: "North America"
+    timezone: "America/Chicago"
+    latitude: 29.9902
+    longitude: -95.3368
+    aliases:
+      - "Houston"
+      - "Houston Intercontinental"
+      - "Bush Intercontinental"
+    provider_mappings:
+      aviation_weather: {icao: "KIAH"}
+      metar: {icao: "KIAH"}
+      wunderground: {airport_code: "KIAH"}
+      noaa: {icao: "KIAH"}
+      open_meteo: {latitude: 29.9902, longitude: -95.3368}
+      meteostat: {icao: "KIAH"}
+      nws: {station_id: "KIAH"}
+      ecmwf: {latitude: 29.9902, longitude: -95.3368}
+
+  KDEN:
+    city: "Denver"
+    country: "USA"
+    region: "North America"
+    timezone: "America/Denver"
+    latitude: 39.8561
+    longitude: -104.6737
+    aliases:
+      - "Denver"
+      - "Denver Airport"
+      - "DIA"
+    provider_mappings:
+      aviation_weather: {icao: "KDEN"}
+      metar: {icao: "KDEN"}
+      wunderground: {airport_code: "KDEN"}
+      noaa: {icao: "KDEN"}
+      open_meteo: {latitude: 39.8561, longitude: -104.6737}
+      meteostat: {icao: "KDEN"}
+      nws: {station_id: "KDEN"}
+      ecmwf: {latitude: 39.8561, longitude: -104.6737}
+
+  KPHX:
+    city: "Phoenix"
+    country: "USA"
+    region: "North America"
+    timezone: "America/Phoenix"
+    latitude: 33.4342
+    longitude: -112.0116
+    aliases:
+      - "Phoenix"
+      - "Phoenix Sky Harbor"
+      - "Sky Harbor"
+    provider_mappings:
+      aviation_weather: {icao: "KPHX"}
+      metar: {icao: "KPHX"}
+      wunderground: {airport_code: "KPHX"}
+      noaa: {icao: "KPHX"}
+      open_meteo: {latitude: 33.4342, longitude: -112.0116}
+      meteostat: {icao: "KPHX"}
+      nws: {station_id: "KPHX"}
+      ecmwf: {latitude: 33.4342, longitude: -112.0116}
+
+  KLAS:
+    city: "Las Vegas"
+    country: "USA"
+    region: "North America"
+    timezone: "America/Los_Angeles"
+    latitude: 36.0801
+    longitude: -115.1522
+    aliases:
+      - "Las Vegas"
+      - "Harry Reid"
+      - "McCarran"
+    provider_mappings:
+      aviation_weather: {icao: "KLAS"}
+      metar: {icao: "KLAS"}
+      wunderground: {airport_code: "KLAS"}
+      noaa: {icao: "KLAS"}
+      open_meteo: {latitude: 36.0801, longitude: -115.1522}
+      meteostat: {icao: "KLAS"}
+      nws: {station_id: "KLAS"}
+      ecmwf: {latitude: 36.0801, longitude: -115.1522}
+
+  KLAX:
+    city: "Los Angeles"
+    country: "USA"
+    region: "North America"
+    timezone: "America/Los_Angeles"
+    latitude: 33.9416
+    longitude: -118.4085
+    aliases:
+      - "Los Angeles"
+      - "LAX"
+      - "Los Angeles Airport"
+    provider_mappings:
+      aviation_weather: {icao: "KLAX"}
+      metar: {icao: "KLAX"}
+      wunderground: {airport_code: "KLAX"}
+      noaa: {icao: "KLAX"}
+      open_meteo: {latitude: 33.9416, longitude: -118.4085}
+      meteostat: {icao: "KLAX"}
+      nws: {station_id: "KLAX"}
+      ecmwf: {latitude: 33.9416, longitude: -118.4085}
+
+  KSFO:
+    city: "San Francisco"
+    country: "USA"
+    region: "North America"
+    timezone: "America/Los_Angeles"
+    latitude: 37.6213
+    longitude: -122.3790
+    aliases:
+      - "San Francisco"
+      - "SFO"
+      - "San Francisco Airport"
+    provider_mappings:
+      aviation_weather: {icao: "KSFO"}
+      metar: {icao: "KSFO"}
+      wunderground: {airport_code: "KSFO"}
+      noaa: {icao: "KSFO"}
+      open_meteo: {latitude: 37.6213, longitude: -122.3790}
+      meteostat: {icao: "KSFO"}
+      nws: {station_id: "KSFO"}
+      ecmwf: {latitude: 37.6213, longitude: -122.3790}
+
+  KSEA:
+    city: "Seattle"
+    country: "USA"
+    region: "North America"
+    timezone: "America/Los_Angeles"
+    latitude: 47.4502
+    longitude: -122.3088
+    aliases:
+      - "Seattle"
+      - "SeaTac"
+      - "Seattle Tacoma"
+      - "Seattle-Tacoma"
+    provider_mappings:
+      aviation_weather: {icao: "KSEA"}
+      metar: {icao: "KSEA"}
+      wunderground: {airport_code: "KSEA"}
+      noaa: {icao: "KSEA"}
+      open_meteo: {latitude: 47.4502, longitude: -122.3088}
+      meteostat: {icao: "KSEA"}
+      nws: {station_id: "KSEA"}
+      ecmwf: {latitude: 47.4502, longitude: -122.3088}
+
+  KMIA:
+    city: "Miami"
+    country: "USA"
+    region: "North America"
+    timezone: "America/New_York"
+    latitude: 25.7959
+    longitude: -80.2870
+    aliases:
+      - "Miami"
+      - "Miami Airport"
+      - "MIA"
+    provider_mappings:
+      aviation_weather: {icao: "KMIA"}
+      metar: {icao: "KMIA"}
+      wunderground: {airport_code: "KMIA"}
+      noaa: {icao: "KMIA"}
+      open_meteo: {latitude: 25.7959, longitude: -80.2870}
+      meteostat: {icao: "KMIA"}
+      nws: {station_id: "KMIA"}
+      ecmwf: {latitude: 25.7959, longitude: -80.2870}
+
+  EGLC:
+    city: "London"
+    country: "United Kingdom"
+    region: "Europe"
+    timezone: "Europe/London"
+    latitude: 51.5053
+    longitude: 0.0553
+    aliases:
+      - "London"
+      - "London City"
+      - "London City Airport"
+      - "EGLC"
+    provider_mappings:
+      aviation_weather: {icao: "EGLC"}
+      metar: {icao: "EGLC"}
+      wunderground: {airport_code: "EGLC"}
+      noaa: {icao: "EGLC"}
+      open_meteo: {latitude: 51.5053, longitude: 0.0553}
+      meteostat: {icao: "EGLC"}
+      ecmwf: {latitude: 51.5053, longitude: 0.0553}
+
+  VHHH:
+    city: "Hong Kong"
+    country: "Hong Kong"
+    region: "Asia"
+    timezone: "Asia/Hong_Kong"
+    latitude: 22.3080
+    longitude: 113.9185
+    aliases:
+      - "Hong Kong"
+      - "Hong Kong International Airport"
+      - "Chek Lap Kok"
+      - "VHHH"
+    provider_mappings:
+      aviation_weather: {icao: "VHHH"}
+      metar: {icao: "VHHH"}
+      wunderground: {airport_code: "VHHH"}
+      noaa: {icao: "VHHH"}
+      hong_kong_observatory: {site: "weather.gov.hk", city: "Hong Kong"}
+      open_meteo: {latitude: 22.3080, longitude: 113.9185}
+      meteostat: {icao: "VHHH"}
+      ecmwf: {latitude: 22.3080, longitude: 113.9185}
+
+  SAEZ:
+    city: "Buenos Aires"
+    country: "Argentina"
+    region: "South America"
+    timezone: "America/Argentina/Buenos_Aires"
+    latitude: -34.8222
+    longitude: -58.5358
+    aliases:
+      - "Buenos Aires"
+      - "Ezeiza"
+      - "Ministro Pistarini International Airport"
+      - "SAEZ"
+    provider_mappings:
+      aviation_weather: {icao: "SAEZ"}
+      metar: {icao: "SAEZ"}
+      wunderground: {airport_code: "SAEZ"}
+      noaa: {icao: "SAEZ"}
+      open_meteo: {latitude: -34.8222, longitude: -58.5358}
+      meteostat: {icao: "SAEZ"}
+      ecmwf: {latitude: -34.8222, longitude: -58.5358}
+
+  SBGR:
+    city: "Sao Paulo"
+    country: "Brazil"
+    region: "South America"
+    timezone: "America/Sao_Paulo"
+    latitude: -23.4356
+    longitude: -46.4731
+    aliases:
+      - "Sao Paulo"
+      - "São Paulo"
+      - "Guarulhos"
+      - "Sao Paulo Guarulhos International Airport"
+      - "SBGR"
+    provider_mappings:
+      aviation_weather: {icao: "SBGR"}
+      metar: {icao: "SBGR"}
+      wunderground: {airport_code: "SBGR"}
+      noaa: {icao: "SBGR"}
+      open_meteo: {latitude: -23.4356, longitude: -46.4731}
+      meteostat: {icao: "SBGR"}
+      ecmwf: {latitude: -23.4356, longitude: -46.4731}
+
+  CYYZ:
+    city: "Toronto"
+    country: "Canada"
+    region: "North America"
+    timezone: "America/Toronto"
+    latitude: 43.6777
+    longitude: -79.6248
+    aliases:
+      - "Toronto"
+      - "Toronto Pearson"
+      - "Toronto Pearson International Airport"
+      - "CYYZ"
+    provider_mappings:
+      aviation_weather: {icao: "CYYZ"}
+      metar: {icao: "CYYZ"}
+      wunderground: {airport_code: "CYYZ"}
+      noaa: {icao: "CYYZ"}
+      open_meteo: {latitude: 43.6777, longitude: -79.6248}
+      meteostat: {icao: "CYYZ"}
+      ecmwf: {latitude: 43.6777, longitude: -79.6248}
+
+  KAUS:
+    city: "Austin"
+    country: "United States"
+    region: "North America"
+    timezone: "America/Chicago"
+    latitude: 30.1945
+    longitude: -97.6699
+    aliases:
+      - "Austin"
+      - "Austin-Bergstrom International Airport"
+      - "KAUS"
+    provider_mappings:
+      aviation_weather: {icao: "KAUS"}
+      metar: {icao: "KAUS"}
+      wunderground: {airport_code: "KAUS"}
+      noaa: {icao: "KAUS"}
+      nws: {station_id: "KAUS"}
+      open_meteo: {latitude: 30.1945, longitude: -97.6699}
+      meteostat: {icao: "KAUS"}
+      ecmwf: {latitude: 30.1945, longitude: -97.6699}
+
+  KBKF:
+    city: "Denver"
+    country: "United States"
+    region: "North America"
+    timezone: "America/Denver"
+    latitude: 39.7017
+    longitude: -104.7510
+    aliases:
+      - "Denver"
+      - "Buckley Space Force Base"
+      - "Buckley"
+      - "KBKF"
+    provider_mappings:
+      aviation_weather: {icao: "KBKF"}
+      metar: {icao: "KBKF"}
+      wunderground: {airport_code: "KBKF"}
+      noaa: {icao: "KBKF"}
+      nws: {station_id: "KBKF"}
+      open_meteo: {latitude: 39.7017, longitude: -104.7510}
+      meteostat: {icao: "KBKF"}
+      ecmwf: {latitude: 39.7017, longitude: -104.7510}
+
+  RKSI:
+    city: "Seoul"
+    country: "South Korea"
+    region: "Asia"
+    timezone: "Asia/Seoul"
+    latitude: 37.4602
+    longitude: 126.4407
+    aliases:
+      - "Seoul"
+      - "Incheon"
+      - "Incheon International Airport"
+      - "RKSI"
+    provider_mappings:
+      aviation_weather: {icao: "RKSI"}
+      metar: {icao: "RKSI"}
+      wunderground: {airport_code: "RKSI"}
+      noaa: {icao: "RKSI"}
+      open_meteo: {latitude: 37.4602, longitude: 126.4407}
+      meteostat: {icao: "RKSI"}
+      ecmwf: {latitude: 37.4602, longitude: 126.4407}
+
+  WIHH:
+    city: "Jakarta"
+    country: "Indonesia"
+    region: "Asia"
+    timezone: "Asia/Jakarta"
+    latitude: -6.2666
+    longitude: 106.8910
+    aliases:
+      - "Jakarta"
+      - "Halim Perdanakusuma International Airport"
+      - "WIHH"
+    provider_mappings:
+      aviation_weather: {icao: "WIHH"}
+      metar: {icao: "WIHH"}
+      wunderground: {airport_code: "WIHH"}
+      noaa: {icao: "WIHH"}
+      open_meteo: {latitude: -6.2666, longitude: 106.8910}
+      meteostat: {icao: "WIHH"}
+      ecmwf: {latitude: -6.2666, longitude: 106.8910}
+
+  WMKK:
+    city: "Kuala Lumpur"
+    country: "Malaysia"
+    region: "Asia"
+    timezone: "Asia/Kuala_Lumpur"
+    latitude: 2.7456
+    longitude: 101.7072
+    aliases:
+      - "Kuala Lumpur"
+      - "Kuala Lumpur International Airport"
+      - "WMKK"
+    provider_mappings:
+      aviation_weather: {icao: "WMKK"}
+      metar: {icao: "WMKK"}
+      wunderground: {airport_code: "WMKK"}
+      noaa: {icao: "WMKK"}
+      open_meteo: {latitude: 2.7456, longitude: 101.7072}
+      meteostat: {icao: "WMKK"}
+      ecmwf: {latitude: 2.7456, longitude: 101.7072}
+
+  MMMX:
+    city: "Mexico City"
+    country: "Mexico"
+    region: "North America"
+    timezone: "America/Mexico_City"
+    latitude: 19.4361
+    longitude: -99.0719
+    aliases:
+      - "Mexico City"
+      - "Benito Juarez International Airport"
+      - "MMMX"
+    provider_mappings:
+      aviation_weather: {icao: "MMMX"}
+      metar: {icao: "MMMX"}
+      wunderground: {airport_code: "MMMX"}
+      noaa: {icao: "MMMX"}
+      open_meteo: {latitude: 19.4361, longitude: -99.0719}
+      meteostat: {icao: "MMMX"}
+      ecmwf: {latitude: 19.4361, longitude: -99.0719}
+
+  MPMG:
+    city: "Panama City"
+    country: "Panama"
+    region: "North America"
+    timezone: "America/Panama"
+    latitude: 8.9733
+    longitude: -79.5556
+    aliases:
+      - "Panama City"
+      - "Marcos A. Gelabert"
+      - "Albrook"
+      - "MPMG"
+    provider_mappings:
+      aviation_weather: {icao: "MPMG"}
+      metar: {icao: "MPMG"}
+      wunderground: {airport_code: "MPMG"}
+      noaa: {icao: "MPMG"}
+      open_meteo: {latitude: 8.9733, longitude: -79.5556}
+      meteostat: {icao: "MPMG"}
+      ecmwf: {latitude: 8.9733, longitude: -79.5556}
+
+  VILK:
+    city: "Lucknow"
+    country: "India"
+    region: "Asia"
+    timezone: "Asia/Kolkata"
+    latitude: 26.7606
+    longitude: 80.8893
+    aliases:
+      - "Lucknow"
+      - "Chaudhary Charan Singh International Airport"
+      - "VILK"
+    provider_mappings:
+      aviation_weather: {icao: "VILK"}
+      metar: {icao: "VILK"}
+      wunderground: {airport_code: "VILK"}
+      noaa: {icao: "VILK"}
+      open_meteo: {latitude: 26.7606, longitude: 80.8893}
+      meteostat: {icao: "VILK"}
+      ecmwf: {latitude: 26.7606, longitude: 80.8893}
+
+  NZWN:
+    city: "Wellington"
+    country: "New Zealand"
+    region: "Oceania"
+    timezone: "Pacific/Auckland"
+    latitude: -41.3272
+    longitude: 174.8050
+    aliases:
+      - "Wellington"
+      - "Wellington International Airport"
+      - "NZWN"
+    provider_mappings:
+      aviation_weather: {icao: "NZWN"}
+      metar: {icao: "NZWN"}
+      wunderground: {airport_code: "NZWN"}
+      noaa: {icao: "NZWN"}
+      open_meteo: {latitude: -41.3272, longitude: 174.8050}
+      meteostat: {icao: "NZWN"}
+      ecmwf: {latitude: -41.3272, longitude: 174.8050}
+
+  LTAC:
+    city: "Ankara"
+    country: "Turkey"
+    region: "Europe"
+    timezone: "Europe/Istanbul"
+    latitude: 40.1281
+    longitude: 32.9951
+    aliases:
+      - "Ankara"
+      - "Ankara Esenboga"
+      - "Esenboga"
+      - "LTAC"
+    provider_mappings:
+      aviation_weather: {icao: "LTAC"}
+      metar: {icao: "LTAC"}
+      wunderground: {airport_code: "LTAC"}
+      noaa: {icao: "LTAC"}
+      open_meteo: {latitude: 40.1281, longitude: 32.9951}
+      meteostat: {icao: "LTAC"}
+      ecmwf: {latitude: 40.1281, longitude: 32.9951}
+
+  LTFM:
+    city: "Istanbul"
+    country: "Turkey"
+    region: "Europe"
+    timezone: "Europe/Istanbul"
+    latitude: 41.2753
+    longitude: 28.7519
+    aliases:
+      - "Istanbul"
+      - "Istanbul Airport"
+      - "LTFM"
+    provider_mappings:
+      aviation_weather: {icao: "LTFM"}
+      metar: {icao: "LTFM"}
+      wunderground: {airport_code: "LTFM"}
+      noaa: {icao: "LTFM"}
+      open_meteo: {latitude: 41.2753, longitude: 28.7519}
+      meteostat: {icao: "LTFM"}
+      ecmwf: {latitude: 41.2753, longitude: 28.7519}
+
+  UUWW:
+    city: "Moscow"
+    country: "Russia"
+    region: "Europe"
+    timezone: "Europe/Moscow"
+    latitude: 55.5961
+    longitude: 37.2675
+    aliases:
+      - "Moscow"
+      - "Vnukovo"
+      - "Moscow Vnukovo"
+      - "UUWW"
+    provider_mappings:
+      aviation_weather: {icao: "UUWW"}
+      metar: {icao: "UUWW"}
+      wunderground: {airport_code: "UUWW"}
+      noaa: {icao: "UUWW"}
+      open_meteo: {latitude: 55.5961, longitude: 37.2675}
+      meteostat: {icao: "UUWW"}
+      ecmwf: {latitude: 55.5961, longitude: 37.2675}
+
+  ZBAA:
+    city: "Beijing"
+    country: "China"
+    region: "Asia"
+    timezone: "Asia/Shanghai"
+    latitude: 40.0799
+    longitude: 116.6031
+    aliases:
+      - "Beijing"
+      - "Beijing Capital"
+      - "Capital Airport"
+      - "ZBAA"
+    provider_mappings:
+      aviation_weather: {icao: "ZBAA"}
+      metar: {icao: "ZBAA"}
+      wunderground: {airport_code: "ZBAA"}
+      noaa: {icao: "ZBAA"}
+      open_meteo: {latitude: 40.0799, longitude: 116.6031}
+      meteostat: {icao: "ZBAA"}
+      ecmwf: {latitude: 40.0799, longitude: 116.6031}
+
+  ZSPD:
+    city: "Shanghai"
+    country: "China"
+    region: "Asia"
+    timezone: "Asia/Shanghai"
+    latitude: 31.1443
+    longitude: 121.8083
+    aliases:
+      - "Shanghai"
+      - "Shanghai Pudong"
+      - "Pudong"
+      - "Pudong Airport"
+      - "ZSPD"
+    provider_mappings:
+      aviation_weather: {icao: "ZSPD"}
+      metar: {icao: "ZSPD"}
+      wunderground: {airport_code: "ZSPD"}
+      noaa: {icao: "ZSPD"}
+      open_meteo: {latitude: 31.1443, longitude: 121.8083}
+      meteostat: {icao: "ZSPD"}
+      ecmwf: {latitude: 31.1443, longitude: 121.8083}
+
+  RKPK:
+    city: "Busan"
+    country: "South Korea"
+    region: "Asia"
+    timezone: "Asia/Seoul"
+    latitude: 35.1795
+    longitude: 128.9382
+    aliases:
+      - "Busan"
+      - "Busan Gimhae"
+      - "Gimhae"
+      - "RKPK"
+    provider_mappings:
+      aviation_weather: {icao: "RKPK"}
+      metar: {icao: "RKPK"}
+      wunderground: {airport_code: "RKPK"}
+      noaa: {icao: "RKPK"}
+      open_meteo: {latitude: 35.1795, longitude: 128.9382}
+      meteostat: {icao: "RKPK"}
+      ecmwf: {latitude: 35.1795, longitude: 128.9382}
+
+  ZUUU:
+    city: "Chengdu"
+    country: "China"
+    region: "Asia"
+    timezone: "Asia/Shanghai"
+    latitude: 30.5785
+    longitude: 103.9471
+    aliases:
+      - "Chengdu"
+      - "Chengdu Shuangliu"
+      - "Shuangliu"
+      - "ZUUU"
+    provider_mappings:
+      aviation_weather: {icao: "ZUUU"}
+      metar: {icao: "ZUUU"}
+      wunderground: {airport_code: "ZUUU"}
+      noaa: {icao: "ZUUU"}
+      open_meteo: {latitude: 30.5785, longitude: 103.9471}
+      meteostat: {icao: "ZUUU"}
+      ecmwf: {latitude: 30.5785, longitude: 103.9471}
+
+  ZUCK:
+    city: "Chongqing"
+    country: "China"
+    region: "Asia"
+    timezone: "Asia/Shanghai"
+    latitude: 29.7192
+    longitude: 106.6416
+    aliases:
+      - "Chongqing"
+      - "Chongqing Jiangbei"
+      - "Jiangbei"
+      - "ZUCK"
+    provider_mappings:
+      aviation_weather: {icao: "ZUCK"}
+      metar: {icao: "ZUCK"}
+      wunderground: {airport_code: "ZUCK"}
+      noaa: {icao: "ZUCK"}
+      open_meteo: {latitude: 29.7192, longitude: 106.6416}
+      meteostat: {icao: "ZUCK"}
+      ecmwf: {latitude: 29.7192, longitude: 106.6416}
+
+  KDAL:
+    city: "Dallas"
+    country: "USA"
+    region: "North America"
+    timezone: "America/Chicago"
+    latitude: 32.8471
+    longitude: -96.8517
+    aliases:
+      - "Dallas"
+      - "Dallas Love Field"
+      - "Love Field"
+      - "KDAL"
+    provider_mappings:
+      aviation_weather: {icao: "KDAL"}
+      metar: {icao: "KDAL"}
+      wunderground: {airport_code: "KDAL"}
+      noaa: {icao: "KDAL"}
+      open_meteo: {latitude: 32.8471, longitude: -96.8517}
+      meteostat: {icao: "KDAL"}
+      nws: {station_id: "KDAL"}
+      ecmwf: {latitude: 32.8471, longitude: -96.8517}
+
+  KHOU:
+    city: "Houston"
+    country: "USA"
+    region: "North America"
+    timezone: "America/Chicago"
+    latitude: 29.6454
+    longitude: -95.2789
+    aliases:
+      - "Houston"
+      - "Houston Hobby"
+      - "William P. Hobby"
+      - "KHOU"
+    provider_mappings:
+      aviation_weather: {icao: "KHOU"}
+      metar: {icao: "KHOU"}
+      wunderground: {airport_code: "KHOU"}
+      noaa: {icao: "KHOU"}
+      open_meteo: {latitude: 29.6454, longitude: -95.2789}
+      meteostat: {icao: "KHOU"}
+      nws: {station_id: "KHOU"}
+      ecmwf: {latitude: 29.6454, longitude: -95.2789}
+
+  FACT:
+    city: "Cape Town"
+    country: "South Africa"
+    region: "Africa"
+    timezone: "Africa/Johannesburg"
+    latitude: -33.9648
+    longitude: 18.6017
+    aliases:
+      - "Cape Town"
+      - "Cape Town International"
+      - "FACT"
+    provider_mappings:
+      aviation_weather: {icao: "FACT"}
+      metar: {icao: "FACT"}
+      wunderground: {airport_code: "FACT"}
+      noaa: {icao: "FACT"}
+      open_meteo: {latitude: -33.9648, longitude: 18.6017}
+      meteostat: {icao: "FACT"}
+      ecmwf: {latitude: -33.9648, longitude: 18.6017}
+
+  OEJN:
+    city: "Jeddah"
+    country: "Saudi Arabia"
+    region: "Asia"
+    timezone: "Asia/Riyadh"
+    latitude: 21.6796
+    longitude: 39.1565
+    aliases:
+      - "Jeddah"
+      - "King Abdulaziz"
+      - "King Abdulaziz International"
+      - "OEJN"
+    provider_mappings:
+      aviation_weather: {icao: "OEJN"}
+      metar: {icao: "OEJN"}
+      wunderground: {airport_code: "OEJN"}
+      noaa: {icao: "OEJN"}
+      open_meteo: {latitude: 21.6796, longitude: 39.1565}
+      meteostat: {icao: "OEJN"}
+      ecmwf: {latitude: 21.6796, longitude: 39.1565}
+
+  DNMM:
+    city: "Lagos"
+    country: "Nigeria"
+    region: "Africa"
+    timezone: "Africa/Lagos"
+    latitude: 6.5774
+    longitude: 3.3212
+    aliases:
+      - "Lagos"
+      - "Murtala Muhammed"
+      - "Murtala Muhammed International"
+      - "DNMM"
+    provider_mappings:
+      aviation_weather: {icao: "DNMM"}
+      metar: {icao: "DNMM"}
+      wunderground: {airport_code: "DNMM"}
+      noaa: {icao: "DNMM"}
+      open_meteo: {latitude: 6.5774, longitude: 3.3212}
+      meteostat: {icao: "DNMM"}
+      ecmwf: {latitude: 6.5774, longitude: 3.3212}

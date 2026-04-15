@@ -1,0 +1,65 @@
+# Configuración Global - Weather Trading MVP
+
+app:
+  env: development
+  timezone: UTC
+  log_level: INFO
+
+polymarket:
+  gamma_api_url: "https://gamma-api.polymarket.com"
+  data_api_url: "https://data-api.polymarket.com"
+  clob_api_url: "https://clob-api.polymarket.com"
+  verifying_contract: "0x4bFb9e68f09497932d4375167AF1d4393049b161"
+  chain_id: 137
+  # wallet_address: "0x..."
+  # private_key: "ENV_VAR_OR_OTHER_SECRET_METHOD"
+
+weather_apis:
+  aviation_weather_url: "https://aviationweather.gov/api/data/metar"
+  open_meteo_url: "https://api.open-meteo.com/v1/forecast"
+  open_meteo_previous_runs_url: "https://previous-runs-api.open-meteo.com/v1/forecast"
+  weather_company_url: "https://api.weather.com"
+  retry_attempts: 3
+  retry_backoff_factor: 2.0
+
+market_discovery:
+  temperature_tag_id: "103040"
+  weather_tag_id: "84"
+  temperature_discovery_tag_ids:
+    - "103040"
+    - "84"
+  gamma_page_size: 100
+  gamma_max_pages: 20
+
+operating_universe:
+  allowed_regions:
+    - "Europe"
+    - "North America"
+    - "South America"
+
+risk_limits:
+  min_edge_to_trade: 0.05
+  max_slippage_allowed: 0.02
+  min_slippage: 0.0025
+  fee_buffer: 0.02
+  safety_margin_base: 0.05
+  max_spread_width: 0.10
+  relative_spread_low_price_threshold: 0.10
+  relative_spread_score_threshold: 0.35
+  relative_spread_score_weight: 0.15
+  min_quality_score: 0.55
+  slippage_spread_multiplier: 0.25
+
+operational_evidence:
+  min_event_score: 0.62
+  min_parser_confidence: 0.85
+  min_calibration_days_for_calibrated: 3
+  max_forecast_std_dev_c: 3.0
+  max_late_intraday_remaining_hours_without_observed_max: 6
+
+watchlist_risk:
+  opposed_signal_veto_enabled: true
+  min_opposed_trader_count_for_veto: 1
+
+experimental_filters:
+  celsius_range_bin_active_unclassified_veto_enabled: true

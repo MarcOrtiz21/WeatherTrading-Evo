@@ -1,0 +1,42 @@
+{
+  "id": "130716",
+  "slug": "highest-temperature-in-seoul-on-december-31",
+  "title": "Highest temperature in Seoul on December 31?",
+  "description": "This market will resolve to the temperature range that contains the highest temperature recorded at the Incheon Intl Airport Station in degrees Celsius on 31 Dec '25.\n\nThe resolution source for this market will be information from Wunderground, specifically the highest temperature recorded for all times on this day by the Forecast for the Incheon Intl Airport Station once information is finalized, available here: https://www.wunderground.com/history/daily/kr/incheon/RKSI.\n\nThe resolution source for this market measures temperatures to whole degrees Celsius.",
+  "resolutionSource": "https://www.wunderground.com/history/daily/kr/incheon/RKSI",
+  "eventDate": "2025-12-31",
+  "tags": [
+    {"slug": "weather"},
+    {"slug": "temperature"},
+    {"slug": "seoul"}
+  ],
+  "markets": [
+    {
+      "id": "1056399",
+      "question": "Will the highest temperature in Seoul be -3°C on December 31?",
+      "description": "This market will resolve to the temperature range that contains the highest temperature recorded at the Incheon Intl Airport Station in degrees Celsius on 31 Dec '25.",
+      "resolutionSource": "https://www.wunderground.com/history/daily/kr/incheon/RKSI",
+      "endDate": "2025-12-31T12:00:00Z",
+      "outcomePrices": "[\"0\", \"1\"]",
+      "lastTradePrice": 1
+    },
+    {
+      "id": "1056400",
+      "question": "Will the highest temperature in Seoul be -2°C on December 31?",
+      "description": "This market will resolve to the temperature range that contains the highest temperature recorded at the Incheon Intl Airport Station in degrees Celsius on 31 Dec '25.",
+      "resolutionSource": "https://www.wunderground.com/history/daily/kr/incheon/RKSI",
+      "endDate": "2025-12-31T12:00:00Z",
+      "outcomePrices": "[\"0\", \"1\"]",
+      "lastTradePrice": 1
+    },
+    {
+      "id": "1056401",
+      "question": "Will the highest temperature in Seoul be -1°C or higher on December 31?",
+      "description": "This market will resolve to the temperature range that contains the highest temperature recorded at the Incheon Intl Airport Station in degrees Celsius on 31 Dec '25.",
+      "resolutionSource": "https://www.wunderground.com/history/daily/kr/incheon/RKSI",
+      "endDate": "2025-12-31T12:00:00Z",
+      "outcomePrices": "[\"1\", \"0\"]",
+      "lastTradePrice": 1
+    }
+  ]
+}

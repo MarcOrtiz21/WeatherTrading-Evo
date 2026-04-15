@@ -1,0 +1,304 @@
+{
+  "captured_at_utc": "2026-04-07T10:28:13.718872",
+  "reference_date": "2026-04-07",
+  "start_as_of_date": null,
+  "end_as_of_date": null,
+  "paper_edge_threshold": 0.0,
+  "snapshot_files": [
+    "logs/snapshots/2026-04-05_polymarket_blind_live_validation.json",
+    "logs/snapshots/2026-04-06_polymarket_blind_live_validation.json"
+  ],
+  "actual_temperature_sources": {
+    "local_weather_observations": 0,
+    "openmeteo_archive": 0
+  },
+  "archive_fetch_status": {
+    "remote_archive_available": false,
+    "remote_archive_error": "ConnectError: [Errno 8] nodename nor servname provided, or not known"
+  },
+  "summary": {
+    "events": 0,
+    "model_mode_hit_rate": 0.0,
+    "market_mode_hit_rate": 0.0,
+    "avg_winner_fair_probability": 0.0,
+    "avg_winner_market_probability": 0.0,
+    "model_log_loss": 0.0,
+    "market_log_loss": 0.0,
+    "model_brier": 0.0,
+    "market_brier": 0.0,
+    "paper_edge_threshold": 0.0,
+    "paper_trades": 0,
+    "paper_trade_hit_rate": 0.0,
+    "paper_total_stake": 0.0,
+    "paper_total_pnl": 0.0,
+    "paper_roi_on_stake": 0.0,
+    "by_strategy": {},
+    "by_horizon_days": {},
+    "by_quality_tier": {}
+  },
+  "evaluations": [],
+  "pending_events": [
+    {
+      "snapshot_as_of_date": "2026-04-06",
+      "event_slug": "highest-temperature-in-amsterdam-on-april-7-2026",
+      "event_date": "2026-04-07",
+      "reason": "event_not_finished_yet"
+    },
+    {
+      "snapshot_as_of_date": "2026-04-06",
+      "event_slug": "highest-temperature-in-ankara-on-april-7-2026",
+      "event_date": "2026-04-07",
+      "reason": "event_not_finished_yet"
+    },
+    {
+      "snapshot_as_of_date": "2026-04-06",
+      "event_slug": "highest-temperature-in-atlanta-on-april-7-2026",
+      "event_date": "2026-04-07",
+      "reason": "event_not_finished_yet"
+    },
+    {
+      "snapshot_as_of_date": "2026-04-06",
+      "event_slug": "highest-temperature-in-austin-on-april-7-2026",
+      "event_date": "2026-04-07",
+      "reason": "event_not_finished_yet"
+    },
+    {
+      "snapshot_as_of_date": "2026-04-06",
+      "event_slug": "highest-temperature-in-beijing-on-april-7-2026",
+      "event_date": "2026-04-07",
+      "reason": "event_not_finished_yet"
+    },
+    {
+      "snapshot_as_of_date": "2026-04-06",
+      "event_slug": "highest-temperature-in-buenos-aires-on-april-7-2026",
+      "event_date": "2026-04-07",
+      "reason": "event_not_finished_yet"
+    },
+    {
+      "snapshot_as_of_date": "2026-04-06",
+      "event_slug": "highest-temperature-in-busan-on-april-7-2026",
+      "event_date": "2026-04-07",
+      "reason": "event_not_finished_yet"
+    },
+    {
+      "snapshot_as_of_date": "2026-04-06",
+      "event_slug": "highest-temperature-in-chengdu-on-april-7-2026",
+      "event_date": "2026-04-07",
+      "reason": "event_not_finished_yet"
+    },
+    {
+      "snapshot_as_of_date": "2026-04-06",
+      "event_slug": "highest-temperature-in-chicago-on-april-7-2026",
+      "event_date": "2026-04-07",
+      "reason": "event_not_finished_yet"
+    },
+    {
+      "snapshot_as_of_date": "2026-04-06",
+      "event_slug": "highest-temperature-in-chongqing-on-april-7-2026",
+      "event_date": "2026-04-07",
+      "reason": "event_not_finished_yet"
+    },
+    {
+      "snapshot_as_of_date": "2026-04-06",
+      "event_slug": "highest-temperature-in-dallas-on-april-7-2026",
+      "event_date": "2026-04-07",
+      "reason": "event_not_finished_yet"
+    },
+    {
+      "snapshot_as_of_date": "2026-04-06",
+      "event_slug": "highest-temperature-in-denver-on-april-7-2026",
+      "event_date": "2026-04-07",
+      "reason": "event_not_finished_yet"
+    },
+    {
+      "snapshot_as_of_date": "2026-04-06",
+      "event_slug": "highest-temperature-in-helsinki-on-april-7-2026",
+      "event_date": "2026-04-07",
+      "reason": "event_not_finished_yet"
+    },
+    {
+      "snapshot_as_of_date": "2026-04-06",
+      "event_slug": "highest-temperature-in-hong-kong-on-april-7-2026",
+      "event_date": "2026-04-07",
+      "reason": "event_not_finished_yet"
+    },
+    {
+      "snapshot_as_of_date": "2026-04-06",
+      "event_slug": "highest-temperature-in-houston-on-april-7-2026",
+      "event_date": "2026-04-07",
+      "reason": "event_not_finished_yet"
+    },
+    {
+      "snapshot_as_of_date": "2026-04-06",
+      "event_slug": "highest-temperature-in-istanbul-on-april-7-2026",
+      "event_date": "2026-04-07",
+      "reason": "event_not_finished_yet"
+    },
+    {
+      "snapshot_as_of_date": "2026-04-06",
+      "event_slug": "highest-temperature-in-jakarta-on-april-7-2026",
+      "event_date": "2026-04-07",
+      "reason": "event_not_finished_yet"
+    },
+    {
+      "snapshot_as_of_date": "2026-04-06",
+      "event_slug": "highest-temperature-in-kuala-lumpur-on-april-7-2026",
+      "event_date": "2026-04-07",
+      "reason": "event_not_finished_yet"
+    },
+    {
+      "snapshot_as_of_date": "2026-04-06",
+      "event_slug": "highest-temperature-in-london-on-april-7-2026",
+      "event_date": "2026-04-07",
+      "reason": "event_not_finished_yet"
+    },
+    {
+      "snapshot_as_of_date": "2026-04-06",
+      "event_slug": "highest-temperature-in-los-angeles-on-april-7-2026",
+      "event_date": "2026-04-07",
+      "reason": "event_not_finished_yet"
+    }
+  ],
+  "skipped_events": [
+    {
+      "snapshot_as_of_date": "2026-04-05",
+      "event_slug": "highest-temperature-in-amsterdam-on-april-6-2026",
+      "event_date": "2026-04-06",
+      "reason": "archive_fetch_error",
+      "archive_fetch_error": "ConnectError: [Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "snapshot_as_of_date": "2026-04-05",
+      "event_slug": "highest-temperature-in-ankara-on-april-6-2026",
+      "event_date": "2026-04-06",
+      "reason": "archive_fetch_unavailable",
+      "archive_fetch_error": "ConnectError: [Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "snapshot_as_of_date": "2026-04-05",
+      "event_slug": "highest-temperature-in-atlanta-on-april-6-2026",
+      "event_date": "2026-04-06",
+      "reason": "archive_fetch_unavailable",
+      "archive_fetch_error": "ConnectError: [Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "snapshot_as_of_date": "2026-04-05",
+      "event_slug": "highest-temperature-in-austin-on-april-6-2026",
+      "event_date": "2026-04-06",
+      "reason": "archive_fetch_unavailable",
+      "archive_fetch_error": "ConnectError: [Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "snapshot_as_of_date": "2026-04-05",
+      "event_slug": "highest-temperature-in-beijing-on-april-6-2026",
+      "event_date": "2026-04-06",
+      "reason": "archive_fetch_unavailable",
+      "archive_fetch_error": "ConnectError: [Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "snapshot_as_of_date": "2026-04-05",
+      "event_slug": "highest-temperature-in-buenos-aires-on-april-6-2026",
+      "event_date": "2026-04-06",
+      "reason": "archive_fetch_unavailable",
+      "archive_fetch_error": "ConnectError: [Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "snapshot_as_of_date": "2026-04-05",
+      "event_slug": "highest-temperature-in-busan-on-april-6-2026",
+      "event_date": "2026-04-06",
+      "reason": "archive_fetch_unavailable",
+      "archive_fetch_error": "ConnectError: [Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "snapshot_as_of_date": "2026-04-05",
+      "event_slug": "highest-temperature-in-chengdu-on-april-6-2026",
+      "event_date": "2026-04-06",
+      "reason": "archive_fetch_unavailable",
+      "archive_fetch_error": "ConnectError: [Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "snapshot_as_of_date": "2026-04-05",
+      "event_slug": "highest-temperature-in-chicago-on-april-6-2026",
+      "event_date": "2026-04-06",
+      "reason": "archive_fetch_unavailable",
+      "archive_fetch_error": "ConnectError: [Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "snapshot_as_of_date": "2026-04-05",
+      "event_slug": "highest-temperature-in-chongqing-on-april-6-2026",
+      "event_date": "2026-04-06",
+      "reason": "archive_fetch_unavailable",
+      "archive_fetch_error": "ConnectError: [Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "snapshot_as_of_date": "2026-04-05",
+      "event_slug": "highest-temperature-in-dallas-on-april-6-2026",
+      "event_date": "2026-04-06",
+      "reason": "archive_fetch_unavailable",
+      "archive_fetch_error": "ConnectError: [Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "snapshot_as_of_date": "2026-04-05",
+      "event_slug": "highest-temperature-in-denver-on-april-6-2026",
+      "event_date": "2026-04-06",
+      "reason": "archive_fetch_unavailable",
+      "archive_fetch_error": "ConnectError: [Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "snapshot_as_of_date": "2026-04-05",
+      "event_slug": "highest-temperature-in-helsinki-on-april-6-2026",
+      "event_date": "2026-04-06",
+      "reason": "archive_fetch_unavailable",
+      "archive_fetch_error": "ConnectError: [Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "snapshot_as_of_date": "2026-04-05",
+      "event_slug": "highest-temperature-in-hong-kong-on-april-6-2026",
+      "event_date": "2026-04-06",
+      "reason": "archive_fetch_unavailable",
+      "archive_fetch_error": "ConnectError: [Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "snapshot_as_of_date": "2026-04-05",
+      "event_slug": "highest-temperature-in-houston-on-april-6-2026",
+      "event_date": "2026-04-06",
+      "reason": "archive_fetch_unavailable",
+      "archive_fetch_error": "ConnectError: [Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "snapshot_as_of_date": "2026-04-05",
+      "event_slug": "highest-temperature-in-istanbul-on-april-6-2026",
+      "event_date": "2026-04-06",
+      "reason": "archive_fetch_unavailable",
+      "archive_fetch_error": "ConnectError: [Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "snapshot_as_of_date": "2026-04-05",
+      "event_slug": "highest-temperature-in-jakarta-on-april-6-2026",
+      "event_date": "2026-04-06",
+      "reason": "archive_fetch_unavailable",
+      "archive_fetch_error": "ConnectError: [Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "snapshot_as_of_date": "2026-04-05",
+      "event_slug": "highest-temperature-in-kuala-lumpur-on-april-6-2026",
+      "event_date": "2026-04-06",
+      "reason": "archive_fetch_unavailable",
+      "archive_fetch_error": "ConnectError: [Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "snapshot_as_of_date": "2026-04-05",
+      "event_slug": "highest-temperature-in-london-on-april-6-2026",
+      "event_date": "2026-04-06",
+      "reason": "archive_fetch_unavailable",
+      "archive_fetch_error": "ConnectError: [Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "snapshot_as_of_date": "2026-04-05",
+      "event_slug": "highest-temperature-in-los-angeles-on-april-6-2026",
+      "event_date": "2026-04-06",
+      "reason": "archive_fetch_unavailable",
+      "archive_fetch_error": "ConnectError: [Errno 8] nodename nor servname provided, or not known"
+    }
+  ]
+}

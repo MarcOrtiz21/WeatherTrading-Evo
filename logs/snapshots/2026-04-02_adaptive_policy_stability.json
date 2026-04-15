@@ -1,0 +1,818 @@
+{
+  "captured_at_utc": "2026-04-05T22:41:04.718790",
+  "as_of_date": "2026-04-02",
+  "lookback_windows": [
+    30,
+    45,
+    60
+  ],
+  "max_events": 30,
+  "max_horizon_days": 4,
+  "window_results": [
+    {
+      "lookback_days": 30,
+      "summary": {
+        "events": 120,
+        "baseline_hit_rate": 0.4666666666666667,
+        "optimized_hit_rate": 0.4,
+        "adaptive_hit_rate": 0.4666666666666667,
+        "baseline_avg_winner_prob": 0.30420795711948334,
+        "optimized_avg_winner_prob": 0.2879722105844519,
+        "adaptive_avg_winner_prob": 0.3019576095227398,
+        "baseline_log_loss": 1.5712512374270304,
+        "optimized_log_loss": 1.5858727927125367,
+        "adaptive_log_loss": 1.5369051174449349,
+        "baseline_brier": 0.6717733856635539,
+        "optimized_brier": 0.7335813980403837,
+        "adaptive_brier": 0.6907268315785097,
+        "winner_prob_improvement_rate": 0.525,
+        "adaptive_winner_prob_improvement_rate": 0.2833333333333333
+      },
+      "by_horizon": {
+        "1": {
+          "events": 30,
+          "baseline_hit_rate": 0.5666666666666667,
+          "optimized_hit_rate": 0.4,
+          "adaptive_hit_rate": 0.5666666666666667,
+          "baseline_avg_winner_prob": 0.328875932074143,
+          "optimized_avg_winner_prob": 0.29336358154170183,
+          "adaptive_avg_winner_prob": 0.328875932074143,
+          "baseline_log_loss": 1.4936100912663777,
+          "optimized_log_loss": 1.6389058147536064,
+          "adaptive_log_loss": 1.4936100912663777,
+          "baseline_brier": 0.648254007914945,
+          "optimized_brier": 0.7475176846991706,
+          "adaptive_brier": 0.648254007914945,
+          "winner_prob_improvement_rate": 0.4666666666666667,
+          "adaptive_winner_prob_improvement_rate": 0.0
+        },
+        "2": {
+          "events": 30,
+          "baseline_hit_rate": 0.5,
+          "optimized_hit_rate": 0.4,
+          "adaptive_hit_rate": 0.5,
+          "baseline_avg_winner_prob": 0.310410664123325,
+          "optimized_avg_winner_prob": 0.2899814189026142,
+          "adaptive_avg_winner_prob": 0.310410664123325,
+          "baseline_log_loss": 1.5385404686049446,
+          "optimized_log_loss": 1.589115446188123,
+          "adaptive_log_loss": 1.5385404686049446,
+          "baseline_brier": 0.6636061950484412,
+          "optimized_brier": 0.7357607841117118,
+          "adaptive_brier": 0.6636061950484412,
+          "winner_prob_improvement_rate": 0.5,
+          "adaptive_winner_prob_improvement_rate": 0.0
+        },
+        "3": {
+          "events": 30,
+          "baseline_hit_rate": 0.43333333333333335,
+          "optimized_hit_rate": 0.4,
+          "adaptive_hit_rate": 0.4,
+          "baseline_avg_winner_prob": 0.2951821782052988,
+          "optimized_avg_winner_prob": 0.2862486477142658,
+          "adaptive_avg_winner_prob": 0.2862486477142658,
+          "baseline_log_loss": 1.595992052072248,
+          "optimized_log_loss": 1.5630509047910017,
+          "adaptive_log_loss": 1.5630509047910017,
+          "baseline_brier": 0.679572370532334,
+          "optimized_brier": 0.7279730953203757,
+          "adaptive_brier": 0.7279730953203757,
+          "winner_prob_improvement_rate": 0.5333333333333333,
+          "adaptive_winner_prob_improvement_rate": 0.5333333333333333
+        },
+        "4": {
+          "events": 30,
+          "baseline_hit_rate": 0.36666666666666664,
+          "optimized_hit_rate": 0.4,
+          "adaptive_hit_rate": 0.4,
+          "baseline_avg_winner_prob": 0.2823630540751666,
+          "optimized_avg_winner_prob": 0.28229519417922566,
+          "adaptive_avg_winner_prob": 0.28229519417922566,
+          "baseline_log_loss": 1.656862337764551,
+          "optimized_log_loss": 1.5524190051174154,
+          "adaptive_log_loss": 1.5524190051174154,
+          "baseline_brier": 0.6956609691584952,
+          "optimized_brier": 0.7230740280302769,
+          "adaptive_brier": 0.7230740280302769,
+          "winner_prob_improvement_rate": 0.6,
+          "adaptive_winner_prob_improvement_rate": 0.6
+        }
+      },
+      "policy_search": {
+        "objective": "adaptive_log_loss",
+        "selected_policy": {
+          "events": 120,
+          "baseline_max_horizon_days": 2,
+          "adaptive_hit_rate": 0.4666666666666667,
+          "adaptive_avg_winner_prob": 0.3019576095227398,
+          "adaptive_log_loss": 1.5369051174449349,
+          "adaptive_brier": 0.6907268315785097,
+          "adaptive_winner_prob_improvement_rate": 0.2833333333333333
+        },
+        "candidates": [
+          {
+            "events": 120,
+            "baseline_max_horizon_days": 0,
+            "adaptive_hit_rate": 0.4,
+            "adaptive_avg_winner_prob": 0.2879722105844519,
+            "adaptive_log_loss": 1.5858727927125367,
+            "adaptive_brier": 0.7335813980403837,
+            "adaptive_winner_prob_improvement_rate": 0.525
+          },
+          {
+            "events": 120,
+            "baseline_max_horizon_days": 1,
+            "adaptive_hit_rate": 0.44166666666666665,
+            "adaptive_avg_winner_prob": 0.29685029821756215,
+            "adaptive_log_loss": 1.5495488618407294,
+            "adaptive_brier": 0.7087654788443274,
+            "adaptive_winner_prob_improvement_rate": 0.4083333333333333
+          },
+          {
+            "events": 120,
+            "baseline_max_horizon_days": 2,
+            "adaptive_hit_rate": 0.4666666666666667,
+            "adaptive_avg_winner_prob": 0.3019576095227398,
+            "adaptive_log_loss": 1.5369051174449349,
+            "adaptive_brier": 0.6907268315785097,
+            "adaptive_winner_prob_improvement_rate": 0.2833333333333333
+          },
+          {
+            "events": 120,
+            "baseline_max_horizon_days": 3,
+            "adaptive_hit_rate": 0.475,
+            "adaptive_avg_winner_prob": 0.3041909921454981,
+            "adaptive_log_loss": 1.5451404042652463,
+            "adaptive_brier": 0.6786266503814993,
+            "adaptive_winner_prob_improvement_rate": 0.15
+          },
+          {
+            "events": 120,
+            "baseline_max_horizon_days": 4,
+            "adaptive_hit_rate": 0.4666666666666667,
+            "adaptive_avg_winner_prob": 0.30420795711948334,
+            "adaptive_log_loss": 1.5712512374270304,
+            "adaptive_brier": 0.6717733856635539,
+            "adaptive_winner_prob_improvement_rate": 0.0
+          }
+        ]
+      },
+      "snapshot_path": "/Users/marc/Documents/Polymarket/WeatherTrading/logs/snapshots/2026-04-02_recent_horizon_temperature_backtest.json"
+    },
+    {
+      "lookback_days": 45,
+      "summary": {
+        "events": 120,
+        "baseline_hit_rate": 0.275,
+        "optimized_hit_rate": 0.275,
+        "adaptive_hit_rate": 0.3,
+        "baseline_avg_winner_prob": 0.24515634545521534,
+        "optimized_avg_winner_prob": 0.26785333628369606,
+        "adaptive_avg_winner_prob": 0.2618492152940375,
+        "baseline_log_loss": 1.6892838937232548,
+        "optimized_log_loss": 1.6537624250495397,
+        "adaptive_log_loss": 1.6146263356105388,
+        "baseline_brier": 0.7319555940161049,
+        "optimized_brier": 0.7685693373319309,
+        "adaptive_brier": 0.7363291090933025,
+        "winner_prob_improvement_rate": 0.5833333333333334,
+        "adaptive_winner_prob_improvement_rate": 0.3
+      },
+      "by_horizon": {
+        "1": {
+          "events": 30,
+          "baseline_hit_rate": 0.3333333333333333,
+          "optimized_hit_rate": 0.26666666666666666,
+          "adaptive_hit_rate": 0.3333333333333333,
+          "baseline_avg_winner_prob": 0.27118393426377574,
+          "optimized_avg_winner_prob": 0.2761365921001142,
+          "adaptive_avg_winner_prob": 0.27118393426377574,
+          "baseline_log_loss": 1.55511841079764,
+          "optimized_log_loss": 1.703149798128736,
+          "adaptive_log_loss": 1.55511841079764,
+          "baseline_brier": 0.7008952794442718,
+          "optimized_brier": 0.7809095403420085,
+          "adaptive_brier": 0.7008952794442718,
+          "winner_prob_improvement_rate": 0.5666666666666667,
+          "adaptive_winner_prob_improvement_rate": 0.0
+        },
+        "2": {
+          "events": 30,
+          "baseline_hit_rate": 0.3,
+          "optimized_hit_rate": 0.26666666666666666,
+          "adaptive_hit_rate": 0.3,
+          "baseline_avg_winner_prob": 0.25178150321722526,
+          "optimized_avg_winner_prob": 0.27084532933952127,
+          "adaptive_avg_winner_prob": 0.25178150321722526,
+          "baseline_log_loss": 1.6452552784639414,
+          "optimized_log_loss": 1.653768248888849,
+          "adaptive_log_loss": 1.6452552784639414,
+          "baseline_brier": 0.720840403029299,
+          "optimized_brier": 0.7697870550860758,
+          "adaptive_brier": 0.720840403029299,
+          "winner_prob_improvement_rate": 0.5666666666666667,
+          "adaptive_winner_prob_improvement_rate": 0.0
+        },
+        "3": {
+          "events": 30,
+          "baseline_hit_rate": 0.26666666666666666,
+          "optimized_hit_rate": 0.26666666666666666,
+          "adaptive_hit_rate": 0.26666666666666666,
+          "baseline_avg_winner_prob": 0.2355882454293295,
+          "optimized_avg_winner_prob": 0.2651449189247457,
+          "adaptive_avg_winner_prob": 0.2651449189247457,
+          "baseline_log_loss": 1.7353794240694211,
+          "optimized_log_loss": 1.6315541518161916,
+          "adaptive_log_loss": 1.6315541518161916,
+          "baseline_brier": 0.742238515598149,
+          "optimized_brier": 0.7633457051169636,
+          "adaptive_brier": 0.7633457051169636,
+          "winner_prob_improvement_rate": 0.5666666666666667,
+          "adaptive_winner_prob_improvement_rate": 0.5666666666666667
+        },
+        "4": {
+          "events": 30,
+          "baseline_hit_rate": 0.2,
+          "optimized_hit_rate": 0.3,
+          "adaptive_hit_rate": 0.3,
+          "baseline_avg_winner_prob": 0.22207169891053088,
+          "optimized_avg_winner_prob": 0.2592865047704032,
+          "adaptive_avg_winner_prob": 0.2592865047704032,
+          "baseline_log_loss": 1.8213824615620173,
+          "optimized_log_loss": 1.6265775013643826,
+          "adaptive_log_loss": 1.6265775013643826,
+          "baseline_brier": 0.7638481779926999,
+          "optimized_brier": 0.7602350487826756,
+          "adaptive_brier": 0.7602350487826756,
+          "winner_prob_improvement_rate": 0.6333333333333333,
+          "adaptive_winner_prob_improvement_rate": 0.6333333333333333
+        }
+      },
+      "policy_search": {
+        "objective": "adaptive_log_loss",
+        "selected_policy": {
+          "events": 120,
+          "baseline_max_horizon_days": 2,
+          "adaptive_hit_rate": 0.3,
+          "adaptive_avg_winner_prob": 0.2618492152940375,
+          "adaptive_log_loss": 1.6146263356105388,
+          "adaptive_brier": 0.7363291090933025,
+          "adaptive_winner_prob_improvement_rate": 0.3
+        },
+        "candidates": [
+          {
+            "events": 120,
+            "baseline_max_horizon_days": 0,
+            "adaptive_hit_rate": 0.275,
+            "adaptive_avg_winner_prob": 0.26785333628369606,
+            "adaptive_log_loss": 1.6537624250495397,
+            "adaptive_brier": 0.7685693373319309,
+            "adaptive_winner_prob_improvement_rate": 0.5833333333333334
+          },
+          {
+            "events": 120,
+            "baseline_max_horizon_days": 1,
+            "adaptive_hit_rate": 0.2916666666666667,
+            "adaptive_avg_winner_prob": 0.2666151718246115,
+            "adaptive_log_loss": 1.6167545782167658,
+            "adaptive_brier": 0.7485657721074968,
+            "adaptive_winner_prob_improvement_rate": 0.44166666666666665
+          },
+          {
+            "events": 120,
+            "baseline_max_horizon_days": 2,
+            "adaptive_hit_rate": 0.3,
+            "adaptive_avg_winner_prob": 0.2618492152940375,
+            "adaptive_log_loss": 1.6146263356105388,
+            "adaptive_brier": 0.7363291090933025,
+            "adaptive_winner_prob_improvement_rate": 0.3
+          },
+          {
+            "events": 120,
+            "baseline_max_horizon_days": 3,
+            "adaptive_hit_rate": 0.3,
+            "adaptive_avg_winner_prob": 0.2544600469201834,
+            "adaptive_log_loss": 1.6405826536738461,
+            "adaptive_brier": 0.7310523117135989,
+            "adaptive_winner_prob_improvement_rate": 0.15833333333333333
+          },
+          {
+            "events": 120,
+            "baseline_max_horizon_days": 4,
+            "adaptive_hit_rate": 0.275,
+            "adaptive_avg_winner_prob": 0.24515634545521534,
+            "adaptive_log_loss": 1.6892838937232548,
+            "adaptive_brier": 0.7319555940161049,
+            "adaptive_winner_prob_improvement_rate": 0.0
+          }
+        ]
+      },
+      "snapshot_path": "/Users/marc/Documents/Polymarket/WeatherTrading/logs/snapshots/2026-04-02_recent_horizon_temperature_backtest.json"
+    },
+    {
+      "lookback_days": 60,
+      "summary": {
+        "events": 112,
+        "baseline_hit_rate": 0.49107142857142855,
+        "optimized_hit_rate": 0.6071428571428571,
+        "adaptive_hit_rate": 0.5625,
+        "baseline_avg_winner_prob": 0.4277442468625088,
+        "optimized_avg_winner_prob": 0.4750787937967216,
+        "adaptive_avg_winner_prob": 0.4558281819802148,
+        "baseline_log_loss": 1.1830535622591207,
+        "optimized_log_loss": 1.1121818704687634,
+        "adaptive_log_loss": 1.1112861147848851,
+        "baseline_brier": 0.5303687080999816,
+        "optimized_brier": 0.5368625028966569,
+        "adaptive_brier": 0.5250070000132775,
+        "winner_prob_improvement_rate": 0.6517857142857143,
+        "adaptive_winner_prob_improvement_rate": 0.33035714285714285
+      },
+      "by_horizon": {
+        "1": {
+          "events": 28,
+          "baseline_hit_rate": 0.5714285714285714,
+          "optimized_hit_rate": 0.6071428571428571,
+          "adaptive_hit_rate": 0.5714285714285714,
+          "baseline_avg_winner_prob": 0.4545855401805943,
+          "optimized_avg_winner_prob": 0.4875722034115547,
+          "adaptive_avg_winner_prob": 0.4545855401805943,
+          "baseline_log_loss": 1.0993203885149494,
+          "optimized_log_loss": 1.1453208144571267,
+          "adaptive_log_loss": 1.0993203885149494,
+          "baseline_brier": 0.5071232149812486,
+          "optimized_brier": 0.5396910192752128,
+          "adaptive_brier": 0.5071232149812486,
+          "winner_prob_improvement_rate": 0.6428571428571429,
+          "adaptive_winner_prob_improvement_rate": 0.0
+        },
+        "2": {
+          "events": 28,
+          "baseline_hit_rate": 0.4642857142857143,
+          "optimized_hit_rate": 0.6071428571428571,
+          "adaptive_hit_rate": 0.4642857142857143,
+          "baseline_avg_winner_prob": 0.4350229939036509,
+          "optimized_avg_winner_prob": 0.47903877793871746,
+          "adaptive_avg_winner_prob": 0.4350229939036509,
+          "baseline_log_loss": 1.1539818869792438,
+          "optimized_log_loss": 1.11156448377258,
+          "adaptive_log_loss": 1.1539818869792438,
+          "baseline_brier": 0.5218270741474567,
+          "optimized_brier": 0.5366812813870104,
+          "adaptive_brier": 0.5218270741474567,
+          "winner_prob_improvement_rate": 0.6428571428571429,
+          "adaptive_winner_prob_improvement_rate": 0.0
+        },
+        "3": {
+          "events": 28,
+          "baseline_hit_rate": 0.4642857142857143,
+          "optimized_hit_rate": 0.6071428571428571,
+          "adaptive_hit_rate": 0.6071428571428571,
+          "baseline_avg_winner_prob": 0.41802524081635534,
+          "optimized_avg_winner_prob": 0.4708152069360663,
+          "adaptive_avg_winner_prob": 0.4708152069360663,
+          "baseline_log_loss": 1.2114091587071203,
+          "optimized_log_loss": 1.0971083811549531,
+          "adaptive_log_loss": 1.0971083811549531,
+          "baseline_brier": 0.5380135668816399,
+          "optimized_brier": 0.5354562117420686,
+          "adaptive_brier": 0.5354562117420686,
+          "winner_prob_improvement_rate": 0.6428571428571429,
+          "adaptive_winner_prob_improvement_rate": 0.6428571428571429
+        },
+        "4": {
+          "events": 28,
+          "baseline_hit_rate": 0.4642857142857143,
+          "optimized_hit_rate": 0.6071428571428571,
+          "adaptive_hit_rate": 0.6071428571428571,
+          "baseline_avg_winner_prob": 0.4033432125494346,
+          "optimized_avg_winner_prob": 0.4628889869005478,
+          "adaptive_avg_winner_prob": 0.4628889869005478,
+          "baseline_log_loss": 1.26750281483517,
+          "optimized_log_loss": 1.094733802490394,
+          "adaptive_log_loss": 1.094733802490394,
+          "baseline_brier": 0.5545109763895811,
+          "optimized_brier": 0.5356214991823359,
+          "adaptive_brier": 0.5356214991823359,
+          "winner_prob_improvement_rate": 0.6785714285714286,
+          "adaptive_winner_prob_improvement_rate": 0.6785714285714286
+        }
+      },
+      "policy_search": {
+        "objective": "adaptive_log_loss",
+        "selected_policy": {
+          "events": 112,
+          "baseline_max_horizon_days": 1,
+          "adaptive_hit_rate": 0.5982142857142857,
+          "adaptive_avg_winner_prob": 0.46683212798898144,
+          "adaptive_log_loss": 1.1006817639832192,
+          "adaptive_brier": 0.5287205518231659,
+          "adaptive_winner_prob_improvement_rate": 0.49107142857142855
+        },
+        "candidates": [
+          {
+            "events": 112,
+            "baseline_max_horizon_days": 0,
+            "adaptive_hit_rate": 0.6071428571428571,
+            "adaptive_avg_winner_prob": 0.4750787937967216,
+            "adaptive_log_loss": 1.1121818704687634,
+            "adaptive_brier": 0.5368625028966569,
+            "adaptive_winner_prob_improvement_rate": 0.6517857142857143
+          },
+          {
+            "events": 112,
+            "baseline_max_horizon_days": 1,
+            "adaptive_hit_rate": 0.5982142857142857,
+            "adaptive_avg_winner_prob": 0.46683212798898144,
+            "adaptive_log_loss": 1.1006817639832192,
+            "adaptive_brier": 0.5287205518231659,
+            "adaptive_winner_prob_improvement_rate": 0.49107142857142855
+          },
+          {
+            "events": 112,
+            "baseline_max_horizon_days": 2,
+            "adaptive_hit_rate": 0.5625,
+            "adaptive_avg_winner_prob": 0.4558281819802148,
+            "adaptive_log_loss": 1.1112861147848851,
+            "adaptive_brier": 0.5250070000132775,
+            "adaptive_winner_prob_improvement_rate": 0.33035714285714285
+          },
+          {
+            "events": 112,
+            "baseline_max_horizon_days": 3,
+            "adaptive_hit_rate": 0.5267857142857143,
+            "adaptive_avg_winner_prob": 0.4426306904502871,
+            "adaptive_log_loss": 1.1398613091729268,
+            "adaptive_brier": 0.5256463387981702,
+            "adaptive_winner_prob_improvement_rate": 0.16964285714285715
+          },
+          {
+            "events": 112,
+            "baseline_max_horizon_days": 4,
+            "adaptive_hit_rate": 0.49107142857142855,
+            "adaptive_avg_winner_prob": 0.4277442468625088,
+            "adaptive_log_loss": 1.1830535622591207,
+            "adaptive_brier": 0.5303687080999816,
+            "adaptive_winner_prob_improvement_rate": 0.0
+          }
+        ]
+      },
+      "snapshot_path": "/Users/marc/Documents/Polymarket/WeatherTrading/logs/snapshots/2026-04-02_recent_horizon_temperature_backtest.json"
+    }
+  ],
+  "aggregated_policy_search": {
+    "objective": "adaptive_log_loss",
+    "windows_evaluated": 3,
+    "window_cutoffs": [
+      2,
+      2,
+      1
+    ],
+    "selected_policy": {
+      "baseline_max_horizon_days": 2,
+      "window_count": 3,
+      "selected_count": 2,
+      "selection_frequency": 0.6666666666666666,
+      "mean_adaptive_hit_rate": 0.44305555555555554,
+      "mean_adaptive_avg_winner_prob": 0.3398783355989974,
+      "mean_adaptive_log_loss": 1.4209391892801195,
+      "mean_adaptive_brier": 0.6506876468950299,
+      "mean_adaptive_winner_prob_improvement_rate": 0.30456349206349204,
+      "windows": [
+        {
+          "lookback_days": 30,
+          "adaptive_hit_rate": 0.4666666666666667,
+          "adaptive_avg_winner_prob": 0.3019576095227398,
+          "adaptive_log_loss": 1.5369051174449349,
+          "adaptive_brier": 0.6907268315785097,
+          "adaptive_winner_prob_improvement_rate": 0.2833333333333333
+        },
+        {
+          "lookback_days": 45,
+          "adaptive_hit_rate": 0.3,
+          "adaptive_avg_winner_prob": 0.2618492152940375,
+          "adaptive_log_loss": 1.6146263356105388,
+          "adaptive_brier": 0.7363291090933025,
+          "adaptive_winner_prob_improvement_rate": 0.3
+        },
+        {
+          "lookback_days": 60,
+          "adaptive_hit_rate": 0.5625,
+          "adaptive_avg_winner_prob": 0.4558281819802148,
+          "adaptive_log_loss": 1.1112861147848851,
+          "adaptive_brier": 0.5250070000132775,
+          "adaptive_winner_prob_improvement_rate": 0.33035714285714285
+        }
+      ]
+    },
+    "candidates": [
+      {
+        "baseline_max_horizon_days": 0,
+        "window_count": 3,
+        "selected_count": 0,
+        "selection_frequency": 0.0,
+        "mean_adaptive_hit_rate": 0.42738095238095236,
+        "mean_adaptive_avg_winner_prob": 0.34363478022162314,
+        "mean_adaptive_log_loss": 1.4506056960769467,
+        "mean_adaptive_brier": 0.6796710794229904,
+        "mean_adaptive_winner_prob_improvement_rate": 0.5867063492063492,
+        "windows": [
+          {
+            "lookback_days": 30,
+            "adaptive_hit_rate": 0.4,
+            "adaptive_avg_winner_prob": 0.2879722105844519,
+            "adaptive_log_loss": 1.5858727927125367,
+            "adaptive_brier": 0.7335813980403837,
+            "adaptive_winner_prob_improvement_rate": 0.525
+          },
+          {
+            "lookback_days": 45,
+            "adaptive_hit_rate": 0.275,
+            "adaptive_avg_winner_prob": 0.26785333628369606,
+            "adaptive_log_loss": 1.6537624250495397,
+            "adaptive_brier": 0.7685693373319309,
+            "adaptive_winner_prob_improvement_rate": 0.5833333333333334
+          },
+          {
+            "lookback_days": 60,
+            "adaptive_hit_rate": 0.6071428571428571,
+            "adaptive_avg_winner_prob": 0.4750787937967216,
+            "adaptive_log_loss": 1.1121818704687634,
+            "adaptive_brier": 0.5368625028966569,
+            "adaptive_winner_prob_improvement_rate": 0.6517857142857143
+          }
+        ]
+      },
+      {
+        "baseline_max_horizon_days": 1,
+        "window_count": 3,
+        "selected_count": 1,
+        "selection_frequency": 0.3333333333333333,
+        "mean_adaptive_hit_rate": 0.4438492063492063,
+        "mean_adaptive_avg_winner_prob": 0.3434325326770517,
+        "mean_adaptive_log_loss": 1.4223284013469046,
+        "mean_adaptive_brier": 0.6620172675916633,
+        "mean_adaptive_winner_prob_improvement_rate": 0.4470238095238095,
+        "windows": [
+          {
+            "lookback_days": 30,
+            "adaptive_hit_rate": 0.44166666666666665,
+            "adaptive_avg_winner_prob": 0.29685029821756215,
+            "adaptive_log_loss": 1.5495488618407294,
+            "adaptive_brier": 0.7087654788443274,
+            "adaptive_winner_prob_improvement_rate": 0.4083333333333333
+          },
+          {
+            "lookback_days": 45,
+            "adaptive_hit_rate": 0.2916666666666667,
+            "adaptive_avg_winner_prob": 0.2666151718246115,
+            "adaptive_log_loss": 1.6167545782167658,
+            "adaptive_brier": 0.7485657721074968,
+            "adaptive_winner_prob_improvement_rate": 0.44166666666666665
+          },
+          {
+            "lookback_days": 60,
+            "adaptive_hit_rate": 0.5982142857142857,
+            "adaptive_avg_winner_prob": 0.46683212798898144,
+            "adaptive_log_loss": 1.1006817639832192,
+            "adaptive_brier": 0.5287205518231659,
+            "adaptive_winner_prob_improvement_rate": 0.49107142857142855
+          }
+        ]
+      },
+      {
+        "baseline_max_horizon_days": 2,
+        "window_count": 3,
+        "selected_count": 2,
+        "selection_frequency": 0.6666666666666666,
+        "mean_adaptive_hit_rate": 0.44305555555555554,
+        "mean_adaptive_avg_winner_prob": 0.3398783355989974,
+        "mean_adaptive_log_loss": 1.4209391892801195,
+        "mean_adaptive_brier": 0.6506876468950299,
+        "mean_adaptive_winner_prob_improvement_rate": 0.30456349206349204,
+        "windows": [
+          {
+            "lookback_days": 30,
+            "adaptive_hit_rate": 0.4666666666666667,
+            "adaptive_avg_winner_prob": 0.3019576095227398,
+            "adaptive_log_loss": 1.5369051174449349,
+            "adaptive_brier": 0.6907268315785097,
+            "adaptive_winner_prob_improvement_rate": 0.2833333333333333
+          },
+          {
+            "lookback_days": 45,
+            "adaptive_hit_rate": 0.3,
+            "adaptive_avg_winner_prob": 0.2618492152940375,
+            "adaptive_log_loss": 1.6146263356105388,
+            "adaptive_brier": 0.7363291090933025,
+            "adaptive_winner_prob_improvement_rate": 0.3
+          },
+          {
+            "lookback_days": 60,
+            "adaptive_hit_rate": 0.5625,
+            "adaptive_avg_winner_prob": 0.4558281819802148,
+            "adaptive_log_loss": 1.1112861147848851,
+            "adaptive_brier": 0.5250070000132775,
+            "adaptive_winner_prob_improvement_rate": 0.33035714285714285
+          }
+        ]
+      },
+      {
+        "baseline_max_horizon_days": 3,
+        "window_count": 3,
+        "selected_count": 0,
+        "selection_frequency": 0.0,
+        "mean_adaptive_hit_rate": 0.43392857142857144,
+        "mean_adaptive_avg_winner_prob": 0.33376057650532287,
+        "mean_adaptive_log_loss": 1.4418614557040064,
+        "mean_adaptive_brier": 0.6451084336310894,
+        "mean_adaptive_winner_prob_improvement_rate": 0.15932539682539681,
+        "windows": [
+          {
+            "lookback_days": 30,
+            "adaptive_hit_rate": 0.475,
+            "adaptive_avg_winner_prob": 0.3041909921454981,
+            "adaptive_log_loss": 1.5451404042652463,
+            "adaptive_brier": 0.6786266503814993,
+            "adaptive_winner_prob_improvement_rate": 0.15
+          },
+          {
+            "lookback_days": 45,
+            "adaptive_hit_rate": 0.3,
+            "adaptive_avg_winner_prob": 0.2544600469201834,
+            "adaptive_log_loss": 1.6405826536738461,
+            "adaptive_brier": 0.7310523117135989,
+            "adaptive_winner_prob_improvement_rate": 0.15833333333333333
+          },
+          {
+            "lookback_days": 60,
+            "adaptive_hit_rate": 0.5267857142857143,
+            "adaptive_avg_winner_prob": 0.4426306904502871,
+            "adaptive_log_loss": 1.1398613091729268,
+            "adaptive_brier": 0.5256463387981702,
+            "adaptive_winner_prob_improvement_rate": 0.16964285714285715
+          }
+        ]
+      },
+      {
+        "baseline_max_horizon_days": 4,
+        "window_count": 3,
+        "selected_count": 0,
+        "selection_frequency": 0.0,
+        "mean_adaptive_hit_rate": 0.41091269841269845,
+        "mean_adaptive_avg_winner_prob": 0.3257028498124025,
+        "mean_adaptive_log_loss": 1.4811962311364688,
+        "mean_adaptive_brier": 0.6446992292598801,
+        "mean_adaptive_winner_prob_improvement_rate": 0.0,
+        "windows": [
+          {
+            "lookback_days": 30,
+            "adaptive_hit_rate": 0.4666666666666667,
+            "adaptive_avg_winner_prob": 0.30420795711948334,
+            "adaptive_log_loss": 1.5712512374270304,
+            "adaptive_brier": 0.6717733856635539,
+            "adaptive_winner_prob_improvement_rate": 0.0
+          },
+          {
+            "lookback_days": 45,
+            "adaptive_hit_rate": 0.275,
+            "adaptive_avg_winner_prob": 0.24515634545521534,
+            "adaptive_log_loss": 1.6892838937232548,
+            "adaptive_brier": 0.7319555940161049,
+            "adaptive_winner_prob_improvement_rate": 0.0
+          },
+          {
+            "lookback_days": 60,
+            "adaptive_hit_rate": 0.49107142857142855,
+            "adaptive_avg_winner_prob": 0.4277442468625088,
+            "adaptive_log_loss": 1.1830535622591207,
+            "adaptive_brier": 0.5303687080999816,
+            "adaptive_winner_prob_improvement_rate": 0.0
+          }
+        ]
+      }
+    ]
+  },
+  "aggregated_horizon_strategy_search": {
+    "objective": "adaptive_log_loss",
+    "selected_strategy_by_horizon": {
+      "1": "baseline_short_horizon",
+      "2": "baseline_short_horizon",
+      "3": "calibrated_long_horizon",
+      "4": "calibrated_long_horizon"
+    },
+    "per_horizon": [
+      {
+        "horizon_days": 1,
+        "events": 88,
+        "selected_strategy": "baseline_short_horizon",
+        "baseline_candidate": {
+          "strategy": "baseline_short_horizon",
+          "events": 88,
+          "mean_adaptive_hit_rate": 0.48863636363636365,
+          "mean_adaptive_avg_winner_prob": 0.3492067172181159,
+          "mean_adaptive_log_loss": 1.389123022049308,
+          "mean_adaptive_brier": 0.6212946436392212,
+          "mean_adaptive_winner_prob_improvement_rate": 0.0
+        },
+        "optimized_candidate": {
+          "strategy": "calibrated_long_horizon",
+          "events": 88,
+          "mean_adaptive_hit_rate": 0.42045454545454547,
+          "mean_adaptive_avg_winner_prob": 0.34928439664520466,
+          "mean_adaptive_log_loss": 1.5037573999007934,
+          "mean_adaptive_brier": 0.6927746055788787,
+          "mean_adaptive_winner_prob_improvement_rate": 0.5568181818181818
+        }
+      },
+      {
+        "horizon_days": 2,
+        "events": 88,
+        "selected_strategy": "baseline_short_horizon",
+        "baseline_candidate": {
+          "strategy": "baseline_short_horizon",
+          "events": 88,
+          "mean_adaptive_hit_rate": 0.42045454545454547,
+          "mean_adaptive_avg_winner_prob": 0.3300728278354402,
+          "mean_adaptive_log_loss": 1.452560968721425,
+          "mean_adaptive_brier": 0.6380063183916022,
+          "mean_adaptive_winner_prob_improvement_rate": 0.0
+        },
+        "optimized_candidate": {
+          "strategy": "calibrated_long_horizon",
+          "events": 88,
+          "mean_adaptive_hit_rate": 0.42045454545454547,
+          "mean_adaptive_avg_winner_prob": 0.3436123662448654,
+          "mean_adaptive_log_loss": 1.4592081408856976,
+          "mean_adaptive_brier": 0.6840171710769309,
+          "mean_adaptive_winner_prob_improvement_rate": 0.5681818181818182
+        }
+      },
+      {
+        "horizon_days": 3,
+        "events": 88,
+        "selected_strategy": "calibrated_long_horizon",
+        "baseline_candidate": {
+          "strategy": "baseline_short_horizon",
+          "events": 88,
+          "mean_adaptive_hit_rate": 0.38636363636363635,
+          "mean_adaptive_avg_winner_prob": 0.31395249377155454,
+          "mean_adaptive_log_loss": 1.521143190091471,
+          "mean_adaptive_brier": 0.6558943915522774,
+          "mean_adaptive_winner_prob_improvement_rate": 0.0
+        },
+        "optimized_candidate": {
+          "strategy": "calibrated_long_horizon",
+          "events": 88,
+          "mean_adaptive_hit_rate": 0.42045454545454547,
+          "mean_adaptive_avg_winner_prob": 0.3377799181065932,
+          "mean_adaptive_log_loss": 1.4381498451199375,
+          "mean_adaptive_brier": 0.6787765675215693,
+          "mean_adaptive_winner_prob_improvement_rate": 0.5795454545454546
+        }
+      },
+      {
+        "horizon_days": 4,
+        "events": 88,
+        "selected_strategy": "calibrated_long_horizon",
+        "baseline_candidate": {
+          "strategy": "baseline_short_horizon",
+          "events": 88,
+          "mean_adaptive_hit_rate": 0.3409090909090909,
+          "mean_adaptive_avg_winner_prob": 0.3003028697835806,
+          "mean_adaptive_log_loss": 1.5890616226725205,
+          "mean_adaptive_brier": 0.6739952471982287,
+          "mean_adaptive_winner_prob_improvement_rate": 0.0
+        },
+        "optimized_candidate": {
+          "strategy": "calibrated_long_horizon",
+          "events": 88,
+          "mean_adaptive_hit_rate": 0.4318181818181818,
+          "mean_adaptive_avg_winner_prob": 0.33191298411027503,
+          "mean_adaptive_log_loss": 1.4320732007293748,
+          "mean_adaptive_brier": 0.6760985713806135,
+          "mean_adaptive_winner_prob_improvement_rate": 0.6363636363636364
+        }
+      }
+    ],
+    "policy_summary": {
+      "events": 352,
+      "adaptive_hit_rate": 0.4403409090909091,
+      "adaptive_avg_winner_prob": 0.3372431118176061,
+      "adaptive_log_loss": 1.4279767591550112,
+      "adaptive_brier": 0.6535440252332516,
+      "adaptive_winner_prob_improvement_rate": 0.3039772727272727
+    }
+  },
+  "selected_applied_policy": {
+    "selection_mode": "cutoff",
+    "baseline_max_horizon_days": 2,
+    "horizon_strategy_overrides": {},
+    "objective_value": 1.4209391892801195,
+    "adaptive_hit_rate": 0.44305555555555554,
+    "adaptive_avg_winner_prob": 0.3398783355989974,
+    "adaptive_log_loss": 1.4209391892801195,
+    "adaptive_brier": 0.6506876468950299,
+    "adaptive_winner_prob_improvement_rate": 0.30456349206349204
+  }
+}

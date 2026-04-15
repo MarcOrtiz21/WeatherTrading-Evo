@@ -1,0 +1,17 @@
+{
+  "captured_at_utc": "2026-04-11T06:33:34.043319",
+  "reference_date": "2026-04-11",
+  "start_as_of_date": null,
+  "end_as_of_date": null,
+  "targets_discovered": 100,
+  "stations_covered": 28,
+  "resolved_targets": 100,
+  "created_rows": 20,
+  "updated_rows": 80,
+  "missing_archive_targets": [],
+  "fetch_failures": [],
+  "discovery_skipped_events": [],
+  "missing_archive_count": 0,
+  "fetch_failure_count": 0,
+  "discovery_skip_reason_counts": {}
+}

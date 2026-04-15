@@ -1,0 +1,197 @@
+sources:
+  wunderground:
+    label: "Wunderground / The Weather Company"
+    role: "contractual"
+    official: false
+    mapping_strategy: "airport_code"
+    supports:
+      contractual_resolution: true
+      realtime_observation: false
+      historical_observation: true
+      forecast: false
+      station_metadata: false
+    notes:
+      - "Usar cuando el contrato cite explicitamente Wunderground o The Weather Company."
+
+  noaa:
+    label: "NOAA / NCEI"
+    role: "contractual_or_historical"
+    official: true
+    mapping_strategy: "icao_or_station_id"
+    supports:
+      contractual_resolution: true
+      realtime_observation: false
+      historical_observation: true
+      forecast: false
+      station_metadata: true
+    notes:
+      - "Buena fuente para historico, metadata y contratos que resuelven con NOAA/NCEI."
+
+  aviation_weather:
+    label: "AviationWeather Data API"
+    role: "observation_api"
+    official: true
+    mapping_strategy: "icao"
+    supports:
+      contractual_resolution: false
+      realtime_observation: true
+      historical_observation: limited
+      forecast: true
+      station_metadata: true
+    notes:
+      - "Fuente recomendada para METAR/TAF y metadata aeroportuaria."
+
+  metar:
+    label: "METAR"
+    role: "observation_format"
+    official: true
+    parent_source: "aviation_weather"
+    mapping_strategy: "icao"
+    supports:
+      contractual_resolution: false
+      realtime_observation: true
+      historical_observation: limited
+      forecast: false
+      station_metadata: false
+    notes:
+      - "Ideal como observacion rapida, pero no sustituye a la fuente contractual del mercado."
+
+  open_meteo:
+    label: "Open-Meteo"
+    role: "forecast_auxiliary"
+    official: false
+    mapping_strategy: "lat_lon"
+    supports:
+      contractual_resolution: false
+      realtime_observation: false
+      historical_observation: true
+      historical_forecast: true
+      forecast: true
+      station_metadata: false
+    notes:
+      - "Muy util para forecast auxiliar y replays de pronosticos."
+
+  weather_company:
+    label: "The Weather Company Data APIs"
+    role: "forecast_auxiliary"
+    official: true
+    mapping_strategy: "lat_lon"
+    supports:
+      contractual_resolution: false
+      realtime_observation: true
+      historical_observation: true
+      forecast: true
+      station_metadata: true
+    notes:
+      - "Proveedor serio para forecast y observacion oficial via API."
+      - "No asumir equivalencia contractual con Wunderground sin validar la semantica exacta de resolucion."
+
+  aemet:
+    label: "AEMET OpenData"
+    role: "observation_auxiliary"
+    official: true
+    mapping_strategy: "provider_station_id"
+    supports:
+      contractual_resolution: true
+      realtime_observation: true
+      historical_observation: true
+      forecast: true
+      station_metadata: true
+    notes:
+      - "Especialmente util para Espana cuando el contrato o el analisis auxiliar se apoyen en AEMET."
+
+  meteostat:
+    label: "Meteostat"
+    role: "historical_auxiliary"
+    official: false
+    mapping_strategy: "icao_or_provider_station_id"
+    supports:
+      contractual_resolution: false
+      realtime_observation: false
+      historical_observation: true
+      forecast: false
+      station_metadata: true
+    notes:
+      - "Buena capa auxiliar para historico rapido y discovery de estaciones."
+
+  nws:
+    label: "National Weather Service API"
+    role: "forecast_and_observation_auxiliary"
+    official: true
+    mapping_strategy: "station_id"
+    supports:
+      contractual_resolution: true
+      realtime_observation: true
+      historical_observation: limited
+      forecast: true
+      station_metadata: true
+    notes:
+      - "Util para EE. UU., pero conviene vigilar latencia y calidad upstream."
+
+  hong_kong_observatory:
+    label: "Hong Kong Observatory"
+    role: "contractual_or_observation"
+    official: true
+    mapping_strategy: "city_or_station_id"
+    supports:
+      contractual_resolution: true
+      realtime_observation: true
+      historical_observation: true
+      forecast: false
+      station_metadata: true
+    notes:
+      - "Fuente oficial para mercados de Hong Kong que resuelven contra el Daily Extract del HKO."
+
+  ecmwf:
+    label: "ECMWF Open Data"
+    role: "forecast_auxiliary"
+    official: true
+    mapping_strategy: "lat_lon"
+    supports:
+      contractual_resolution: false
+      realtime_observation: false
+      historical_observation: false
+      forecast: true
+      station_metadata: false
+    notes:
+      - "Fuente potente para elevar el forecast engine mas adelante."
+
+  polymarket_gamma:
+    label: "Polymarket Gamma API"
+    role: "market_discovery"
+    official: true
+    mapping_strategy: "event_slug"
+    supports:
+      market_discovery: true
+      market_metadata: true
+      contractual_resolution: false
+      realtime_observation: false
+      historical_observation: false
+      forecast: false
+      station_metadata: false
+    notes:
+      - "Fuente oficial recomendada por Polymarket para descubrir eventos y mercados via paginacion y tags."
+
+source_priority:
+  contractual_resolution:
+    - "wunderground"
+    - "noaa"
+    - "aemet"
+    - "hong_kong_observatory"
+    - "nws"
+  realtime_observation:
+    - "aviation_weather"
+    - "metar"
+    - "aemet"
+    - "nws"
+  historical_observation:
+    - "noaa"
+    - "meteostat"
+    - "aemet"
+  forecast_auxiliary:
+    - "weather_company"
+    - "open_meteo"
+    - "ecmwf"
+    - "nws"
+  market_discovery:
+    - "polymarket_gamma"

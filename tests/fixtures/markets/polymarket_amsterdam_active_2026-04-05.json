@@ -1,0 +1,45 @@
+{
+  "id": "337815",
+  "slug": "highest-temperature-in-amsterdam-on-april-6-2026",
+  "title": "Highest temperature in Amsterdam on April 6?",
+  "description": "This market will resolve to the temperature range that contains the highest temperature recorded at the Amsterdam Airport Schiphol Station in degrees Celsius on 6 Apr '26.\n\nThe resolution source for this market will be information from Wunderground, specifically the highest temperature recorded for all times on this day by the Forecast for the Amsterdam Airport Schiphol Station once information is finalized, available here: https://www.wunderground.com/history/daily/nl/schiphol/EHAM.\n\nThe resolution source for this market measures temperatures to whole degrees Celsius.",
+  "resolutionSource": "https://www.wunderground.com/history/daily/nl/schiphol/EHAM",
+  "eventDate": "2026-04-06",
+  "tags": [
+    {"slug": "weather"},
+    {"slug": "temperature"},
+    {"slug": "amsterdam"}
+  ],
+  "markets": [
+    {
+      "id": "1838208",
+      "question": "Will the highest temperature in Amsterdam be 11°C on April 6?",
+      "description": "This market will resolve to the temperature range that contains the highest temperature recorded at the Amsterdam Airport Schiphol Station in degrees Celsius on 6 Apr '26.",
+      "resolutionSource": "https://www.wunderground.com/history/daily/nl/schiphol/EHAM",
+      "endDate": "2026-04-06T12:00:00Z",
+      "outcomePrices": "[\"0.0575\", \"0.9425\"]",
+      "bestBid": 0.154,
+      "bestAsk": 0.214
+    },
+    {
+      "id": "1838211",
+      "question": "Will the highest temperature in Amsterdam be 14°C on April 6?",
+      "description": "This market will resolve to the temperature range that contains the highest temperature recorded at the Amsterdam Airport Schiphol Station in degrees Celsius on 6 Apr '26.",
+      "resolutionSource": "https://www.wunderground.com/history/daily/nl/schiphol/EHAM",
+      "endDate": "2026-04-06T12:00:00Z",
+      "outcomePrices": "[\"0.19\", \"0.81\"]",
+      "bestBid": 0.15,
+      "bestAsk": 0.23
+    },
+    {
+      "id": "1838213",
+      "question": "Will the highest temperature in Amsterdam be 16°C or higher on April 6?",
+      "description": "This market will resolve to the temperature range that contains the highest temperature recorded at the Amsterdam Airport Schiphol Station in degrees Celsius on 6 Apr '26.",
+      "resolutionSource": "https://www.wunderground.com/history/daily/nl/schiphol/EHAM",
+      "endDate": "2026-04-06T12:00:00Z",
+      "outcomePrices": "[\"0.0325\", \"0.9675\"]",
+      "bestBid": 0.016,
+      "bestAsk": 0.049
+    }
+  ]
+}

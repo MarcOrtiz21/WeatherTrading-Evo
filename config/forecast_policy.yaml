@@ -1,0 +1,55 @@
+forecast_policy:
+  adaptive_baseline_max_horizon_days: 1
+  selection_mode: cutoff
+  horizon_strategy_overrides: {}
+  station_temperature_bias_c:
+    EGLC: 0.8
+    KLGA: 1.7
+    KMIA: 1.1
+    LTAC: -0.7
+  selection_objective: adaptive_log_loss
+  learned_at_utc: '2026-04-05T23:10:12.167871'
+  learned_from:
+    source: multidate_policy_stability
+    as_of_date: '2026-04-06'
+    max_events: 30
+    max_horizon_days: 4
+    start_as_of_date: '2026-03-31'
+    end_as_of_date: '2026-04-06'
+    as_of_dates:
+    - '2026-03-31'
+    - '2026-04-01'
+    - '2026-04-02'
+    - '2026-04-03'
+    - '2026-04-04'
+    - '2026-04-05'
+    - '2026-04-06'
+    lookback_windows:
+    - 30
+    - 45
+    - 60
+    selected_date_cutoffs:
+    - 1
+    - 2
+    - 2
+    - 2
+    - 1
+    - 1
+    - 1
+    dates_evaluated: 7
+  probability_temperature_alpha: 0.55
+  probability_temperature_learned_at_utc: '2026-04-11T22:04:19.719904'
+  probability_temperature_learned_from:
+    source: contractual_resolution_audit
+    snapshot: 2026-04-12_contractual_probability_temperature_calibration.json
+    events: 100
+    selection_kind: unit
+    model_log_loss: 1.5495133997727282
+    market_log_loss: 1.1010531072371212
+    model_brier: 0.669465127056709
+    market_brier: 0.5482556873697737
+    model_mode_hit_rate: 0.38
+    market_mode_hit_rate: 0.57
+  probability_temperature_alpha_by_unit:
+    celsius: 0.45
+    fahrenheit: 0.35

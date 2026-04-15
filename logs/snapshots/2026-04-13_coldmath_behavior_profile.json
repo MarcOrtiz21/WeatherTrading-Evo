@@ -1,0 +1,358 @@
+{
+  "captured_at_utc": "2026-04-13T10:06:49.294132",
+  "username": "ColdMath",
+  "label": "ColdMath",
+  "proxy_wallet": "0x594edb9112f526fa6a80b8f858a6379c8a2c1c11",
+  "category": "WEATHER",
+  "leaderboard": {
+    "monthly": {
+      "rank": 2,
+      "pnl": 53565.41366303442,
+      "volume": 977474.38188,
+      "proxy_wallet": "0x594edb9112f526fa6a80b8f858a6379c8a2c1c11"
+    },
+    "all_time": {
+      "rank": 4,
+      "pnl": 107079.11225022966,
+      "volume": 7634718.157216002,
+      "proxy_wallet": "0x594edb9112f526fa6a80b8f858a6379c8a2c1c11"
+    }
+  },
+  "recent_trades_summary": {
+    "trade_count": 2000,
+    "unique_event_count": 324,
+    "unique_market_count": 777,
+    "avg_notional_usd": 117.44445522508026,
+    "median_notional_usd": 9.417297115130758,
+    "avg_size": 184.026400505,
+    "median_size": 53.623055,
+    "avg_price": 0.6075180162302125,
+    "median_price": 0.86
+  },
+  "trade_direction_summary": {
+    "breakdown": {
+      "aa ponte preta|buy": 10,
+      "aalesunds fk|buy": 40,
+      "américa fc|buy": 2,
+      "atlanta united fc|buy": 1,
+      "austin fc|buy": 5,
+      "avispa fukuoka|buy": 1,
+      "cf montréal|buy": 2,
+      "colorado rapids sc|buy": 11,
+      "columbus crew|buy": 2,
+      "d.c. united sc|buy": 1,
+      "ehime fc|buy": 2,
+      "fc mito holly hock|buy": 1,
+      "fk bodø/glimt|buy": 5,
+      "hamarkameratene|buy": 3,
+      "houston dynamo|buy": 12,
+      "ik start|buy": 19,
+      "inter miami cf|buy": 1,
+      "kashiwa reysol|buy": 4,
+      "lillestrøm sk|buy": 2,
+      "melbourne victory fc|buy": 2,
+      "minnesota united fc|buy": 1,
+      "molde fk|buy": 2,
+      "new england revolution|buy": 7,
+      "new york red bulls|buy": 1,
+      "newcastle united jets fc|buy": 6,
+      "no|buy": 910,
+      "no|sell": 49,
+      "over|buy": 26,
+      "san jose earthquakes|buy": 3,
+      "sc recife|buy": 2,
+      "sk brann|buy": 18,
+      "sporting kansas city|buy": 5,
+      "toronto fc|buy": 1,
+      "under|buy": 72,
+      "us lecce|buy": 3,
+      "vancouver whitecaps fc|buy": 1,
+      "viking fk|buy": 8,
+      "vila nova fc|buy": 1,
+      "vålerenga fotball|buy": 8,
+      "yes|buy": 746,
+      "yes|sell": 4
+    },
+    "yes_buy_share": 0.373,
+    "no_buy_share": 0.455,
+    "sell_share": 0.0265
+  },
+  "timing_summary": {
+    "avg_hours_before_event": 58.450070040337366,
+    "median_hours_before_event": 62.07888888888889,
+    "same_day_share": 0.28052805280528054,
+    "one_to_three_day_share": 0.3584158415841584,
+    "more_than_three_day_share": 0.36105610561056106,
+    "by_hour_utc": {
+      "4": 11,
+      "5": 59,
+      "6": 265,
+      "7": 279,
+      "8": 229,
+      "9": 200,
+      "10": 262,
+      "11": 43,
+      "12": 25,
+      "13": 58,
+      "14": 91,
+      "15": 57,
+      "16": 61,
+      "17": 86,
+      "18": 37,
+      "19": 59,
+      "20": 92,
+      "21": 50,
+      "22": 19,
+      "23": 17
+    },
+    "by_weekday_utc": {
+      "Friday": 125,
+      "Monday": 568,
+      "Saturday": 110,
+      "Sunday": 368,
+      "Thursday": 261,
+      "Tuesday": 235,
+      "Wednesday": 333
+    }
+  },
+  "market_family_summary": {
+    "event_family_breakdown": {
+      "other": 485,
+      "weather_temperature": 1515
+    },
+    "unit_breakdown": {
+      "celsius": 1061,
+      "fahrenheit": 454,
+      "unknown": 485
+    }
+  },
+  "current_positions_summary": {
+    "position_count": 200,
+    "total_current_value_usd": 67353.6985,
+    "avg_current_value_usd": 336.7684925,
+    "top_positions_by_value": [
+      {
+        "title": "Will the highest temperature in Chicago be 58°F or higher on April 14?",
+        "current_value_usd": 21035.6196,
+        "size": 21141.3262,
+        "outcome": "Yes",
+        "avg_price": 0.9854
+      },
+      {
+        "title": "Will the highest temperature in Singapore be 34°C on April 13?",
+        "current_value_usd": 7027.1608,
+        "size": 7037.7173,
+        "outcome": "Yes",
+        "avg_price": 0.9688
+      },
+      {
+        "title": "Will the highest temperature in Mexico City be 22°C or higher on April 14?",
+        "current_value_usd": 6715.8535,
+        "size": 6804.3095,
+        "outcome": "Yes",
+        "avg_price": 0.9772
+      },
+      {
+        "title": "Will the highest temperature in Tokyo be 14°C or below on April 15?",
+        "current_value_usd": 5682.3553,
+        "size": 5696.5968,
+        "outcome": "No",
+        "avg_price": 0.9812
+      },
+      {
+        "title": "Will the highest temperature in Paris be 20°C or higher on April 13?",
+        "current_value_usd": 2782.9478,
+        "size": 2784.34,
+        "outcome": "No",
+        "avg_price": 0.984
+      },
+      {
+        "title": "Will the highest temperature in Tokyo be 15°C or below on April 14?",
+        "current_value_usd": 2269.9612,
+        "size": 2271.0968,
+        "outcome": "No",
+        "avg_price": 0.987
+      },
+      {
+        "title": "Will the highest temperature in Tel Aviv be 25°C or below on April 15?",
+        "current_value_usd": 2266.6653,
+        "size": 2281.495,
+        "outcome": "No",
+        "avg_price": 0.9832
+      },
+      {
+        "title": "Will the highest temperature in Singapore be 35°C or higher on April 13?",
+        "current_value_usd": 2135.0387,
+        "size": 2136.1067,
+        "outcome": "No",
+        "avg_price": 0.9572
+      },
+      {
+        "title": "Will the highest temperature in Wuhan be 26°C on April 13?",
+        "current_value_usd": 2129.1965,
+        "size": 2132.3951,
+        "outcome": "No",
+        "avg_price": 0.991
+      },
+      {
+        "title": "Will the highest temperature in Wuhan be 27°C or higher on April 13?",
+        "current_value_usd": 1997.9983,
+        "size": 1998.9978,
+        "outcome": "No",
+        "avg_price": 0.9914
+      }
+    ]
+  },
+  "closed_positions_summary": {
+    "closed_position_count": 50,
+    "total_realized_pnl_usd": 220926.000857,
+    "avg_realized_pnl_usd": 4418.52001714,
+    "median_realized_pnl_usd": 3663.864195,
+    "avg_percent_pnl": 0.0,
+    "win_rate": 1.0,
+    "loss_rate": 0.0
+  },
+  "activity_summary": {
+    "activity_count": 200,
+    "activity_type_breakdown": {
+      "merge": 6,
+      "redeem": 4,
+      "trade": 190
+    }
+  },
+  "portfolio_value_summary": {
+    "raw": {},
+    "total_value_usd": null
+  },
+  "top_events_by_trade_count": [
+    {
+      "key": "mls-tor-aus-2026-04-18-more-markets",
+      "count": 109
+    },
+    {
+      "key": "2026-paris-roubaix-hauts-de-france-top-3",
+      "count": 72
+    },
+    {
+      "key": "nor-bog-aal-2026-04-18-more-markets",
+      "count": 54
+    },
+    {
+      "key": "2026-paris-roubaix-hauts-de-france-winner",
+      "count": 42
+    },
+    {
+      "key": "highest-temperature-in-chicago-on-april-12-2026",
+      "count": 38
+    },
+    {
+      "key": "highest-temperature-in-amsterdam-on-april-8-2026",
+      "count": 37
+    },
+    {
+      "key": "nor-vik-bra-2026-04-18-more-markets",
+      "count": 35
+    },
+    {
+      "key": "highest-temperature-in-denver-on-april-10-2026",
+      "count": 35
+    },
+    {
+      "key": "highest-temperature-in-singapore-on-april-13-2026",
+      "count": 27
+    },
+    {
+      "key": "2026-tour-of-flanders-winner-333",
+      "count": 25
+    }
+  ],
+  "top_markets_by_trade_count": [
+    {
+      "key": "mls-tor-aus-2026-04-18-total-1pt5",
+      "count": 52
+    },
+    {
+      "key": "mls-tor-aus-2026-04-18-btts",
+      "count": 46
+    },
+    {
+      "key": "nor-bog-aal-2026-04-18-spread-away-2pt5",
+      "count": 30
+    },
+    {
+      "key": "highest-temperature-in-denver-on-april-10-2026-62forhigher",
+      "count": 24
+    },
+    {
+      "key": "will-mathieu-van-der-poel-finish-in-the-top-3-at-the-2026-paris-roubaix-hauts-de-france",
+      "count": 23
+    },
+    {
+      "key": "nor-vik-bra-2026-04-18-spread-away-2pt5",
+      "count": 21
+    },
+    {
+      "key": "highest-temperature-in-tokyo-on-april-11-2026-16corbelow",
+      "count": 20
+    },
+    {
+      "key": "highest-temperature-in-singapore-on-april-13-2026-34c",
+      "count": 19
+    },
+    {
+      "key": "highest-temperature-in-chicago-on-april-14-2026-58forhigher",
+      "count": 17
+    },
+    {
+      "key": "highest-temperature-in-mexico-city-on-april-14-2026-22corhigher",
+      "count": 16
+    }
+  ],
+  "top_events_by_notional": [
+    {
+      "event_slug": "highest-temperature-in-chicago-on-april-14-2026",
+      "total_notional_usd": 16395.506342289642
+    },
+    {
+      "event_slug": "2026-paris-roubaix-hauts-de-france-top-3",
+      "total_notional_usd": 8333.546517088542
+    },
+    {
+      "event_slug": "highest-temperature-in-istanbul-on-april-8-2026",
+      "total_notional_usd": 7024.788374193755
+    },
+    {
+      "event_slug": "highest-temperature-in-singapore-on-april-7-2026",
+      "total_notional_usd": 5747.456262760742
+    },
+    {
+      "event_slug": "highest-temperature-in-mexico-city-on-april-9-2026",
+      "total_notional_usd": 5730.49863521338
+    },
+    {
+      "event_slug": "highest-temperature-in-mexico-city-on-april-14-2026",
+      "total_notional_usd": 5679.7361884508855
+    },
+    {
+      "event_slug": "highest-temperature-in-moscow-on-april-6-2026",
+      "total_notional_usd": 5405.480654370605
+    },
+    {
+      "event_slug": "highest-temperature-in-panama-city-on-april-7-2026",
+      "total_notional_usd": 5260.536094710302
+    },
+    {
+      "event_slug": "highest-temperature-in-los-angeles-on-april-6-2026",
+      "total_notional_usd": 3936.928280621829
+    },
+    {
+      "event_slug": "highest-temperature-in-austin-on-april-6-2026",
+      "total_notional_usd": 3934.719458582999
+    }
+  ],
+  "notes": [
+    "avg_notional_usd se deriva como price * size cuando ambos campos existen",
+    "timing_summary usa eventSlug/eventDate oficial cuando existe y fallback por slug en eventos de temperatura",
+    "closed_positions/current_positions dependen del payload actual de la Data API publica"
+  ]
+}

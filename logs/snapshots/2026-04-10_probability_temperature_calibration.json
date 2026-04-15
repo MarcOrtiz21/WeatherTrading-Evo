@@ -1,0 +1,161 @@
+{
+  "captured_at_utc": "2026-04-10T14:03:40.092552",
+  "audit_snapshot_path": "logs/snapshots/2026-04-10_blind_snapshot_resolution_audit.json",
+  "events": 80,
+  "selected_candidate": {
+    "alpha": 0.5,
+    "events": 80,
+    "log_loss": 1.5490430938484328,
+    "brier": 0.6840162313892095,
+    "mode_hit_rate": 0.5625
+  },
+  "candidates": [
+    {
+      "alpha": 0.5,
+      "events": 80,
+      "log_loss": 1.5490430938484328,
+      "brier": 0.6840162313892095,
+      "mode_hit_rate": 0.5625
+    },
+    {
+      "alpha": 0.55,
+      "events": 80,
+      "log_loss": 1.551242841875625,
+      "brier": 0.6803538955841275,
+      "mode_hit_rate": 0.5625
+    },
+    {
+      "alpha": 0.6,
+      "events": 80,
+      "log_loss": 1.5565532413431038,
+      "brier": 0.6772248432407746,
+      "mode_hit_rate": 0.5625
+    },
+    {
+      "alpha": 0.65,
+      "events": 80,
+      "log_loss": 1.564509111082864,
+      "brier": 0.6745365258396113,
+      "mode_hit_rate": 0.5625
+    },
+    {
+      "alpha": 0.7,
+      "events": 80,
+      "log_loss": 1.5747438149554633,
+      "brier": 0.6722175103898822,
+      "mode_hit_rate": 0.5625
+    },
+    {
+      "alpha": 0.75,
+      "events": 80,
+      "log_loss": 1.5869631538385531,
+      "brier": 0.6702117124468266,
+      "mode_hit_rate": 0.5625
+    },
+    {
+      "alpha": 0.8,
+      "events": 80,
+      "log_loss": 1.6009273649627218,
+      "brier": 0.6684743599045934,
+      "mode_hit_rate": 0.5625
+    },
+    {
+      "alpha": 0.85,
+      "events": 80,
+      "log_loss": 1.616438365552397,
+      "brier": 0.6669691470870853,
+      "mode_hit_rate": 0.5625
+    },
+    {
+      "alpha": 0.9,
+      "events": 80,
+      "log_loss": 1.6333305134571219,
+      "brier": 0.6656662065622129,
+      "mode_hit_rate": 0.5625
+    },
+    {
+      "alpha": 0.95,
+      "events": 80,
+      "log_loss": 1.6514637896797866,
+      "brier": 0.6645406464688115,
+      "mode_hit_rate": 0.5625
+    },
+    {
+      "alpha": 1.0,
+      "events": 80,
+      "log_loss": 1.670718684560007,
+      "brier": 0.6635714825944395,
+      "mode_hit_rate": 0.5625
+    },
+    {
+      "alpha": 1.05,
+      "events": 80,
+      "log_loss": 1.6909923044158852,
+      "brier": 0.6627408487351063,
+      "mode_hit_rate": 0.5625
+    },
+    {
+      "alpha": 1.1,
+      "events": 80,
+      "log_loss": 1.7121953667862784,
+      "brier": 0.6620334051237255,
+      "mode_hit_rate": 0.5625
+    },
+    {
+      "alpha": 1.15,
+      "events": 80,
+      "log_loss": 1.7342498522567493,
+      "brier": 0.6614358891322073,
+      "mode_hit_rate": 0.5625
+    },
+    {
+      "alpha": 1.2,
+      "events": 80,
+      "log_loss": 1.7570871480517454,
+      "brier": 0.6609367690765205,
+      "mode_hit_rate": 0.5625
+    },
+    {
+      "alpha": 1.25,
+      "events": 80,
+      "log_loss": 1.780646564598658,
+      "brier": 0.6605259733985516,
+      "mode_hit_rate": 0.5625
+    },
+    {
+      "alpha": 1.3,
+      "events": 80,
+      "log_loss": 1.804874138285351,
+      "brier": 0.660194675459407,
+      "mode_hit_rate": 0.5625
+    },
+    {
+      "alpha": 1.35,
+      "events": 80,
+      "log_loss": 1.8248981092322758,
+      "brier": 0.6599351197676826,
+      "mode_hit_rate": 0.5625
+    },
+    {
+      "alpha": 1.4,
+      "events": 80,
+      "log_loss": 1.84054955356779,
+      "brier": 0.6597404794206745,
+      "mode_hit_rate": 0.5625
+    },
+    {
+      "alpha": 1.45,
+      "events": 80,
+      "log_loss": 1.8567387011643983,
+      "brier": 0.6596047373522927,
+      "mode_hit_rate": 0.5625
+    },
+    {
+      "alpha": 1.5,
+      "events": 80,
+      "log_loss": 1.8734303065566806,
+      "brier": 0.6595225859961804,
+      "mode_hit_rate": 0.5625
+    }
+  ]
+}

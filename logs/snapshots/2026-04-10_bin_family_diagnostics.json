@@ -1,0 +1,473 @@
+{
+  "captured_at_utc": "2026-04-10T17:23:04.194607",
+  "audit_snapshot_path": "logs/snapshots/2026-04-10_blind_snapshot_resolution_audit.json",
+  "current_probability_temperature_alpha": 0.55,
+  "winner_family_summary": {
+    "celsius|lower_tail": {
+      "events": 1,
+      "model_mode_hit_rate": 1.0,
+      "market_mode_hit_rate": 1.0,
+      "top_edge_hit_rate": 1.0,
+      "paper_trade_rate": 1.0,
+      "model_log_loss": 0.5460043537227735,
+      "market_log_loss": 0.843970070294529,
+      "model_brier": 0.2552943697203541,
+      "market_brier": 0.45441700000000007,
+      "paper_total_pnl": 0.52,
+      "paper_total_stake": 0.48000000000000004,
+      "paper_roi_on_stake": 1.0833333333333333,
+      "avg_top_edge_net": 0.04925970943910339
+    },
+    "celsius|range_bin": {
+      "events": 41,
+      "model_mode_hit_rate": 0.5365853658536586,
+      "market_mode_hit_rate": 0.1951219512195122,
+      "top_edge_hit_rate": 0.2926829268292683,
+      "paper_trade_rate": 0.8048780487804879,
+      "model_log_loss": 2.125720160847451,
+      "market_log_loss": 1.8443387777768687,
+      "model_brier": 0.7876971026807585,
+      "market_brier": 0.9007038414634146,
+      "paper_total_pnl": 8.5245,
+      "paper_total_stake": 3.4755000000000003,
+      "paper_roi_on_stake": 2.4527406128614584,
+      "avg_top_edge_net": 0.10514910339323448
+    },
+    "celsius|upper_tail": {
+      "events": 6,
+      "model_mode_hit_rate": 0.8333333333333334,
+      "market_mode_hit_rate": 0.8333333333333334,
+      "top_edge_hit_rate": 0.3333333333333333,
+      "paper_trade_rate": 0.5,
+      "model_log_loss": 0.668148554597276,
+      "market_log_loss": 0.352086482072869,
+      "model_brier": 0.2252182595779342,
+      "market_brier": 0.19347024999999998,
+      "paper_total_pnl": 0.6325,
+      "paper_total_stake": 1.3675,
+      "paper_roi_on_stake": 0.4625228519195612,
+      "avg_top_edge_net": 0.042169455206742
+    },
+    "fahrenheit|range_bin": {
+      "events": 25,
+      "model_mode_hit_rate": 0.4,
+      "market_mode_hit_rate": 0.44,
+      "top_edge_hit_rate": 0.12,
+      "paper_trade_rate": 0.76,
+      "model_log_loss": 1.8156583303516862,
+      "market_log_loss": 1.3343945778958144,
+      "model_brier": 0.7840224180319351,
+      "market_brier": 0.68764812,
+      "paper_total_pnl": 0.3475,
+      "paper_total_stake": 2.6525,
+      "paper_roi_on_stake": 0.13100848256361922,
+      "avg_top_edge_net": 0.06797540260125962
+    },
+    "fahrenheit|upper_tail": {
+      "events": 7,
+      "model_mode_hit_rate": 1.0,
+      "market_mode_hit_rate": 1.0,
+      "top_edge_hit_rate": 0.0,
+      "paper_trade_rate": 0.0,
+      "model_log_loss": 0.0005847720623953562,
+      "market_log_loss": 0.009280237499338569,
+      "model_brier": 3.0109479230957432e-06,
+      "market_brier": 0.00017542857142857166,
+      "paper_total_pnl": 0.0,
+      "paper_total_stake": 0.0,
+      "paper_roi_on_stake": 0.0,
+      "avg_top_edge_net": -0.06676257513674615
+    }
+  },
+  "top_edge_family_summary": {
+    "celsius|lower_tail": {
+      "events": 3,
+      "model_mode_hit_rate": 0.6666666666666666,
+      "market_mode_hit_rate": 0.6666666666666666,
+      "top_edge_hit_rate": 0.3333333333333333,
+      "paper_trade_rate": 0.6666666666666666,
+      "model_log_loss": 1.3272530505867277,
+      "market_log_loss": 0.9624241884528306,
+      "model_brier": 0.6878210731605764,
+      "market_brier": 0.5364319166666667,
+      "paper_total_pnl": 0.519,
+      "paper_total_stake": 0.48100000000000004,
+      "paper_roi_on_stake": 1.079002079002079,
+      "avg_top_edge_net": 0.17364631794657193
+    },
+    "celsius|range_bin": {
+      "events": 37,
+      "model_mode_hit_rate": 0.5945945945945946,
+      "market_mode_hit_rate": 0.21621621621621623,
+      "top_edge_hit_rate": 0.32432432432432434,
+      "paper_trade_rate": 0.8108108108108109,
+      "model_log_loss": 1.6852480933727405,
+      "market_log_loss": 1.772815679300976,
+      "model_brier": 0.6963840090168609,
+      "market_brier": 0.8496009797297297,
+      "paper_total_pnl": 8.965,
+      "paper_total_stake": 3.035,
+      "paper_roi_on_stake": 2.9538714991762767,
+      "avg_top_edge_net": 0.08503298713550131
+    },
+    "celsius|upper_tail": {
+      "events": 8,
+      "model_mode_hit_rate": 0.5,
+      "market_mode_hit_rate": 0.5,
+      "top_edge_hit_rate": 0.25,
+      "paper_trade_rate": 0.625,
+      "model_log_loss": 3.171685458687544,
+      "market_log_loss": 1.2616157690110952,
+      "model_brier": 0.7590641979991838,
+      "market_brier": 0.6874455,
+      "paper_total_pnl": 0.19299999999999995,
+      "paper_total_stake": 1.8070000000000002,
+      "paper_roi_on_stake": 0.10680686220254562,
+      "avg_top_edge_net": 0.1182787752436131
+    },
+    "fahrenheit|lower_tail": {
+      "events": 2,
+      "model_mode_hit_rate": 0.0,
+      "market_mode_hit_rate": 1.0,
+      "top_edge_hit_rate": 0.0,
+      "paper_trade_rate": 1.0,
+      "model_log_loss": 3.505999832028996,
+      "market_log_loss": 1.0792423745101445,
+      "model_brier": 1.1858029299286947,
+      "market_brier": 0.549573,
+      "paper_total_pnl": -0.07100000000000001,
+      "paper_total_stake": 0.07100000000000001,
+      "paper_roi_on_stake": -1.0,
+      "avg_top_edge_net": 0.26721042795109545
+    },
+    "fahrenheit|range_bin": {
+      "events": 23,
+      "model_mode_hit_rate": 0.43478260869565216,
+      "market_mode_hit_rate": 0.391304347826087,
+      "top_edge_hit_rate": 0.13043478260869565,
+      "paper_trade_rate": 0.7391304347826086,
+      "model_log_loss": 1.668672112814529,
+      "market_log_loss": 1.3565817260163073,
+      "model_brier": 0.7490849822148256,
+      "market_brier": 0.6996546521739131,
+      "paper_total_pnl": 0.4184999999999999,
+      "paper_total_stake": 2.5815,
+      "paper_roi_on_stake": 0.16211504938988958,
+      "avg_top_edge_net": 0.05065061778823041
+    },
+    "fahrenheit|upper_tail": {
+      "events": 7,
+      "model_mode_hit_rate": 1.0,
+      "market_mode_hit_rate": 1.0,
+      "top_edge_hit_rate": 0.0,
+      "paper_trade_rate": 0.0,
+      "model_log_loss": 0.0005847720623953562,
+      "market_log_loss": 0.009280237499338569,
+      "model_brier": 3.0109479230957432e-06,
+      "market_brier": 0.00017542857142857166,
+      "paper_total_pnl": 0.0,
+      "paper_total_stake": 0.0,
+      "paper_roi_on_stake": 0.0,
+      "avg_top_edge_net": -0.06676257513674615
+    }
+  },
+  "winner_family_by_cohort": {
+    "2026-04-05": {
+      "celsius|range_bin": {
+        "events": 13,
+        "model_mode_hit_rate": 0.46153846153846156,
+        "market_mode_hit_rate": 0.23076923076923078,
+        "top_edge_hit_rate": 0.07692307692307693,
+        "paper_trade_rate": 0.8461538461538461,
+        "model_log_loss": 2.0016309613671885,
+        "market_log_loss": 1.7080702371529966,
+        "model_brier": 0.8577910927013056,
+        "market_brier": 0.8414228653846153,
+        "paper_total_pnl": 0.8085,
+        "paper_total_stake": 0.1915,
+        "paper_roi_on_stake": 4.221932114882507,
+        "avg_top_edge_net": 0.1123852025561712
+      },
+      "fahrenheit|range_bin": {
+        "events": 7,
+        "model_mode_hit_rate": 0.2857142857142857,
+        "market_mode_hit_rate": 0.42857142857142855,
+        "top_edge_hit_rate": 0.0,
+        "paper_trade_rate": 0.7142857142857143,
+        "model_log_loss": 2.382900563220276,
+        "market_log_loss": 1.629369414395479,
+        "model_brier": 0.8904272404753965,
+        "market_brier": 0.732018,
+        "paper_total_pnl": -0.19849999999999998,
+        "paper_total_stake": 0.19849999999999998,
+        "paper_roi_on_stake": -1.0,
+        "avg_top_edge_net": 0.045572773004277346
+      }
+    },
+    "2026-04-06": {
+      "celsius|range_bin": {
+        "events": 12,
+        "model_mode_hit_rate": 0.5833333333333334,
+        "market_mode_hit_rate": 0.16666666666666666,
+        "top_edge_hit_rate": 0.4166666666666667,
+        "paper_trade_rate": 0.8333333333333334,
+        "model_log_loss": 2.036290622439385,
+        "market_log_loss": 1.964388490917284,
+        "model_brier": 0.7034082792161022,
+        "market_brier": 0.9281163541666667,
+        "paper_total_pnl": 3.884,
+        "paper_total_stake": 1.116,
+        "paper_roi_on_stake": 3.480286738351254,
+        "avg_top_edge_net": 0.11614968652548092
+      },
+      "celsius|upper_tail": {
+        "events": 1,
+        "model_mode_hit_rate": 0.0,
+        "market_mode_hit_rate": 0.0,
+        "top_edge_hit_rate": 0.0,
+        "paper_trade_rate": 1.0,
+        "model_log_loss": 3.6007029543752984,
+        "market_log_loss": 0.916290731874155,
+        "model_brier": 1.1704056520999013,
+        "market_brier": 0.5733342499999999,
+        "paper_total_pnl": -0.155,
+        "paper_total_stake": 0.155,
+        "paper_roi_on_stake": -1.0,
+        "avg_top_edge_net": 0.12142870517044377
+      },
+      "fahrenheit|range_bin": {
+        "events": 7,
+        "model_mode_hit_rate": 0.42857142857142855,
+        "market_mode_hit_rate": 0.14285714285714285,
+        "top_edge_hit_rate": 0.2857142857142857,
+        "paper_trade_rate": 1.0,
+        "model_log_loss": 1.5098865817768867,
+        "market_log_loss": 1.2979052290070954,
+        "model_brier": 0.7629237689790571,
+        "market_brier": 0.7376550714285715,
+        "paper_total_pnl": 0.6609999999999999,
+        "paper_total_stake": 1.339,
+        "paper_roi_on_stake": 0.49365197908887226,
+        "avg_top_edge_net": 0.09884134676303928
+      }
+    },
+    "2026-04-07": {
+      "celsius|lower_tail": {
+        "events": 1,
+        "model_mode_hit_rate": 1.0,
+        "market_mode_hit_rate": 1.0,
+        "top_edge_hit_rate": 1.0,
+        "paper_trade_rate": 1.0,
+        "model_log_loss": 0.5460043537227735,
+        "market_log_loss": 0.843970070294529,
+        "model_brier": 0.2552943697203541,
+        "market_brier": 0.45441700000000007,
+        "paper_total_pnl": 0.52,
+        "paper_total_stake": 0.48000000000000004,
+        "paper_roi_on_stake": 1.0833333333333333,
+        "avg_top_edge_net": 0.04925970943910339
+      },
+      "celsius|range_bin": {
+        "events": 7,
+        "model_mode_hit_rate": 0.7142857142857143,
+        "market_mode_hit_rate": 0.0,
+        "top_edge_hit_rate": 0.5714285714285714,
+        "paper_trade_rate": 1.0,
+        "model_log_loss": 1.3762583567752085,
+        "market_log_loss": 1.7570899872392847,
+        "model_brier": 0.7223059309370266,
+        "market_brier": 0.9274996785714286,
+        "paper_total_pnl": 2.3745,
+        "paper_total_stake": 1.6255000000000002,
+        "paper_roi_on_stake": 1.4607812980621344,
+        "avg_top_edge_net": 0.11962098675896263
+      },
+      "celsius|upper_tail": {
+        "events": 3,
+        "model_mode_hit_rate": 1.0,
+        "market_mode_hit_rate": 1.0,
+        "top_edge_hit_rate": 0.3333333333333333,
+        "paper_trade_rate": 0.3333333333333333,
+        "model_log_loss": 0.05322635978563826,
+        "market_log_loss": 0.16222911183889324,
+        "model_brier": 0.027543856712657157,
+        "market_brier": 0.06230516666666666,
+        "paper_total_pnl": 0.31999999999999995,
+        "paper_total_stake": 0.68,
+        "paper_roi_on_stake": 0.47058823529411753,
+        "avg_top_edge_net": -0.003944232205056168
+      },
+      "fahrenheit|range_bin": {
+        "events": 7,
+        "model_mode_hit_rate": 0.5714285714285714,
+        "market_mode_hit_rate": 0.42857142857142855,
+        "top_edge_hit_rate": 0.14285714285714285,
+        "paper_trade_rate": 0.7142857142857143,
+        "model_log_loss": 1.468858319360913,
+        "market_log_loss": 1.2778893153152666,
+        "model_brier": 0.701782460985753,
+        "market_brier": 0.6870938928571428,
+        "paper_total_pnl": 0.05025000000000002,
+        "paper_total_stake": 0.94975,
+        "paper_roi_on_stake": 0.05290866017372995,
+        "avg_top_edge_net": 0.04190373566672236
+      },
+      "fahrenheit|upper_tail": {
+        "events": 2,
+        "model_mode_hit_rate": 1.0,
+        "market_mode_hit_rate": 1.0,
+        "top_edge_hit_rate": 0.0,
+        "paper_trade_rate": 0.0,
+        "model_log_loss": 0.0,
+        "market_log_loss": 0.005515307074553654,
+        "model_brier": 0.0,
+        "market_brier": 6.300000000000005e-05,
+        "paper_total_pnl": 0.0,
+        "paper_total_stake": 0.0,
+        "paper_roi_on_stake": 0.0,
+        "avg_top_edge_net": -0.069
+      }
+    },
+    "2026-04-08": {
+      "celsius|range_bin": {
+        "events": 9,
+        "model_mode_hit_rate": 0.4444444444444444,
+        "market_mode_hit_rate": 0.3333333333333333,
+        "top_edge_hit_rate": 0.2222222222222222,
+        "paper_trade_rate": 0.5555555555555556,
+        "model_log_loss": 3.0071142366969967,
+        "market_log_loss": 1.9489650004644734,
+        "model_brier": 0.8496951264046346,
+        "market_brier": 0.9289406944444445,
+        "paper_total_pnl": 1.4575,
+        "paper_total_stake": 0.5425,
+        "paper_roi_on_stake": 2.686635944700461,
+        "avg_top_edge_net": 0.06877360669709766
+      },
+      "celsius|upper_tail": {
+        "events": 2,
+        "model_mode_hit_rate": 1.0,
+        "market_mode_hit_rate": 1.0,
+        "top_edge_hit_rate": 0.5,
+        "paper_trade_rate": 0.5,
+        "model_log_loss": 0.1242546469257212,
+        "market_log_loss": 0.3547704125231896,
+        "model_brier": 0.04913616761486626,
+        "market_brier": 0.20028587499999997,
+        "paper_total_pnl": 0.4675,
+        "paper_total_stake": 0.5325,
+        "paper_roi_on_stake": 0.8779342723004696,
+        "avg_top_edge_net": 0.07171036134258835
+      },
+      "fahrenheit|range_bin": {
+        "events": 4,
+        "model_mode_hit_rate": 0.25,
+        "market_mode_hit_rate": 1.0,
+        "top_edge_hit_rate": 0.0,
+        "paper_trade_rate": 0.5,
+        "model_log_loss": 1.9649850020714061,
+        "market_log_loss": 0.9809291840926183,
+        "model_brier": 0.7786565394292324,
+        "market_brier": 0.5234585625,
+        "paper_total_pnl": -0.16525,
+        "paper_total_stake": 0.16525,
+        "paper_roi_on_stake": -1.0,
+        "avg_top_edge_net": 0.09879001924830438
+      },
+      "fahrenheit|upper_tail": {
+        "events": 5,
+        "model_mode_hit_rate": 1.0,
+        "market_mode_hit_rate": 1.0,
+        "top_edge_hit_rate": 0.0,
+        "paper_trade_rate": 0.0,
+        "model_log_loss": 0.0008186808873534987,
+        "market_log_loss": 0.010786209669252537,
+        "model_brier": 4.215327092334041e-06,
+        "market_brier": 0.00022040000000000032,
+        "paper_total_pnl": 0.0,
+        "paper_total_stake": 0.0,
+        "paper_roi_on_stake": 0.0,
+        "avg_top_edge_net": -0.0658676051914446
+      }
+    }
+  },
+  "calibration_probes": {
+    "current_global_alpha": {
+      "alpha": 0.55,
+      "events": 80,
+      "log_loss": 1.551242841875625,
+      "brier": 0.6803538955841275,
+      "mode_hit_rate": 0.5625
+    },
+    "best_global_alpha": {
+      "alpha": 0.5,
+      "events": 80,
+      "log_loss": 1.5490430938484328,
+      "brier": 0.6840162313892095,
+      "mode_hit_rate": 0.5625
+    },
+    "best_unit_alpha": {
+      "celsius_alpha": 0.45,
+      "fahrenheit_alpha": 0.55,
+      "events": 80,
+      "log_loss": 1.5469175510631796,
+      "brier": 0.6870100846947266,
+      "mode_hit_rate": 0.5625
+    },
+    "dominating_unit_candidates": []
+  },
+  "recommendations": {
+    "weakest_groups": [
+      {
+        "family": "fahrenheit|range_bin",
+        "events": 25,
+        "log_loss_delta_vs_market": 0.48126375245587183,
+        "mode_hit_delta_vs_market": -0.03999999999999998
+      },
+      {
+        "family": "celsius|upper_tail",
+        "events": 6,
+        "log_loss_delta_vs_market": 0.31606207252440693,
+        "mode_hit_delta_vs_market": 0.0
+      },
+      {
+        "family": "celsius|range_bin",
+        "events": 41,
+        "log_loss_delta_vs_market": 0.28138138307058247,
+        "mode_hit_delta_vs_market": 0.34146341463414637
+      },
+      {
+        "family": "fahrenheit|upper_tail",
+        "events": 7,
+        "log_loss_delta_vs_market": -0.008695465436943212,
+        "mode_hit_delta_vs_market": 0.0
+      }
+    ],
+    "strongest_groups": [
+      {
+        "family": "fahrenheit|upper_tail",
+        "events": 7,
+        "log_loss_delta_vs_market": -0.008695465436943212,
+        "mode_hit_delta_vs_market": 0.0
+      },
+      {
+        "family": "celsius|range_bin",
+        "events": 41,
+        "log_loss_delta_vs_market": 0.28138138307058247,
+        "mode_hit_delta_vs_market": 0.34146341463414637
+      },
+      {
+        "family": "celsius|upper_tail",
+        "events": 6,
+        "log_loss_delta_vs_market": 0.31606207252440693,
+        "mode_hit_delta_vs_market": 0.0
+      },
+      {
+        "family": "fahrenheit|range_bin",
+        "events": 25,
+        "log_loss_delta_vs_market": 0.48126375245587183,
+        "mode_hit_delta_vs_market": -0.03999999999999998
+      }
+    ]
+  }
+}

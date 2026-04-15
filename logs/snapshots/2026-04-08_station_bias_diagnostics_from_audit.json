@@ -1,0 +1,199 @@
+{
+  "snapshot_path": "logs/snapshots/2026-04-08_blind_snapshot_resolution_audit.json",
+  "diagnostics_generated_for_date": "2026-04-08",
+  "station_diagnostics": [
+    {
+      "station_code": "KLAX",
+      "rows": 2,
+      "finite_rows": 2,
+      "adaptive_hit_rate": 0.0,
+      "avg_delta_c": 2.778,
+      "mean_abs_delta_c": 2.778,
+      "recommended_bias_c": 2.0
+    },
+    {
+      "station_code": "KATL",
+      "rows": 2,
+      "finite_rows": 2,
+      "adaptive_hit_rate": 0.5,
+      "avg_delta_c": -1.667,
+      "mean_abs_delta_c": 1.667,
+      "recommended_bias_c": -1.7
+    },
+    {
+      "station_code": "KORD",
+      "rows": 2,
+      "finite_rows": 2,
+      "adaptive_hit_rate": 0.0,
+      "avg_delta_c": 1.667,
+      "mean_abs_delta_c": 1.667,
+      "recommended_bias_c": 1.7
+    },
+    {
+      "station_code": "KBKF",
+      "rows": 2,
+      "finite_rows": 2,
+      "adaptive_hit_rate": 0.5,
+      "avg_delta_c": -1.111,
+      "mean_abs_delta_c": 1.111,
+      "recommended_bias_c": -1.1
+    },
+    {
+      "station_code": "KDAL",
+      "rows": 2,
+      "finite_rows": 2,
+      "adaptive_hit_rate": 0.5,
+      "avg_delta_c": -1.111,
+      "mean_abs_delta_c": 1.111,
+      "recommended_bias_c": -1.1
+    },
+    {
+      "station_code": "KHOU",
+      "rows": 2,
+      "finite_rows": 2,
+      "adaptive_hit_rate": 0.5,
+      "avg_delta_c": -1.111,
+      "mean_abs_delta_c": 1.111,
+      "recommended_bias_c": -1.1
+    },
+    {
+      "station_code": "LTFM",
+      "rows": 2,
+      "finite_rows": 2,
+      "adaptive_hit_rate": 0.5,
+      "avg_delta_c": -1.0,
+      "mean_abs_delta_c": 1.0,
+      "recommended_bias_c": -1.0
+    },
+    {
+      "station_code": "SAEZ",
+      "rows": 2,
+      "finite_rows": 2,
+      "adaptive_hit_rate": 0.5,
+      "avg_delta_c": 1.0,
+      "mean_abs_delta_c": 1.0,
+      "recommended_bias_c": 1.0
+    },
+    {
+      "station_code": "WIHH",
+      "rows": 2,
+      "finite_rows": 2,
+      "adaptive_hit_rate": 0.0,
+      "avg_delta_c": -1.0,
+      "mean_abs_delta_c": 1.0,
+      "recommended_bias_c": -1.0
+    },
+    {
+      "station_code": "KAUS",
+      "rows": 2,
+      "finite_rows": 2,
+      "adaptive_hit_rate": 0.5,
+      "avg_delta_c": -0.556,
+      "mean_abs_delta_c": 0.556,
+      "recommended_bias_c": -0.6
+    },
+    {
+      "station_code": "ZBAA",
+      "rows": 2,
+      "finite_rows": 2,
+      "adaptive_hit_rate": 0.5,
+      "avg_delta_c": 0.5,
+      "mean_abs_delta_c": 0.5,
+      "recommended_bias_c": 0.5
+    },
+    {
+      "station_code": "EGLC",
+      "rows": 2,
+      "finite_rows": 2,
+      "adaptive_hit_rate": 0.0,
+      "avg_delta_c": 0.0,
+      "mean_abs_delta_c": 1.0,
+      "recommended_bias_c": null
+    },
+    {
+      "station_code": "LTAC",
+      "rows": 2,
+      "finite_rows": 2,
+      "adaptive_hit_rate": 1.0,
+      "avg_delta_c": 0.0,
+      "mean_abs_delta_c": 0.0,
+      "recommended_bias_c": null
+    },
+    {
+      "station_code": "RKPK",
+      "rows": 2,
+      "finite_rows": 2,
+      "adaptive_hit_rate": 1.0,
+      "avg_delta_c": 0.0,
+      "mean_abs_delta_c": 0.0,
+      "recommended_bias_c": null
+    },
+    {
+      "station_code": "VHHH",
+      "rows": 2,
+      "finite_rows": 2,
+      "adaptive_hit_rate": 1.0,
+      "avg_delta_c": 0.0,
+      "mean_abs_delta_c": 0.0,
+      "recommended_bias_c": null
+    },
+    {
+      "station_code": "WMKK",
+      "rows": 2,
+      "finite_rows": 2,
+      "adaptive_hit_rate": 1.0,
+      "avg_delta_c": 0.0,
+      "mean_abs_delta_c": 0.0,
+      "recommended_bias_c": null
+    },
+    {
+      "station_code": "ZUUU",
+      "rows": 2,
+      "finite_rows": 2,
+      "adaptive_hit_rate": 1.0,
+      "avg_delta_c": 0.0,
+      "mean_abs_delta_c": 0.0,
+      "recommended_bias_c": null
+    },
+    {
+      "station_code": "EHAM",
+      "rows": 2,
+      "finite_rows": 1,
+      "adaptive_hit_rate": 0.0,
+      "avg_delta_c": -4.0,
+      "mean_abs_delta_c": 4.0,
+      "recommended_bias_c": null
+    },
+    {
+      "station_code": "EFHK",
+      "rows": 2,
+      "finite_rows": 1,
+      "adaptive_hit_rate": 0.0,
+      "avg_delta_c": 1.0,
+      "mean_abs_delta_c": 1.0,
+      "recommended_bias_c": null
+    },
+    {
+      "station_code": "ZUCK",
+      "rows": 2,
+      "finite_rows": 1,
+      "adaptive_hit_rate": 0.0,
+      "avg_delta_c": -1.0,
+      "mean_abs_delta_c": 1.0,
+      "recommended_bias_c": null
+    }
+  ],
+  "recommended_station_temperature_bias_c": {
+    "KATL": -1.7,
+    "KAUS": -0.6,
+    "KBKF": -1.1,
+    "KDAL": -1.1,
+    "KHOU": -1.1,
+    "KLAX": 2.0,
+    "KORD": 1.7,
+    "LTFM": -1.0,
+    "SAEZ": 1.0,
+    "WIHH": -1.0,
+    "ZBAA": 0.5
+  }
+}
