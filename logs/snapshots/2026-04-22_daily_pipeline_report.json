@@ -1,0 +1,175 @@
+{
+  "captured_at_utc": "2026-04-22T10:43:52.499086",
+  "reference_date": "2026-04-22",
+  "overall_status": "degraded",
+  "steps": [
+    {
+      "name": "blind_live_validation",
+      "command": [
+        "/Users/marc/Documents/Polymarket/WeatherTrading/venv/bin/python",
+        "/Users/marc/Documents/Polymarket/WeatherTrading/scripts/run_blind_live_validation.py",
+        "--as-of-date",
+        "2026-04-22",
+        "--max-events",
+        "20",
+        "--min-horizon-days",
+        "0",
+        "--max-horizon-days",
+        "4"
+      ],
+      "started_at_utc": "2026-04-22T10:43:30.506300",
+      "finished_at_utc": "2026-04-22T10:43:44.886579",
+      "exit_code": 1,
+      "status": "failed",
+      "expected_artifacts": {
+        "logs/snapshots/2026-04-22_polymarket_blind_live_validation.json": false
+      },
+      "notes": [],
+      "audit_quality": null,
+      "stdout_tail": [],
+      "stderr_tail": [
+        "    response = await self._send_handling_redirects(",
+        "               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+        "    ...<3 lines>...",
+        "    )",
+        "    ^",
+        "  File \"/Users/marc/Documents/Polymarket/WeatherTrading/venv/lib/python3.14/site-packages/httpx/_client.py\", line 1694, in _send_handling_redirects",
+        "    response = await self._send_single_request(request)",
+        "               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+        "  File \"/Users/marc/Documents/Polymarket/WeatherTrading/venv/lib/python3.14/site-packages/httpx/_client.py\", line 1730, in _send_single_request",
+        "    response = await transport.handle_async_request(request)",
+        "               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+        "  File \"/Users/marc/Documents/Polymarket/WeatherTrading/venv/lib/python3.14/site-packages/httpx/_transports/default.py\", line 393, in handle_async_request",
+        "    with map_httpcore_exceptions():",
+        "         ~~~~~~~~~~~~~~~~~~~~~~~^^",
+        "  File \"/opt/homebrew/Cellar/python@3.14/3.14.4/Frameworks/Python.framework/Versions/3.14/lib/python3.14/contextlib.py\", line 162, in __exit__",
+        "    self.gen.throw(value)",
+        "    ~~~~~~~~~~~~~~^^^^^^^",
+        "  File \"/Users/marc/Documents/Polymarket/WeatherTrading/venv/lib/python3.14/site-packages/httpx/_transports/default.py\", line 118, in map_httpcore_exceptions",
+        "    raise mapped_exc(message) from exc",
+        "httpx.ConnectError: [Errno 8] nodename nor servname provided, or not known"
+      ]
+    },
+    {
+      "name": "observation_backfill",
+      "command": [
+        "/Users/marc/Documents/Polymarket/WeatherTrading/venv/bin/python",
+        "/Users/marc/Documents/Polymarket/WeatherTrading/scripts/run_observation_backfill.py",
+        "--reference-date",
+        "2026-04-22"
+      ],
+      "started_at_utc": "2026-04-22T10:43:44.886707",
+      "finished_at_utc": "2026-04-22T10:43:52.279002",
+      "exit_code": 0,
+      "status": "ok",
+      "expected_artifacts": {
+        "logs/snapshots/2026-04-22_observation_backfill.json": true
+      },
+      "notes": [],
+      "audit_quality": null,
+      "stdout_tail": [
+        "Backfill guardado en: /Users/marc/Documents/Polymarket/WeatherTrading/logs/snapshots/2026-04-22_observation_backfill.json",
+        "=== RESUMEN BACKFILL OBSERVACIONES ===",
+        "Targets descubiertos: 200",
+        "Targets ya resueltos localmente: 160",
+        "Targets pendientes de fetch remoto: 40",
+        "Estaciones cubiertas: 20",
+        "Targets resueltos: 0",
+        "Filas creadas: 0",
+        "Filas actualizadas: 0",
+        "Targets sin archivo: 0",
+        "Fallos de fetch: 20"
+      ],
+      "stderr_tail": [
+        "Intento 1/3 fallido para fetch_archive_daily_max_history: [Errno 8] nodename nor servname provided, or not known. Reintentando en 1.0s...",
+        "Intento 2/3 fallido para fetch_archive_daily_max_history: [Errno 8] nodename nor servname provided, or not known. Reintentando en 2.0s...",
+        "Intento 3/3 fallido para fetch_archive_daily_max_history: [Errno 8] nodename nor servname provided, or not known. Reintentando en 4.0s...",
+        "Todos los intentos fallidos para fetch_archive_daily_max_history"
+      ]
+    },
+    {
+      "name": "blind_snapshot_resolution_audit",
+      "command": [
+        "/Users/marc/Documents/Polymarket/WeatherTrading/venv/bin/python",
+        "/Users/marc/Documents/Polymarket/WeatherTrading/scripts/run_blind_snapshot_resolution_audit.py",
+        "--reference-date",
+        "2026-04-22",
+        "--local-only"
+      ],
+      "started_at_utc": "2026-04-22T10:43:52.279255",
+      "finished_at_utc": "2026-04-22T10:43:52.445613",
+      "exit_code": 0,
+      "status": "degraded",
+      "expected_artifacts": {
+        "logs/snapshots/2026-04-22_blind_snapshot_resolution_audit.json": true,
+        "logs/snapshots/2026-04-22_watchlist_strategy_simulation.json": true
+      },
+      "notes": [
+        "audit_non_conclusive"
+      ],
+      "audit_quality": {
+        "classification": "non_conclusive",
+        "reason": "mature_coverage_below_actionable_threshold",
+        "is_actionable": false,
+        "is_comparable_to_full_coverage": false,
+        "min_mature_coverage_for_complete": 0.95,
+        "min_mature_coverage_for_actionable": 0.85,
+        "mature_resolution_coverage": 0.8
+      },
+      "stdout_tail": [
+        "Comparativa filtros watchlist:",
+        "  model_current: trades=102 | hit_rate=26.5% | pnl=+11.926 | roi=79.1%",
+        "  model_skip_opposed: trades=97 | hit_rate=27.8% | pnl=+12.559 | roi=87.0%",
+        "  model_skip_celsius_active_unclassified: trades=90 | hit_rate=27.8% | pnl=+11.092 | roi=79.7%",
+        "  model_skip_opposed_and_celsius_active_unclassified: trades=85 | hit_rate=29.4% | pnl=+11.725 | roi=88.3%",
+        "Por estrategia:",
+        "  baseline_short_horizon: events=160 | paper_trades=102 | log_loss=1.578 | pnl=11.926",
+        "Por horizonte:",
+        "  H1: events=160 | paper_trades=102 | log_loss=1.578 | pnl=11.926",
+        "Por calidad:",
+        "  A: events=87 | paper_trades=47 | log_loss=1.297 | pnl=6.937",
+        "  B: events=24 | paper_trades=17 | log_loss=1.901 | pnl=-0.035",
+        "  C: events=8 | paper_trades=4 | log_loss=1.459 | pnl=0.024",
+        "  D: events=1 | paper_trades=0 | log_loss=1.059 | pnl=0.000",
+        "  unknown: events=40 | paper_trades=34 | log_loss=2.033 | pnl=5.000",
+        "Por evidencia:",
+        "  A: events=120 | operable=115 | log_loss=1.427 | pnl=6.926",
+        "  unknown: events=40 | operable=40 | log_loss=2.033 | pnl=5.000",
+        "Por fuente de temperatura real:",
+        "  local_open_meteo_archive_backfill: events=160 | log_loss=1.578 | pnl=11.926"
+      ],
+      "stderr_tail": []
+    },
+    {
+      "name": "cohort_overlay_diagnostics",
+      "command": [
+        "/Users/marc/Documents/Polymarket/WeatherTrading/venv/bin/python",
+        "/Users/marc/Documents/Polymarket/WeatherTrading/scripts/run_cohort_overlay_diagnostics.py",
+        "--reference-date",
+        "2026-04-22"
+      ],
+      "started_at_utc": "2026-04-22T10:43:52.446739",
+      "finished_at_utc": "2026-04-22T10:43:52.499054",
+      "exit_code": 0,
+      "status": "ok",
+      "expected_artifacts": {},
+      "notes": [],
+      "audit_quality": null,
+      "stdout_tail": [
+        "Diagnostico guardado en: /Users/marc/Documents/Polymarket/WeatherTrading/logs/snapshots/2026-04-22_cohort_overlay_diagnostics_2026-04-13.json",
+        "=== DIAGNOSTICO DE COHORTE ===",
+        "Cohorte 2026-04-13 | eventos=20 | model_hit=45.0% | market_hit=45.0% | model_log_loss=2.587 | market_log_loss=1.483 | paper_pnl=-0.821",
+        "Peores tiers de calidad:",
+        "- A: events=13 | log_loss_delta=+1.243 | paper_pnl=-0.994 | roi=-49.8%",
+        "- B: events=4 | log_loss_delta=+1.101 | paper_pnl=-0.167 | roi=-100.0%",
+        "- C: events=3 | log_loss_delta=+0.513 | paper_pnl=+0.340 | roi=51.5%",
+        "Peores señales de watchlist:",
+        "- active_unclassified: events=11 | log_loss_delta=+1.513 | paper_pnl=-1.459 | roi=-59.3%",
+        "- mixed: events=2 | log_loss_delta=-0.014 | paper_pnl=+0.000 | roi=0.0%",
+        "- opposed: events=5 | log_loss_delta=+1.142 | paper_pnl=+0.000 | roi=0.0%",
+        "- silent: events=2 | log_loss_delta=-0.116 | paper_pnl=+0.637 | roi=175.9%"
+      ],
+      "stderr_tail": []
+    }
+  ]
+}

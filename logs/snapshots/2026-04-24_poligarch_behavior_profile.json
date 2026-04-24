@@ -1,0 +1,321 @@
+{
+  "captured_at_utc": "2026-04-24T09:43:30.056923",
+  "username": "Poligarch",
+  "label": "Poligarch",
+  "proxy_wallet": "0xb40e89677d59665d5188541ad860450a6e2a7cc9",
+  "category": "WEATHER",
+  "leaderboard": {
+    "monthly": {
+      "rank": 7,
+      "pnl": 29782.91666579464,
+      "volume": 2406482.0964410002,
+      "proxy_wallet": "0xb40e89677d59665d5188541ad860450a6e2a7cc9"
+    },
+    "all_time": {
+      "rank": 18,
+      "pnl": 49669.37475208031,
+      "volume": 5995608.320881999,
+      "proxy_wallet": "0xb40e89677d59665d5188541ad860450a6e2a7cc9"
+    }
+  },
+  "recent_trades_summary": {
+    "trade_count": 2000,
+    "unique_event_count": 174,
+    "unique_market_count": 455,
+    "avg_notional_usd": 12.022169825438029,
+    "median_notional_usd": 4.26232,
+    "avg_size": 25.469073395,
+    "median_size": 9.792925,
+    "avg_price": 0.48786093893580745,
+    "median_price": 0.48
+  },
+  "trade_direction_summary": {
+    "breakdown": {
+      "no|buy": 958,
+      "no|sell": 1,
+      "yes|buy": 1040,
+      "yes|sell": 1
+    },
+    "yes_buy_share": 0.52,
+    "no_buy_share": 0.479,
+    "sell_share": 0.001
+  },
+  "timing_summary": {
+    "avg_hours_before_event": 18.148354080840647,
+    "median_hours_before_event": 17.533055555555556,
+    "same_day_share": 0.7796883396023643,
+    "one_to_three_day_share": 0.22031166039763567,
+    "more_than_three_day_share": 0.0,
+    "by_hour_utc": {
+      "0": 60,
+      "1": 50,
+      "2": 1,
+      "3": 5,
+      "4": 98,
+      "5": 209,
+      "6": 321,
+      "7": 196,
+      "8": 94,
+      "9": 59,
+      "10": 61,
+      "11": 29,
+      "12": 27,
+      "13": 86,
+      "14": 34,
+      "15": 34,
+      "16": 47,
+      "17": 44,
+      "18": 92,
+      "19": 134,
+      "20": 151,
+      "21": 52,
+      "22": 47,
+      "23": 69
+    },
+    "by_weekday_utc": {
+      "Friday": 231,
+      "Thursday": 1139,
+      "Tuesday": 154,
+      "Wednesday": 476
+    }
+  },
+  "market_family_summary": {
+    "event_family_breakdown": {
+      "other": 139,
+      "temperature_other": 1,
+      "weather_temperature": 1860
+    },
+    "unit_breakdown": {
+      "celsius": 1508,
+      "fahrenheit": 353,
+      "unknown": 139
+    }
+  },
+  "current_positions_summary": {
+    "position_count": 200,
+    "total_current_value_usd": 29049.087,
+    "avg_current_value_usd": 145.245435,
+    "top_positions_by_value": [
+      {
+        "title": "DeepSeek V4 released by April 24?",
+        "current_value_usd": 5002.7536,
+        "size": 5002.7536,
+        "outcome": "Yes",
+        "avg_price": 0.8054
+      },
+      {
+        "title": "Trump announces end of military operations against Iran by April 30th?",
+        "current_value_usd": 4724.9682,
+        "size": 4999.9663,
+        "outcome": "No",
+        "avg_price": 0.78
+      },
+      {
+        "title": "Israel x Hezbollah Ceasefire extended by April 26, 2026?",
+        "current_value_usd": 2971.5473,
+        "size": 5354.1394,
+        "outcome": "Yes",
+        "avg_price": 0.4476
+      },
+      {
+        "title": "DeepSeek V4 released by April 30?",
+        "current_value_usd": 2284.2806,
+        "size": 2284.2806,
+        "outcome": "Yes",
+        "avg_price": 0.8954
+      },
+      {
+        "title": "US x Iran permanent peace deal by May 31, 2026?",
+        "current_value_usd": 1787.5,
+        "size": 2500.0,
+        "outcome": "No",
+        "avg_price": 0.68
+      },
+      {
+        "title": "DeepSeek V4 released by April 26?",
+        "current_value_usd": 967.1901,
+        "size": 967.1901,
+        "outcome": "Yes",
+        "avg_price": 0.591
+      },
+      {
+        "title": "Will the highest temperature in Beijing be 24°C on April 24?",
+        "current_value_usd": 577.2727,
+        "size": 579.8822,
+        "outcome": "Yes",
+        "avg_price": 0.6298
+      },
+      {
+        "title": "Will Elon Musk post 220-239 tweets from April 17 to April 24, 2026?",
+        "current_value_usd": 490.0781,
+        "size": 507.59,
+        "outcome": "No",
+        "avg_price": 0.7888
+      },
+      {
+        "title": "Will the highest temperature in Wuhan be 23°C on April 24?",
+        "current_value_usd": 353.8125,
+        "size": 355.7692,
+        "outcome": "No",
+        "avg_price": 0.8975
+      },
+      {
+        "title": "Iran x Israel/US conflict ends by April 7?",
+        "current_value_usd": 311.3702,
+        "size": 311.5259,
+        "outcome": "Yes",
+        "avg_price": 0.8396
+      }
+    ]
+  },
+  "closed_positions_summary": {
+    "closed_position_count": 50,
+    "total_realized_pnl_usd": 188219.188711,
+    "avg_realized_pnl_usd": 3764.38377422,
+    "median_realized_pnl_usd": 2741.8453565,
+    "avg_percent_pnl": 0.0,
+    "win_rate": 1.0,
+    "loss_rate": 0.0
+  },
+  "activity_summary": {
+    "activity_count": 200,
+    "activity_type_breakdown": {
+      "trade": 200
+    }
+  },
+  "portfolio_value_summary": {
+    "raw": {},
+    "total_value_usd": null
+  },
+  "top_events_by_trade_count": [
+    {
+      "key": "highest-temperature-in-seoul-on-april-23-2026",
+      "count": 89
+    },
+    {
+      "key": "highest-temperature-in-toronto-on-april-23-2026",
+      "count": 83
+    },
+    {
+      "key": "highest-temperature-in-seattle-on-april-23-2026",
+      "count": 74
+    },
+    {
+      "key": "highest-temperature-in-shanghai-on-april-23-2026",
+      "count": 64
+    },
+    {
+      "key": "highest-temperature-in-beijing-on-april-22-2026",
+      "count": 62
+    },
+    {
+      "key": "highest-temperature-in-nyc-on-april-23-2026",
+      "count": 41
+    },
+    {
+      "key": "highest-temperature-in-busan-on-april-23-2026",
+      "count": 38
+    },
+    {
+      "key": "highest-temperature-in-hong-kong-on-april-24-2026",
+      "count": 31
+    },
+    {
+      "key": "highest-temperature-in-chengdu-on-april-22-2026",
+      "count": 30
+    },
+    {
+      "key": "highest-temperature-in-munich-on-april-24-2026",
+      "count": 28
+    }
+  ],
+  "top_markets_by_trade_count": [
+    {
+      "key": "highest-temperature-in-seoul-on-april-23-2026-23corhigher",
+      "count": 54
+    },
+    {
+      "key": "highest-temperature-in-toronto-on-april-23-2026-17c",
+      "count": 34
+    },
+    {
+      "key": "highest-temperature-in-shanghai-on-april-23-2026-16c",
+      "count": 32
+    },
+    {
+      "key": "highest-temperature-in-shanghai-on-april-23-2026-17c",
+      "count": 31
+    },
+    {
+      "key": "highest-temperature-in-seattle-on-april-23-2026-57forbelow",
+      "count": 30
+    },
+    {
+      "key": "highest-temperature-in-beijing-on-april-22-2026-22c",
+      "count": 30
+    },
+    {
+      "key": "highest-temperature-in-seoul-on-april-23-2026-22c",
+      "count": 28
+    },
+    {
+      "key": "highest-temperature-in-seattle-on-april-23-2026-58-59f",
+      "count": 26
+    },
+    {
+      "key": "highest-temperature-in-toronto-on-april-23-2026-18c",
+      "count": 26
+    },
+    {
+      "key": "highest-temperature-in-nyc-on-april-23-2026-72-73f",
+      "count": 23
+    }
+  ],
+  "top_events_by_notional": [
+    {
+      "event_slug": "israel-x-hezbollah-ceasefire-extended-by",
+      "total_notional_usd": 5381.2121
+    },
+    {
+      "event_slug": "us-x-iran-diplomatic-meeting-by-329",
+      "total_notional_usd": 2303.9107999999997
+    },
+    {
+      "event_slug": "us-x-iran-permanent-peace-deal-by",
+      "total_notional_usd": 1700.0000000000002
+    },
+    {
+      "event_slug": "us-x-iran-ceasefire-extended-by",
+      "total_notional_usd": 1645.8593999999998
+    },
+    {
+      "event_slug": "highest-temperature-in-seoul-on-april-23-2026",
+      "total_notional_usd": 959.219086142477
+    },
+    {
+      "event_slug": "iran-agrees-to-unrestricted-shipping-through-hormuz-in-april",
+      "total_notional_usd": 626.1017
+    },
+    {
+      "event_slug": "highest-temperature-in-seattle-on-april-23-2026",
+      "total_notional_usd": 602.5022023243256
+    },
+    {
+      "event_slug": "highest-temperature-in-toronto-on-april-23-2026",
+      "total_notional_usd": 503.19957031707924
+    },
+    {
+      "event_slug": "highest-temperature-in-shanghai-on-april-23-2026",
+      "total_notional_usd": 485.021245234521
+    },
+    {
+      "event_slug": "highest-temperature-in-beijing-on-april-22-2026",
+      "total_notional_usd": 412.1055761273359
+    }
+  ],
+  "notes": [
+    "avg_notional_usd se deriva como price * size cuando ambos campos existen",
+    "timing_summary usa eventSlug/eventDate oficial cuando existe y fallback por slug en eventos de temperatura",
+    "closed_positions/current_positions dependen del payload actual de la Data API publica"
+  ]
+}

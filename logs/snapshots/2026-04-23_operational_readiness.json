@@ -1,0 +1,69 @@
+{
+  "captured_at_utc": "2026-04-24T08:54:29.917501",
+  "reference_date": "2026-04-23",
+  "status": "blocked",
+  "recommended_mode": "do_not_trade",
+  "pipeline_report_path": "logs/snapshots/2026-04-23_daily_pipeline_report.json",
+  "audit_snapshot_path": "logs/snapshots/2026-04-23_blind_snapshot_resolution_audit.json",
+  "live_snapshot_path": null,
+  "pipeline_status": "degraded",
+  "audit_quality": {
+    "classification": "non_conclusive",
+    "reason": "mature_coverage_below_actionable_threshold",
+    "is_actionable": false,
+    "is_comparable_to_full_coverage": false,
+    "min_mature_coverage_for_complete": 0.95,
+    "min_mature_coverage_for_actionable": 0.85,
+    "mature_resolution_coverage": 0.8
+  },
+  "coverage_debt": {
+    "unresolved_mature_events": 40,
+    "by_reason": {
+      "archive_fetch_skipped_local_only": 40
+    },
+    "by_station": {
+      "EDDM": 2,
+      "EFHK": 2,
+      "EGLC": 2,
+      "EHAM": 2,
+      "KATL": 2,
+      "KAUS": 2,
+      "KBKF": 2,
+      "KDAL": 2,
+      "KHOU": 2,
+      "KLAX": 2,
+      "KLGA": 2,
+      "KMIA": 2,
+      "KORD": 2,
+      "LEMD": 2,
+      "LIMC": 2,
+      "LTAC": 2,
+      "LTFM": 2,
+      "MMMX": 2,
+      "SAEZ": 2,
+      "UUWW": 2
+    },
+    "by_event_date": {
+      "2026-04-15": 20,
+      "2026-04-16": 20
+    }
+  },
+  "database_health": {
+    "path": "weather_trading.db",
+    "exists": true,
+    "status": "ok",
+    "observation_count": 169,
+    "latest_observed_at_utc": "2026-04-15 06:59:00.000000",
+    "latest_observed_date": "2026-04-15",
+    "observation_lag_days": 8,
+    "error": null
+  },
+  "blockers": [
+    "live_snapshot_missing",
+    "audit_non_conclusive"
+  ],
+  "warnings": [
+    "weather_observations_stale",
+    "pipeline_degraded"
+  ]
+}

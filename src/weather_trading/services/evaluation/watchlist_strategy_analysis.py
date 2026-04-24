@@ -41,6 +41,9 @@ async def build_watchlist_strategy_summary(
         "copy_coldmath": [],
         "copy_poligarch": [],
         "copy_watchlist_consensus": [],
+        "copy_coldmath_directional": [],
+        "copy_poligarch_directional": [],
+        "copy_watchlist_consensus_directional": [],
     }
     parser = DeterministicParser()
 
@@ -87,10 +90,24 @@ async def build_watchlist_strategy_summary(
             trade = evaluate_candidate_trade(candidate, evaluation)
             if trade is not None:
                 strategies[strategy_name].append(trade)
+        for strategy_name, trader_label in (
+            ("copy_coldmath_directional", "ColdMath"),
+            ("copy_poligarch_directional", "Poligarch"),
+        ):
+            candidate = trader_candidates["directional_by_trader"].get(trader_label)
+            trade = evaluate_candidate_trade(candidate, evaluation)
+            if trade is not None:
+                strategies[strategy_name].append(trade)
 
         consensus_trade = evaluate_candidate_trade(trader_candidates["consensus"], evaluation)
         if consensus_trade is not None:
             strategies["copy_watchlist_consensus"].append(consensus_trade)
+        directional_consensus_trade = evaluate_candidate_trade(
+            trader_candidates["directional_consensus"],
+            evaluation,
+        )
+        if directional_consensus_trade is not None:
+            strategies["copy_watchlist_consensus_directional"].append(directional_consensus_trade)
 
     summary = {
         "captured_at_utc": utc_now().isoformat(),
@@ -114,7 +131,8 @@ async def build_watchlist_strategy_summary(
         "notes": [
             "prioriza watchlist ya congelada dentro de snapshots live cuando existe, y solo intenta reconstruccion remota como fallback",
             "copy_* usa solo trades de watchlist anteriores al snapshot y dentro de la ventana reciente configurada",
-            "copy_* solo simula sesgo YES positivo en mercados que podemos mapear al snapshot",
+            "copy_* mantiene la simulacion historica YES-only para comparabilidad con snapshots previos",
+            "copy_*_directional simula el lado real del trader: BUY YES/SELL NO como sesgo positivo y BUY NO/SELL YES como sesgo negativo",
             "model_aligned_only toma exactamente el top-edge del modelo cuando la watchlist esta alineada",
             "model_skip_opposed mantiene el trade del modelo salvo cuando la watchlist va en contra",
             "model_skip_celsius_active_unclassified bloquea el top-edge si la watchlist esta en active_unclassified y el top-edge pertenece a celsius|range_bin",
@@ -347,6 +365,7 @@ def build_trader_candidates(event: dict, watchlist_trades: list[dict]) -> dict:
     }
 
     scores_by_trader: dict[str, dict[str, float]] = defaultdict(lambda: defaultdict(float))
+    directional_scores_by_trader: dict[str, dict[str, float]] = defaultdict(lambda: defaultdict(float))
     market_by_id: dict[str, dict] = {}
     for trade in watchlist_trades:
         matched_market = None
@@ -361,15 +380,19 @@ def build_trader_candidates(event: dict, watchlist_trades: list[dict]) -> dict:
             continue
 
         bias = infer_yes_bias(trade)
-        if bias <= 0:
+        if bias == 0:
             continue
 
         trader_label = str(trade.get("label") or trade.get("username") or trade.get("proxy_wallet"))
-        magnitude = float(trade.get("size") or 1.0)
+        magnitude = abs(float(trade.get("size") or 1.0))
         market_id = str(matched_market["market_id"])
+        market_by_id[market_id] = matched_market
+        directional_scores_by_trader[trader_label][market_id] += magnitude * bias
+        directional_scores_by_trader["__consensus__"][market_id] += magnitude * bias
+        if bias <= 0:
+            continue
         scores_by_trader[trader_label][market_id] += magnitude
         scores_by_trader["__consensus__"][market_id] += magnitude
-        market_by_id[market_id] = matched_market
 
     return {
         "by_trader": {
@@ -378,10 +401,24 @@ def build_trader_candidates(event: dict, watchlist_trades: list[dict]) -> dict:
             if trader != "__consensus__"
         },
         "consensus": select_market_candidate(scores_by_trader.get("__consensus__", {}), market_by_id),
+        "directional_by_trader": {
+            trader: select_directional_market_candidate(scores, market_by_id)
+            for trader, scores in directional_scores_by_trader.items()
+            if trader != "__consensus__"
+        },
+        "directional_consensus": select_directional_market_candidate(
+            directional_scores_by_trader.get("__consensus__", {}),
+            market_by_id,
+        ),
     }
 
 
-def select_market_candidate(scores: dict[str, float], market_by_id: dict[str, dict]) -> dict | None:
+def select_market_candidate(
+    scores: dict[str, float],
+    market_by_id: dict[str, dict],
+    *,
+    yes_bias: int = 1,
+) -> dict | None:
     if not scores:
         return None
     market_id, conviction = max(scores.items(), key=lambda item: item[1])
@@ -394,7 +431,24 @@ def select_market_candidate(scores: dict[str, float], market_by_id: dict[str, di
         "conviction": conviction,
         "execution_price": float(market.get("execution_price") or 0.0),
         "costs": float(market.get("estimated_costs") or 0.0),
+        "yes_bias": yes_bias,
     }
+
+
+def select_directional_market_candidate(scores: dict[str, float], market_by_id: dict[str, dict]) -> dict | None:
+    if not scores:
+        return None
+    market_id, signed_conviction = max(scores.items(), key=lambda item: abs(item[1]))
+    if signed_conviction == 0:
+        return None
+    candidate = select_market_candidate(
+        {market_id: abs(signed_conviction)},
+        market_by_id,
+        yes_bias=1 if signed_conviction > 0 else -1,
+    )
+    if candidate is not None:
+        candidate["signed_conviction"] = signed_conviction
+    return candidate
 
 
 def infer_yes_bias(trade: dict) -> int:
@@ -421,8 +475,12 @@ def evaluate_candidate_trade(candidate: dict | None, evaluation: dict) -> dict |
     if candidate is None:
         return None
 
-    stake = float(candidate["execution_price"]) + float(candidate["costs"])
-    hit = str(candidate["market_id"]) == str(evaluation["winner_market_id"])
+    yes_bias = int(candidate.get("yes_bias", 1))
+    yes_price = float(candidate["execution_price"])
+    selected_price = yes_price if yes_bias >= 0 else max(0.0, 1.0 - yes_price)
+    stake = selected_price + float(candidate["costs"])
+    selected_market_won = str(candidate["market_id"]) == str(evaluation["winner_market_id"])
+    hit = selected_market_won if yes_bias >= 0 else not selected_market_won
     pnl = (1.0 - stake) if hit else -stake
     return {
         "event_slug": evaluation["event_slug"],
@@ -430,10 +488,13 @@ def evaluate_candidate_trade(candidate: dict | None, evaluation: dict) -> dict |
         "hit": hit,
         "stake": stake,
         "pnl": pnl,
-        "execution_price": float(candidate["execution_price"]),
+        "execution_price": selected_price,
+        "yes_market_price": yes_price,
+        "side": "YES" if yes_bias >= 0 else "NO",
         "costs": float(candidate["costs"]),
         "question": candidate["question"],
         "conviction": float(candidate.get("conviction", 0.0)),
+        "signed_conviction": float(candidate.get("signed_conviction", candidate.get("conviction", 0.0))),
     }
 
 

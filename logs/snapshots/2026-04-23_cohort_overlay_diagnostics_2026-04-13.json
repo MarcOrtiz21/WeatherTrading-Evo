@@ -1,6 +1,6 @@
 {
-  "captured_at_utc": "2026-04-17T07:37:37.672359",
-  "reference_date": "2026-04-15",
+  "captured_at_utc": "2026-04-23T13:49:57.288306",
+  "reference_date": "2026-04-23",
   "cohort_as_of_date": "2026-04-13",
   "events": 20,
   "live_snapshot_path": "logs/snapshots/2026-04-13_polymarket_blind_live_validation.json",

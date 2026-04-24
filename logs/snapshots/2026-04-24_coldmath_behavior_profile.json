@@ -1,0 +1,354 @@
+{
+  "captured_at_utc": "2026-04-24T09:42:59.793317",
+  "username": "ColdMath",
+  "label": "ColdMath",
+  "proxy_wallet": "0x594edb9112f526fa6a80b8f858a6379c8a2c1c11",
+  "category": "WEATHER",
+  "leaderboard": {
+    "monthly": {
+      "rank": 2,
+      "pnl": 66845.08414142748,
+      "volume": 2107380.479524,
+      "proxy_wallet": "0x594edb9112f526fa6a80b8f858a6379c8a2c1c11"
+    },
+    "all_time": {
+      "rank": 3,
+      "pnl": 120543.87614431094,
+      "volume": 8787207.208792,
+      "proxy_wallet": "0x594edb9112f526fa6a80b8f858a6379c8a2c1c11"
+    }
+  },
+  "recent_trades_summary": {
+    "trade_count": 2000,
+    "unique_event_count": 231,
+    "unique_market_count": 429,
+    "avg_notional_usd": 137.94073500270704,
+    "median_notional_usd": 8.05383,
+    "avg_size": 199.02315268,
+    "median_size": 27.248535,
+    "avg_price": 0.5675007126843247,
+    "median_price": 0.82
+  },
+  "trade_direction_summary": {
+    "breakdown": {
+      "1. fc heidenheim 1846|buy": 1,
+      "1. fc union berlin|buy": 4,
+      "1. fsv mainz 05|buy": 8,
+      "aalesunds fk|buy": 7,
+      "albacete balompié|buy": 36,
+      "austin fc|buy": 7,
+      "beşiktaş jk|buy": 2,
+      "brøndby if|buy": 7,
+      "cd leganés|buy": 12,
+      "cádiz cf|buy": 8,
+      "fatih karagümrük sk|buy": 7,
+      "fc andorra|buy": 1,
+      "fc barcelona|buy": 1,
+      "fc bayern münchen|buy": 1,
+      "fc fredericia|buy": 1,
+      "fc nordsjælland|buy": 9,
+      "granada cf|buy": 1,
+      "ik start|buy": 13,
+      "kasımpaşa sk|buy": 1,
+      "kfum-kameratene oslo|buy": 10,
+      "levante ud|buy": 5,
+      "no|buy": 1053,
+      "odense bk|buy": 1,
+      "over|buy": 7,
+      "rc celta de vigo|buy": 2,
+      "rcd mallorca|buy": 16,
+      "san jose earthquakes|buy": 1,
+      "sd eibar|buy": 11,
+      "sk brann|buy": 5,
+      "stade brestois 29|buy": 3,
+      "toronto fc|buy": 3,
+      "ud las palmas|buy": 8,
+      "under|buy": 4,
+      "vejle bk|buy": 4,
+      "viborg ff|buy": 3,
+      "vålerenga fotball|buy": 1,
+      "yes|buy": 736
+    },
+    "yes_buy_share": 0.368,
+    "no_buy_share": 0.5265,
+    "sell_share": 0.0
+  },
+  "timing_summary": {
+    "avg_hours_before_event": 28.468695935868755,
+    "median_hours_before_event": 27.733333333333334,
+    "same_day_share": 0.4569351230425056,
+    "one_to_three_day_share": 0.5430648769574944,
+    "more_than_three_day_share": 0.0,
+    "by_hour_utc": {
+      "4": 29,
+      "5": 28,
+      "6": 255,
+      "7": 222,
+      "8": 246,
+      "9": 195,
+      "10": 159,
+      "11": 92,
+      "12": 42,
+      "13": 60,
+      "14": 55,
+      "15": 27,
+      "16": 73,
+      "17": 119,
+      "18": 100,
+      "19": 31,
+      "20": 136,
+      "21": 106,
+      "22": 25
+    },
+    "by_weekday_utc": {
+      "Friday": 174,
+      "Monday": 352,
+      "Saturday": 225,
+      "Sunday": 226,
+      "Thursday": 357,
+      "Tuesday": 429,
+      "Wednesday": 237
+    }
+  },
+  "market_family_summary": {
+    "event_family_breakdown": {
+      "other": 212,
+      "temperature_other": 656,
+      "weather_temperature": 1132
+    },
+    "unit_breakdown": {
+      "celsius": 1056,
+      "fahrenheit": 732,
+      "unknown": 212
+    }
+  },
+  "current_positions_summary": {
+    "position_count": 200,
+    "total_current_value_usd": 27929.5128,
+    "avg_current_value_usd": 139.647564,
+    "top_positions_by_value": [
+      {
+        "title": "Will the lowest temperature in Miami be between 82-83°F on April 25?",
+        "current_value_usd": 4695.3524,
+        "size": 4709.4808,
+        "outcome": "No",
+        "avg_price": 0.9849
+      },
+      {
+        "title": "Will the lowest temperature in Paris be 7°C on April 24?",
+        "current_value_usd": 4549.186,
+        "size": 4567.4558,
+        "outcome": "Yes",
+        "avg_price": 0.9894
+      },
+      {
+        "title": "Will the highest temperature in Houston be 76°F or higher on April 24?",
+        "current_value_usd": 3683.5105,
+        "size": 3692.7424,
+        "outcome": "Yes",
+        "avg_price": 0.9898
+      },
+      {
+        "title": "Will the highest temperature in Austin be 74°F or higher on April 24?",
+        "current_value_usd": 3159.3572,
+        "size": 3173.6386,
+        "outcome": "Yes",
+        "avg_price": 0.9894
+      },
+      {
+        "title": "Will the highest temperature in Jakarta be 34°C on April 24?",
+        "current_value_usd": 2210.8542,
+        "size": 2215.2848,
+        "outcome": "Yes",
+        "avg_price": 0.9348
+      },
+      {
+        "title": "Will the highest temperature in Mexico City be 21°C or higher on April 24?",
+        "current_value_usd": 1820.0964,
+        "size": 1823.7439,
+        "outcome": "Yes",
+        "avg_price": 0.9901
+      },
+      {
+        "title": "Spread: KFUM-Kameratene Oslo (-2.5)",
+        "current_value_usd": 1449.153,
+        "size": 1482.5095,
+        "outcome": "SK Brann",
+        "avg_price": 0.4799
+      },
+      {
+        "title": "Will the highest temperature in Los Angeles be between 62-63°F on April 24?",
+        "current_value_usd": 1387.3421,
+        "size": 1388.0362,
+        "outcome": "No",
+        "avg_price": 0.9861
+      },
+      {
+        "title": "Spread: Fatih Karagümrük SK (-2.5)",
+        "current_value_usd": 1336.2497,
+        "size": 1364.9129,
+        "outcome": "Beşiktaş JK",
+        "avg_price": 0.9042
+      },
+      {
+        "title": "Will the highest temperature in Los Angeles be between 60-61°F on April 24?",
+        "current_value_usd": 1282.8521,
+        "size": 1283.4939,
+        "outcome": "No",
+        "avg_price": 0.9921
+      }
+    ]
+  },
+  "closed_positions_summary": {
+    "closed_position_count": 50,
+    "total_realized_pnl_usd": 220926.000857,
+    "avg_realized_pnl_usd": 4418.52001714,
+    "median_realized_pnl_usd": 3663.864195,
+    "avg_percent_pnl": 0.0,
+    "win_rate": 1.0,
+    "loss_rate": 0.0
+  },
+  "activity_summary": {
+    "activity_count": 200,
+    "activity_type_breakdown": {
+      "merge": 2,
+      "redeem": 8,
+      "trade": 190
+    }
+  },
+  "portfolio_value_summary": {
+    "raw": {},
+    "total_value_usd": null
+  },
+  "top_events_by_trade_count": [
+    {
+      "key": "highest-temperature-in-cape-town-on-april-21-2026",
+      "count": 199
+    },
+    {
+      "key": "lowest-temperature-in-nyc-on-april-22-2026",
+      "count": 155
+    },
+    {
+      "key": "lowest-temperature-in-nyc-on-april-23-2026",
+      "count": 126
+    },
+    {
+      "key": "lowest-temperature-in-tokyo-on-april-22-2026",
+      "count": 88
+    },
+    {
+      "key": "highest-temperature-in-buenos-aires-on-april-20-2026",
+      "count": 54
+    },
+    {
+      "key": "highest-temperature-in-austin-on-april-20-2026",
+      "count": 44
+    },
+    {
+      "key": "highest-temperature-in-austin-on-april-18-2026",
+      "count": 43
+    },
+    {
+      "key": "lowest-temperature-in-nyc-on-april-24-2026",
+      "count": 41
+    },
+    {
+      "key": "lowest-temperature-in-london-on-april-22-2026",
+      "count": 39
+    },
+    {
+      "key": "lowest-temperature-in-london-on-april-23-2026",
+      "count": 38
+    }
+  ],
+  "top_markets_by_trade_count": [
+    {
+      "key": "highest-temperature-in-cape-town-on-april-21-2026-14c",
+      "count": 95
+    },
+    {
+      "key": "highest-temperature-in-cape-town-on-april-21-2026-17c",
+      "count": 49
+    },
+    {
+      "key": "lowest-temperature-in-nyc-on-april-22-2026-46-47f",
+      "count": 47
+    },
+    {
+      "key": "lowest-temperature-in-nyc-on-april-23-2026-48-49f",
+      "count": 47
+    },
+    {
+      "key": "lowest-temperature-in-nyc-on-april-22-2026-44-45f",
+      "count": 41
+    },
+    {
+      "key": "es2-and-alb-2026-05-01-spread-away-2pt5",
+      "count": 35
+    },
+    {
+      "key": "lowest-temperature-in-nyc-on-april-23-2026-44-45f",
+      "count": 32
+    },
+    {
+      "key": "lowest-temperature-in-tokyo-on-april-22-2026-14c",
+      "count": 32
+    },
+    {
+      "key": "lowest-temperature-in-tokyo-on-april-22-2026-15c",
+      "count": 30
+    },
+    {
+      "key": "lowest-temperature-in-nyc-on-april-23-2026-50-51f",
+      "count": 26
+    }
+  ],
+  "top_events_by_notional": [
+    {
+      "event_slug": "highest-temperature-in-istanbul-on-april-21-2026",
+      "total_notional_usd": 27352.013348264725
+    },
+    {
+      "event_slug": "highest-temperature-in-cape-town-on-april-21-2026",
+      "total_notional_usd": 21270.95767382695
+    },
+    {
+      "event_slug": "highest-temperature-in-wuhan-on-april-20-2026",
+      "total_notional_usd": 20240.154304650005
+    },
+    {
+      "event_slug": "highest-temperature-in-chicago-on-april-18-2026",
+      "total_notional_usd": 15849.44799506961
+    },
+    {
+      "event_slug": "highest-temperature-in-dallas-on-april-18-2026",
+      "total_notional_usd": 9980.976219137903
+    },
+    {
+      "event_slug": "highest-temperature-in-austin-on-april-18-2026",
+      "total_notional_usd": 9494.530253095281
+    },
+    {
+      "event_slug": "highest-temperature-in-tel-aviv-on-april-17-2026",
+      "total_notional_usd": 8208.524007281994
+    },
+    {
+      "event_slug": "lowest-temperature-in-nyc-on-april-22-2026",
+      "total_notional_usd": 6709.62612470313
+    },
+    {
+      "event_slug": "highest-temperature-in-jeddah-on-april-17-2026",
+      "total_notional_usd": 6106.216471567404
+    },
+    {
+      "event_slug": "lowest-temperature-in-london-on-april-22-2026",
+      "total_notional_usd": 5728.240119512028
+    }
+  ],
+  "notes": [
+    "avg_notional_usd se deriva como price * size cuando ambos campos existen",
+    "timing_summary usa eventSlug/eventDate oficial cuando existe y fallback por slug en eventos de temperatura",
+    "closed_positions/current_positions dependen del payload actual de la Data API publica"
+  ]
+}

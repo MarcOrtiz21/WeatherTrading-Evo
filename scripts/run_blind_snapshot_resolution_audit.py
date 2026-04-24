@@ -18,6 +18,7 @@ for path in (ROOT, SRC):
         sys.path.insert(0, path_str)
 
 from weather_trading.infrastructure.utils import utc_now
+from weather_trading.infrastructure.config import ConfigLoader
 from weather_trading.services.evaluation.observation_backfill import local_date_utc_bounds
 from weather_trading.services.evaluation.blind_snapshot_resolution import (
     BlindSnapshotEventEvaluation,
@@ -36,10 +37,11 @@ from weather_trading.services.weather_ingestion.openmeteo_client import OpenMete
 
 
 class ActualTemperatureResolver:
-    def __init__(self, db_path: Path, openmeteo: OpenMeteoClient):
+    def __init__(self, db_path: Path, openmeteo: OpenMeteoClient, *, allow_remote_archive: bool = True):
         self.db_path = db_path
         self.openmeteo = openmeteo
-        self.remote_archive_available = True
+        self.allow_remote_archive = allow_remote_archive
+        self.remote_archive_available = allow_remote_archive
         self.remote_archive_error: str | None = None
         self.source_counts = {
             "openmeteo_archive": 0,
@@ -64,6 +66,9 @@ class ActualTemperatureResolver:
             source_label = local_source or "local_weather_observations"
             self.source_counts[source_label] = self.source_counts.get(source_label, 0) + 1
             return local_temp, source_label, None
+
+        if not self.allow_remote_archive:
+            return None, None, "archive_fetch_skipped_local_only"
 
         if not self.remote_archive_available:
             return None, None, "archive_fetch_unavailable"
@@ -149,6 +154,11 @@ def parse_args() -> argparse.Namespace:
         default=0.0,
         help="Solo toma paper trades si el top edge supera este umbral.",
     )
+    parser.add_argument(
+        "--local-only",
+        action="store_true",
+        help="No consulta archivo remoto; evalua solo con observaciones locales ya persistidas.",
+    )
     return parser.parse_args()
 
 
@@ -160,7 +170,11 @@ async def main() -> None:
 
     mapper = StationMapperService()
     openmeteo = OpenMeteoClient()
-    actual_temp_resolver = ActualTemperatureResolver(ROOT / "weather_trading.db", openmeteo)
+    actual_temp_resolver = ActualTemperatureResolver(
+        ROOT / "weather_trading.db",
+        openmeteo,
+        allow_remote_archive=not args.local_only,
+    )
     snapshot_paths = discover_blind_snapshot_paths(
         ROOT / "logs" / "snapshots",
         start_as_of_date=start_as_of_date,
@@ -214,6 +228,7 @@ async def main() -> None:
                     "snapshot_as_of_date": snapshot_as_of_date,
                     "event_slug": event["event_slug"],
                     "event_date": event_date,
+                    "station_code": event["station_code"],
                     "reason": actual_temp_error or "missing_archive_observation",
                 }
                 if actual_temp_resolver.remote_archive_error and actual_temp_error in {
@@ -275,6 +290,8 @@ async def main() -> None:
         pending_events=pending_events,
         skipped_events=skipped_events,
     )
+    audit_quality = summarize_audit_quality(coverage)
+    coverage_debt = summarize_coverage_debt(skipped_events)
 
     snapshot = {
         "captured_at_utc": utc_now().isoformat(),
@@ -282,12 +299,15 @@ async def main() -> None:
         "start_as_of_date": None if start_as_of_date is None else start_as_of_date.isoformat(),
         "end_as_of_date": None if end_as_of_date is None else end_as_of_date.isoformat(),
         "paper_edge_threshold": args.paper_edge_threshold,
+        "local_only": bool(args.local_only),
         "snapshot_files": [path.relative_to(ROOT).as_posix() for path in snapshot_paths],
         "actual_temperature_sources": actual_temp_resolver.source_counts,
         "archive_fetch_status": {
             "remote_archive_available": actual_temp_resolver.remote_archive_available,
             "remote_archive_error": actual_temp_resolver.remote_archive_error,
         },
+        "audit_quality": audit_quality,
+        "coverage_debt": coverage_debt,
         "watchlist_strategy_snapshot": watchlist_strategy_snapshot_path.relative_to(ROOT).as_posix(),
         "watchlist_strategy_comparison": watchlist_strategy_summary["strategy_comparison_digest"],
         "coverage": coverage,
@@ -306,7 +326,14 @@ async def main() -> None:
         f"Cobertura madura: {coverage['mature_resolution_coverage']:.1%} | "
         f"Eventos maduros: {coverage['mature_events']}"
     )
+    print(
+        f"Calidad del audit: {audit_quality['classification']} | "
+        f"accionable={audit_quality['is_actionable']} | "
+        f"comparable={audit_quality['is_comparable_to_full_coverage']}"
+    )
     print(f"Eventos evaluados: {summary['events']}")
+    if args.local_only:
+        print("Modo resolucion: local-only")
     print(f"Eventos pendientes: {len(pending_events)}")
     print(f"Eventos omitidos: {len(skipped_events)}")
     if coverage["skip_reason_counts"]:
@@ -418,6 +445,49 @@ def summarize_resolution_coverage(
         "pending_rate_over_reviewed": (len(pending_events) / reviewed_events) if reviewed_events > 0 else 0.0,
         "skip_reason_counts": dict(sorted(skip_reason_counts.items())),
         "pending_reason_counts": dict(sorted(pending_reason_counts.items())),
+    }
+
+
+def summarize_audit_quality(coverage: dict) -> dict:
+    min_complete = float(ConfigLoader.get("audit_quality.min_mature_coverage_for_complete", 0.95))
+    min_actionable = float(ConfigLoader.get("audit_quality.min_mature_coverage_for_actionable", 0.85))
+    mature_events = int(coverage.get("mature_events", 0))
+    evaluated_events = int(coverage.get("evaluated_events", 0))
+    mature_coverage = float(coverage.get("mature_resolution_coverage", 0.0))
+
+    if mature_events == 0 or evaluated_events == 0:
+        classification = "non_conclusive"
+        reason = "no_mature_events_evaluated"
+    elif mature_coverage >= min_complete:
+        classification = "complete"
+        reason = "mature_coverage_at_or_above_complete_threshold"
+    elif mature_coverage >= min_actionable:
+        classification = "partial"
+        reason = "mature_coverage_between_actionable_and_complete_threshold"
+    else:
+        classification = "non_conclusive"
+        reason = "mature_coverage_below_actionable_threshold"
+
+    return {
+        "classification": classification,
+        "reason": reason,
+        "is_actionable": classification in {"complete", "partial"},
+        "is_comparable_to_full_coverage": classification == "complete",
+        "min_mature_coverage_for_complete": min_complete,
+        "min_mature_coverage_for_actionable": min_actionable,
+        "mature_resolution_coverage": mature_coverage,
+    }
+
+
+def summarize_coverage_debt(skipped_events: list[dict]) -> dict:
+    by_reason = Counter(str(event.get("reason") or "unknown") for event in skipped_events)
+    by_station = Counter(str(event.get("station_code") or "unknown") for event in skipped_events)
+    by_event_date = Counter(str(event.get("event_date") or "unknown") for event in skipped_events)
+    return {
+        "unresolved_mature_events": len(skipped_events),
+        "by_reason": dict(sorted(by_reason.items())),
+        "by_station": dict(sorted(by_station.items())),
+        "by_event_date": dict(sorted(by_event_date.items())),
     }
 
 

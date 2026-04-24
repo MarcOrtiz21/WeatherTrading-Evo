@@ -72,6 +72,41 @@ def test_build_trader_candidates_aggregates_positive_yes_conviction():
     assert candidates["by_trader"]["ColdMath"]["market_id"] == "m1"
     assert candidates["by_trader"]["ColdMath"]["conviction"] == 15
     assert candidates["consensus"]["market_id"] == "m1"
+    assert candidates["directional_by_trader"]["ColdMath"]["yes_bias"] == 1
+
+
+def test_build_trader_candidates_tracks_directional_no_conviction():
+    event = {
+        "markets": [
+            {
+                "market_id": "m1",
+                "market_slug": "madrid-10-11c-apr-12",
+                "question": "Will the highest temperature in Madrid be 10-11°C on April 12?",
+                "is_tradeable": True,
+                "execution_price": 0.2,
+                "estimated_costs": 0.02,
+            },
+        ]
+    }
+    trades = [
+        {
+            "label": "ColdMath",
+            "market_slug": "madrid-10-11c-apr-12",
+            "market_title": None,
+            "outcome": "no",
+            "side": "buy",
+            "size": 10,
+        },
+    ]
+
+    candidates = build_trader_candidates(event, trades)
+
+    assert "ColdMath" not in candidates["by_trader"]
+    directional = candidates["directional_by_trader"]["ColdMath"]
+    assert directional["market_id"] == "m1"
+    assert directional["yes_bias"] == -1
+    assert directional["conviction"] == 10
+    assert directional["signed_conviction"] == -10
 
 
 def test_evaluate_candidate_trade_scores_hit_and_pnl():
@@ -89,6 +124,29 @@ def test_evaluate_candidate_trade_scores_hit_and_pnl():
     assert trade["hit"] is True
     assert trade["stake"] == 0.22
     assert trade["pnl"] == 0.78
+    assert trade["side"] == "YES"
+
+
+def test_evaluate_candidate_trade_scores_no_side_against_selected_market():
+    candidate = {
+        "market_id": "m1",
+        "question": "Q",
+        "conviction": 10,
+        "signed_conviction": -10,
+        "execution_price": 0.2,
+        "costs": 0.02,
+        "yes_bias": -1,
+    }
+    evaluation = {"event_slug": "e1", "winner_market_id": "m2"}
+
+    trade = evaluate_candidate_trade(candidate, evaluation)
+
+    assert trade["hit"] is True
+    assert trade["stake"] == pytest.approx(0.82)
+    assert trade["pnl"] == pytest.approx(0.18)
+    assert trade["execution_price"] == pytest.approx(0.8)
+    assert trade["yes_market_price"] == 0.2
+    assert trade["side"] == "NO"
 
 
 def test_build_alignment_from_snapshot_event_reads_frozen_watchlist_fields():

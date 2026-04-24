@@ -1,0 +1,39 @@
+{
+  "captured_at_utc": "2026-04-24T10:04:47.522827",
+  "reference_date": "2026-04-24",
+  "status": "paper_only",
+  "recommended_mode": "paper_only",
+  "pipeline_report_path": "logs/snapshots/2026-04-24_daily_pipeline_report.json",
+  "audit_snapshot_path": "logs/snapshots/2026-04-24_blind_snapshot_resolution_audit.json",
+  "live_snapshot_path": "logs/snapshots/2026-04-24_polymarket_blind_live_validation.json",
+  "pipeline_status": "ok",
+  "audit_quality": {
+    "classification": "complete",
+    "reason": "mature_coverage_at_or_above_complete_threshold",
+    "is_actionable": true,
+    "is_comparable_to_full_coverage": true,
+    "min_mature_coverage_for_complete": 0.95,
+    "min_mature_coverage_for_actionable": 0.85,
+    "mature_resolution_coverage": 1.0
+  },
+  "coverage_debt": {
+    "unresolved_mature_events": 0,
+    "by_reason": {},
+    "by_station": {},
+    "by_event_date": {}
+  },
+  "database_health": {
+    "path": "weather_trading.db",
+    "exists": true,
+    "status": "ok",
+    "observation_count": 209,
+    "latest_observed_at_utc": "2026-04-17 06:59:00.000000",
+    "latest_observed_date": "2026-04-17",
+    "observation_lag_days": 7,
+    "error": null
+  },
+  "blockers": [],
+  "warnings": [
+    "weather_observations_stale"
+  ]
+}

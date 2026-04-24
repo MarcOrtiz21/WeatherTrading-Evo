@@ -53,12 +53,25 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--max-events", type=int, default=5, help="Número máximo de eventos soportados a evaluar.")
     parser.add_argument("--min-horizon-days", type=int, default=1, help="Horizonte mínimo futuro para evitar mercados ya parcialmente observados.")
     parser.add_argument("--max-horizon-days", type=int, default=4, help="Máximo horizonte futuro aceptado.")
+    parser.add_argument(
+        "--force-refresh",
+        action="store_true",
+        help="Ignora el snapshot ya existente para la fecha y fuerza una nueva corrida.",
+    )
     return parser.parse_args()
 
 
 async def main() -> None:
     args = parse_args()
     as_of_date = date.fromisoformat(args.as_of_date)
+    snapshot_path = build_snapshot_path(as_of_date)
+
+    if snapshot_path.exists() and not args.force_refresh:
+        snapshot = json.loads(snapshot_path.read_text(encoding="utf-8"))
+        print(f"Snapshot existente reutilizado: {snapshot_path}")
+        print("")
+        print_snapshot_summary(snapshot)
+        return
 
     client = PolymarketPublicPageClient(locale="es")
     gamma = PolymarketGammaClient()
@@ -209,31 +222,7 @@ async def main() -> None:
     snapshot_path = persist_snapshot(snapshot)
     print(f"Snapshot guardado en: {snapshot_path}")
     print("")
-    print("=== RESUMEN VALIDACION CIEGA ===")
-    print(f"Eventos evaluados: {len(supported_events)}")
-    print(f"Eventos descartados: {len(skipped_events)}")
-    for event in supported_events:
-        print("")
-        print(f"- {event['event_title']} [{event['station_code']}] {event['event_date']}")
-        print(
-            f"  Forecast centro: {event['forecast_center_c']:.1f}C | "
-            f"modo modelo: {event['model_mode_question']} ({event['model_mode_probability']:.1%})"
-        )
-        print(
-            f"  Modo mercado: {event['market_mode_question']} ({event['market_mode_probability']:.1%}) | "
-            f"top edge: {event['top_edge_question']} ({event['top_edge_net']:.1%})"
-        )
-        print(
-            f"  Evidence: tier {event['event_evidence_tier']} ({event['event_evidence_score']:.2f}) | "
-            f"operable={event['event_operable']} | tradeable_markets={event['tradeable_markets']}"
-        )
-        print(
-            f"  Watchlist: {event['watchlist_signal']} | "
-            f"active_traders={len(event['watchlist_active_traders'])} | "
-            f"aligned={len(event['watchlist_aligned_traders'])} | "
-            f"opposed={len(event['watchlist_opposed_traders'])} | "
-            f"veto={event['watchlist_veto_applied']}"
-        )
+    print_snapshot_summary(snapshot)
 
 
 async def discover_temperature_event_payloads(
@@ -272,13 +261,47 @@ async def discover_temperature_event_payloads(
         ]
 
 
-def persist_snapshot(snapshot: dict) -> Path:
+def build_snapshot_path(as_of_date: date | str) -> Path:
     output_dir = Path(ROOT) / "logs" / "snapshots"
     output_dir.mkdir(parents=True, exist_ok=True)
-    filename = f"{snapshot['as_of_date']}_polymarket_blind_live_validation.json"
-    output_path = output_dir / filename
+    date_str = as_of_date if isinstance(as_of_date, str) else as_of_date.isoformat()
+    return output_dir / f"{date_str}_polymarket_blind_live_validation.json"
+
+
+def persist_snapshot(snapshot: dict) -> Path:
+    output_path = build_snapshot_path(str(snapshot["as_of_date"]))
     output_path.write_text(json.dumps(snapshot, indent=2, ensure_ascii=False), encoding="utf-8")
     return output_path
+
+
+def print_snapshot_summary(snapshot: dict) -> None:
+    evaluated_events = list(snapshot.get("evaluated_events") or [])
+    skipped_events = list(snapshot.get("skipped_events") or [])
+    print("=== RESUMEN VALIDACION CIEGA ===")
+    print(f"Eventos evaluados: {len(evaluated_events)}")
+    print(f"Eventos descartados: {len(skipped_events)}")
+    for event in evaluated_events:
+        print("")
+        print(f"- {event['event_title']} [{event['station_code']}] {event['event_date']}")
+        print(
+            f"  Forecast centro: {event['forecast_center_c']:.1f}C | "
+            f"modo modelo: {event['model_mode_question']} ({event['model_mode_probability']:.1%})"
+        )
+        print(
+            f"  Modo mercado: {event['market_mode_question']} ({event['market_mode_probability']:.1%}) | "
+            f"top edge: {event['top_edge_question']} ({event['top_edge_net']:.1%})"
+        )
+        print(
+            f"  Evidence: tier {event['event_evidence_tier']} ({event['event_evidence_score']:.2f}) | "
+            f"operable={event['event_operable']} | tradeable_markets={event['tradeable_markets']}"
+        )
+        print(
+            f"  Watchlist: {event['watchlist_signal']} | "
+            f"active_traders={len(event['watchlist_active_traders'])} | "
+            f"aligned={len(event['watchlist_aligned_traders'])} | "
+            f"opposed={len(event['watchlist_opposed_traders'])} | "
+            f"veto={event['watchlist_veto_applied']}"
+        )
 
 
 if __name__ == "__main__":

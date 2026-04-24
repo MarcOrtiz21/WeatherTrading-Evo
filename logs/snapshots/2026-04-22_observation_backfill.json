@@ -1,0 +1,144 @@
+{
+  "captured_at_utc": "2026-04-22T10:43:52.209035",
+  "reference_date": "2026-04-22",
+  "start_as_of_date": null,
+  "end_as_of_date": null,
+  "targets_discovered": 200,
+  "targets_already_resolved_locally": 160,
+  "targets_missing_locally": 40,
+  "stations_covered": 20,
+  "resolved_targets": 0,
+  "created_rows": 0,
+  "updated_rows": 0,
+  "missing_archive_targets": [],
+  "fetch_failures": [
+    {
+      "station_code": "EDDM",
+      "start_date": "2026-04-15",
+      "end_date": "2026-04-16",
+      "error": "ConnectError: [Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "station_code": "EFHK",
+      "start_date": "2026-04-15",
+      "end_date": "2026-04-16",
+      "error": "remote_archive_unavailable: ConnectError: [Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "station_code": "EGLC",
+      "start_date": "2026-04-15",
+      "end_date": "2026-04-16",
+      "error": "remote_archive_unavailable: ConnectError: [Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "station_code": "EHAM",
+      "start_date": "2026-04-15",
+      "end_date": "2026-04-16",
+      "error": "remote_archive_unavailable: ConnectError: [Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "station_code": "KATL",
+      "start_date": "2026-04-15",
+      "end_date": "2026-04-16",
+      "error": "remote_archive_unavailable: ConnectError: [Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "station_code": "KAUS",
+      "start_date": "2026-04-15",
+      "end_date": "2026-04-16",
+      "error": "remote_archive_unavailable: ConnectError: [Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "station_code": "KBKF",
+      "start_date": "2026-04-15",
+      "end_date": "2026-04-16",
+      "error": "remote_archive_unavailable: ConnectError: [Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "station_code": "KDAL",
+      "start_date": "2026-04-15",
+      "end_date": "2026-04-16",
+      "error": "remote_archive_unavailable: ConnectError: [Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "station_code": "KHOU",
+      "start_date": "2026-04-15",
+      "end_date": "2026-04-16",
+      "error": "remote_archive_unavailable: ConnectError: [Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "station_code": "KLAX",
+      "start_date": "2026-04-15",
+      "end_date": "2026-04-16",
+      "error": "remote_archive_unavailable: ConnectError: [Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "station_code": "KLGA",
+      "start_date": "2026-04-15",
+      "end_date": "2026-04-16",
+      "error": "remote_archive_unavailable: ConnectError: [Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "station_code": "KMIA",
+      "start_date": "2026-04-15",
+      "end_date": "2026-04-16",
+      "error": "remote_archive_unavailable: ConnectError: [Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "station_code": "KORD",
+      "start_date": "2026-04-15",
+      "end_date": "2026-04-16",
+      "error": "remote_archive_unavailable: ConnectError: [Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "station_code": "LEMD",
+      "start_date": "2026-04-15",
+      "end_date": "2026-04-16",
+      "error": "remote_archive_unavailable: ConnectError: [Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "station_code": "LIMC",
+      "start_date": "2026-04-15",
+      "end_date": "2026-04-16",
+      "error": "remote_archive_unavailable: ConnectError: [Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "station_code": "LTAC",
+      "start_date": "2026-04-15",
+      "end_date": "2026-04-16",
+      "error": "remote_archive_unavailable: ConnectError: [Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "station_code": "LTFM",
+      "start_date": "2026-04-15",
+      "end_date": "2026-04-16",
+      "error": "remote_archive_unavailable: ConnectError: [Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "station_code": "MMMX",
+      "start_date": "2026-04-15",
+      "end_date": "2026-04-16",
+      "error": "remote_archive_unavailable: ConnectError: [Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "station_code": "SAEZ",
+      "start_date": "2026-04-15",
+      "end_date": "2026-04-16",
+      "error": "remote_archive_unavailable: ConnectError: [Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "station_code": "UUWW",
+      "start_date": "2026-04-15",
+      "end_date": "2026-04-16",
+      "error": "remote_archive_unavailable: ConnectError: [Errno 8] nodename nor servname provided, or not known"
+    }
+  ],
+  "archive_fetch_status": {
+    "remote_archive_available": false,
+    "remote_archive_error": "ConnectError: [Errno 8] nodename nor servname provided, or not known"
+  },
+  "discovery_skipped_events": [],
+  "missing_archive_count": 0,
+  "fetch_failure_count": 20,
+  "discovery_skip_reason_counts": {}
+}

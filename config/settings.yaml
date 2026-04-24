@@ -63,3 +63,15 @@ watchlist_risk:
 
 experimental_filters:
   celsius_range_bin_active_unclassified_veto_enabled: true
+
+audit_quality:
+  min_mature_coverage_for_complete: 0.95
+  min_mature_coverage_for_actionable: 0.85
+
+operational_readiness:
+  block_if_live_snapshot_missing: true
+  block_if_audit_non_conclusive: true
+  warn_if_audit_partial: true
+  block_if_weather_db_unavailable: true
+  block_if_weather_db_empty: true
+  warn_if_observation_lag_days_exceeds: 3

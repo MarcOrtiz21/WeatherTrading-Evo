@@ -1,0 +1,212 @@
+{
+  "captured_at_utc": "2026-04-24T09:44:33.664143",
+  "reference_date": "2026-04-24",
+  "overall_status": "ok",
+  "steps": [
+    {
+      "name": "blind_live_validation",
+      "command": [
+        "/Users/marc/Documents/Polymarket/WeatherTrading/venv/bin/python",
+        "/Users/marc/Documents/Polymarket/WeatherTrading/scripts/run_blind_live_validation.py",
+        "--as-of-date",
+        "2026-04-24",
+        "--max-events",
+        "20",
+        "--min-horizon-days",
+        "0",
+        "--max-horizon-days",
+        "4"
+      ],
+      "started_at_utc": "2026-04-24T09:43:53.212031",
+      "finished_at_utc": "2026-04-24T09:44:27.982434",
+      "exit_code": 0,
+      "status": "ok",
+      "expected_artifacts": {
+        "logs/snapshots/2026-04-24_polymarket_blind_live_validation.json": true
+      },
+      "notes": [],
+      "audit_quality": null,
+      "stdout_tail": [
+        "- Highest temperature in Moscow on April 24? [UUWW] 2026-04-24",
+        "  Forecast centro: 6.2C | modo modelo: Will the highest temperature in Moscow be 6°C on April 24? (69.9%)",
+        "  Modo mercado: Will the highest temperature in Moscow be 5°C on April 24? (42.5%) | top edge: Will the highest temperature in Moscow be 6°C on April 24? (20.2%)",
+        "  Evidence: tier A (0.90) | operable=True | tradeable_markets=1",
+        "  Watchlist: mixed | active_traders=2 | aligned=1 | opposed=2 | veto=False",
+        "- Highest temperature in Munich on April 24? [EDDM] 2026-04-24",
+        "  Forecast centro: 19.6C | modo modelo: Will the highest temperature in Munich be 19°C on April 24? (78.3%)",
+        "  Modo mercado: Will the highest temperature in Munich be 20°C on April 24? (58.0%) | top edge: Will the highest temperature in Munich be 19°C on April 24? (50.8%)",
+        "  Evidence: tier A (0.90) | operable=True | tradeable_markets=1",
+        "  Watchlist: mixed | active_traders=1 | aligned=1 | opposed=1 | veto=False",
+        "- Highest temperature in NYC on April 24? [KLGA] 2026-04-24",
+        "  Forecast centro: 19.4C | modo modelo: Will the highest temperature in New York City be 66°F or higher on April 24? (98.9%)",
+        "  Modo mercado: Will the highest temperature in New York City be between 62-63°F on April 24? (36.5%) | top edge: Will the highest temperature in New York City be 66°F or higher on April 24? (60.4%)",
+        "  Evidence: tier A (0.90) | operable=True | tradeable_markets=1",
+        "  Watchlist: mixed | active_traders=1 | aligned=1 | opposed=1 | veto=False",
+        "- Highest temperature in Panama City on April 24? [MPMG] 2026-04-24",
+        "  Forecast centro: 30.9C | modo modelo: Will the highest temperature in Panama City be 31°C or higher on April 24? (47.2%)",
+        "  Modo mercado: Will the highest temperature in Panama City be 31°C or higher on April 24? (94.6%) | top edge: Will the highest temperature in Panama City be 30°C on April 24? (32.1%)",
+        "  Evidence: tier A (0.90) | operable=False | tradeable_markets=0",
+        "  Watchlist: opposed | active_traders=1 | aligned=0 | opposed=1 | veto=True"
+      ],
+      "stderr_tail": [
+        "Estación OPKC no encontrada en la configuración externa.",
+        "Estación OPKC no encontrada en la configuración externa.",
+        "Estación OPKC no encontrada en la configuración externa.",
+        "Estación OPKC no encontrada en la configuración externa.",
+        "Estación OPKC no encontrada en la configuración externa.",
+        "Estación OPKC no encontrada en la configuración externa.",
+        "Estación OPKC no encontrada en la configuración externa.",
+        "Estación OPKC no encontrada en la configuración externa.",
+        "Estación OPKC no encontrada en la configuración externa.",
+        "Estación RPLL no encontrada en la configuración externa.",
+        "Estación RPLL no encontrada en la configuración externa.",
+        "Estación RPLL no encontrada en la configuración externa.",
+        "Estación RPLL no encontrada en la configuración externa.",
+        "Estación RPLL no encontrada en la configuración externa.",
+        "Estación RPLL no encontrada en la configuración externa.",
+        "Estación RPLL no encontrada en la configuración externa.",
+        "Estación RPLL no encontrada en la configuración externa.",
+        "Estación RPLL no encontrada en la configuración externa.",
+        "Estación RPLL no encontrada en la configuración externa.",
+        "Estación RPLL no encontrada en la configuración externa."
+      ]
+    },
+    {
+      "name": "observation_backfill",
+      "command": [
+        "/Users/marc/Documents/Polymarket/WeatherTrading/venv/bin/python",
+        "/Users/marc/Documents/Polymarket/WeatherTrading/scripts/run_observation_backfill.py",
+        "--reference-date",
+        "2026-04-24"
+      ],
+      "started_at_utc": "2026-04-24T09:44:27.982659",
+      "finished_at_utc": "2026-04-24T09:44:33.343928",
+      "exit_code": 0,
+      "status": "ok",
+      "expected_artifacts": {
+        "logs/snapshots/2026-04-24_observation_backfill.json": true
+      },
+      "notes": [],
+      "audit_quality": null,
+      "stdout_tail": [
+        "Backfill guardado en: /Users/marc/Documents/Polymarket/WeatherTrading/logs/snapshots/2026-04-24_observation_backfill.json",
+        "=== RESUMEN BACKFILL OBSERVACIONES ===",
+        "Targets descubiertos: 200",
+        "Targets ya resueltos localmente: 160",
+        "Targets pendientes de fetch remoto: 40",
+        "Estaciones cubiertas: 20",
+        "Targets resueltos: 40",
+        "Filas creadas: 40",
+        "Filas actualizadas: 0",
+        "Targets sin archivo: 0",
+        "Fallos de fetch: 0"
+      ],
+      "stderr_tail": []
+    },
+    {
+      "name": "blind_snapshot_resolution_audit",
+      "command": [
+        "/Users/marc/Documents/Polymarket/WeatherTrading/venv/bin/python",
+        "/Users/marc/Documents/Polymarket/WeatherTrading/scripts/run_blind_snapshot_resolution_audit.py",
+        "--reference-date",
+        "2026-04-24"
+      ],
+      "started_at_utc": "2026-04-24T09:44:33.344190",
+      "finished_at_utc": "2026-04-24T09:44:33.515525",
+      "exit_code": 0,
+      "status": "ok",
+      "expected_artifacts": {
+        "logs/snapshots/2026-04-24_blind_snapshot_resolution_audit.json": true,
+        "logs/snapshots/2026-04-24_watchlist_strategy_simulation.json": true
+      },
+      "notes": [],
+      "audit_quality": {
+        "classification": "complete",
+        "reason": "mature_coverage_at_or_above_complete_threshold",
+        "is_actionable": true,
+        "is_comparable_to_full_coverage": true,
+        "min_mature_coverage_for_complete": 0.95,
+        "min_mature_coverage_for_actionable": 0.85,
+        "mature_resolution_coverage": 1.0
+      },
+      "stdout_tail": [
+        "Comparativa filtros watchlist:",
+        "  model_current: trades=129 | hit_rate=24.0% | pnl=+10.010 | roi=47.7%",
+        "  model_skip_opposed: trades=124 | hit_rate=25.0% | pnl=+10.643 | roi=52.3%",
+        "  model_skip_celsius_active_unclassified: trades=117 | hit_rate=24.8% | pnl=+9.176 | roi=46.3%",
+        "  model_skip_opposed_and_celsius_active_unclassified: trades=112 | hit_rate=25.9% | pnl=+9.809 | roi=51.1%",
+        "Por estrategia:",
+        "  baseline_short_horizon: events=200 | paper_trades=129 | log_loss=1.689 | pnl=10.010",
+        "Por horizonte:",
+        "  H1: events=200 | paper_trades=129 | log_loss=1.689 | pnl=10.010",
+        "Por calidad:",
+        "  A: events=120 | paper_trades=70 | log_loss=1.532 | pnl=5.613",
+        "  B: events=31 | paper_trades=21 | log_loss=1.934 | pnl=-0.627",
+        "  C: events=8 | paper_trades=4 | log_loss=1.459 | pnl=0.024",
+        "  D: events=1 | paper_trades=0 | log_loss=1.059 | pnl=0.000",
+        "  unknown: events=40 | paper_trades=34 | log_loss=2.033 | pnl=5.000",
+        "Por evidencia:",
+        "  A: events=160 | operable=147 | log_loss=1.603 | pnl=5.010",
+        "  unknown: events=40 | operable=40 | log_loss=2.033 | pnl=5.000",
+        "Por fuente de temperatura real:",
+        "  local_open_meteo_archive_backfill: events=200 | log_loss=1.689 | pnl=10.010"
+      ],
+      "stderr_tail": []
+    },
+    {
+      "name": "cohort_overlay_diagnostics",
+      "command": [
+        "/Users/marc/Documents/Polymarket/WeatherTrading/venv/bin/python",
+        "/Users/marc/Documents/Polymarket/WeatherTrading/scripts/run_cohort_overlay_diagnostics.py",
+        "--reference-date",
+        "2026-04-24"
+      ],
+      "started_at_utc": "2026-04-24T09:44:33.516792",
+      "finished_at_utc": "2026-04-24T09:44:33.567787",
+      "exit_code": 0,
+      "status": "ok",
+      "expected_artifacts": {},
+      "notes": [],
+      "audit_quality": null,
+      "stdout_tail": [
+        "Diagnostico guardado en: /Users/marc/Documents/Polymarket/WeatherTrading/logs/snapshots/2026-04-24_cohort_overlay_diagnostics_2026-04-15.json",
+        "=== DIAGNOSTICO DE COHORTE ===",
+        "Cohorte 2026-04-15 | eventos=20 | model_hit=35.0% | market_hit=35.0% | model_log_loss=2.939 | market_log_loss=1.455 | paper_pnl=-1.715",
+        "Peores tiers de calidad:",
+        "- A: events=16 | log_loss_delta=+1.644 | paper_pnl=-1.123 | roi=-52.9%",
+        "- B: events=4 | log_loss_delta=+0.848 | paper_pnl=-0.593 | roi=-100.0%",
+        "Peores señales de watchlist:",
+        "- silent: events=18 | log_loss_delta=+1.604 | paper_pnl=-1.715 | roi=-63.2%",
+        "- opposed: events=1 | log_loss_delta=+0.039 | paper_pnl=+0.000 | roi=0.0%",
+        "- active_unclassified: events=1 | log_loss_delta=+0.774 | paper_pnl=+0.000 | roi=0.0%"
+      ],
+      "stderr_tail": []
+    },
+    {
+      "name": "operational_readiness",
+      "command": [
+        "/Users/marc/Documents/Polymarket/WeatherTrading/venv/bin/python",
+        "/Users/marc/Documents/Polymarket/WeatherTrading/scripts/run_operational_readiness.py",
+        "--reference-date",
+        "2026-04-24"
+      ],
+      "started_at_utc": "2026-04-24T09:44:33.568369",
+      "finished_at_utc": "2026-04-24T09:44:33.664070",
+      "exit_code": 0,
+      "status": "ok",
+      "expected_artifacts": {
+        "logs/snapshots/2026-04-24_operational_readiness.json": true
+      },
+      "notes": [],
+      "audit_quality": null,
+      "stdout_tail": [
+        "Readiness guardado en: /Users/marc/Documents/Polymarket/WeatherTrading/logs/snapshots/2026-04-24_operational_readiness.json",
+        "=== OPERATIONAL READINESS ===",
+        "reference_date=2026-04-24 | status=paper_only | recommended_mode=paper_only",
+        "Warnings:",
+        "- weather_observations_stale"
+      ],
+      "stderr_tail": []
+    }
+  ]
+}
