@@ -19,6 +19,8 @@ weather_trading.db
 *.db-*
 *.sqlite
 *.sqlite3
+logs/snapshots/*_operator_decisions.jsonl
+logs/launchd/
 *.pem
 *.key
 *.p12

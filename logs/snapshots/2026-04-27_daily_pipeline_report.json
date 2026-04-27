@@ -1,0 +1,192 @@
+{
+  "captured_at_utc": "2026-04-27T14:21:28.492022",
+  "reference_date": "2026-04-27",
+  "overall_status": "ok",
+  "steps": [
+    {
+      "name": "blind_live_validation",
+      "command": [
+        "/Users/marc/Documents/Polymarket/WeatherTrading/venv/bin/python",
+        "/Users/marc/Documents/Polymarket/WeatherTrading/scripts/run_blind_live_validation.py",
+        "--as-of-date",
+        "2026-04-27",
+        "--max-events",
+        "20",
+        "--min-horizon-days",
+        "0",
+        "--max-horizon-days",
+        "4"
+      ],
+      "started_at_utc": "2026-04-27T14:21:27.775737",
+      "finished_at_utc": "2026-04-27T14:21:27.887976",
+      "exit_code": 0,
+      "status": "ok",
+      "expected_artifacts": {
+        "logs/snapshots/2026-04-27_polymarket_blind_live_validation.json": true
+      },
+      "notes": [],
+      "audit_quality": null,
+      "stdout_tail": [
+        "- Highest temperature in Milan on April 27? [LIMC] 2026-04-27",
+        "  Forecast centro: 25.3C | modo modelo: Will the highest temperature in Milan be 25°C on April 27? (86.0%)",
+        "  Modo mercado: Will the highest temperature in Milan be 26°C or higher on April 27? (64.5%) | top edge: Will the highest temperature in Milan be 25°C on April 27? (42.5%)",
+        "  Evidence: tier A (0.90) | operable=True | tradeable_markets=1",
+        "  Watchlist: mixed | active_traders=1 | aligned=1 | opposed=1 | veto=False",
+        "- Highest temperature in Moscow on April 27? [UUWW] 2026-04-27",
+        "  Forecast centro: 2.5C | modo modelo: Will the highest temperature in Moscow be 2°C on April 27? (100.0%)",
+        "  Modo mercado: Will the highest temperature in Moscow be 2°C on April 27? (92.9%) | top edge: Will the highest temperature in Moscow be 2°C on April 27? (-1.6%)",
+        "  Evidence: tier A (0.90) | operable=True | tradeable_markets=0",
+        "  Watchlist: mixed | active_traders=2 | aligned=1 | opposed=2 | veto=False",
+        "- Highest temperature in Munich on April 27? [EDDM] 2026-04-27",
+        "  Forecast centro: 19.3C | modo modelo: Will the highest temperature in Munich be 19°C on April 27? (86.0%)",
+        "  Modo mercado: Will the highest temperature in Munich be 20°C on April 27? (61.0%) | top edge: Will the highest temperature in Munich be 19°C on April 27? (42.0%)",
+        "  Evidence: tier A (0.90) | operable=True | tradeable_markets=1",
+        "  Watchlist: mixed | active_traders=1 | aligned=1 | opposed=1 | veto=False",
+        "- Highest temperature in NYC on April 27? [KLGA] 2026-04-27",
+        "  Forecast centro: 18.8C | modo modelo: Will the highest temperature in New York City be between 66-67°F on April 27? (67.2%)",
+        "  Modo mercado: Will the highest temperature in New York City be between 66-67°F on April 27? (58.5%) | top edge: Will the highest temperature in New York City be between 66-67°F on April 27? (1.0%)",
+        "  Evidence: tier A (0.90) | operable=False | tradeable_markets=0",
+        "  Watchlist: opposed | active_traders=1 | aligned=0 | opposed=1 | veto=True"
+      ],
+      "stderr_tail": []
+    },
+    {
+      "name": "observation_backfill",
+      "command": [
+        "/Users/marc/Documents/Polymarket/WeatherTrading/venv/bin/python",
+        "/Users/marc/Documents/Polymarket/WeatherTrading/scripts/run_observation_backfill.py",
+        "--reference-date",
+        "2026-04-27"
+      ],
+      "started_at_utc": "2026-04-27T14:21:27.888097",
+      "finished_at_utc": "2026-04-27T14:21:28.139762",
+      "exit_code": 0,
+      "status": "ok",
+      "expected_artifacts": {
+        "logs/snapshots/2026-04-27_observation_backfill.json": true
+      },
+      "notes": [],
+      "audit_quality": null,
+      "stdout_tail": [
+        "Backfill guardado en: /Users/marc/Documents/Polymarket/WeatherTrading/logs/snapshots/2026-04-27_observation_backfill.json",
+        "=== RESUMEN BACKFILL OBSERVACIONES ===",
+        "Targets descubiertos: 240",
+        "Targets ya resueltos localmente: 240",
+        "Targets pendientes de fetch remoto: 0",
+        "Estaciones cubiertas: 0",
+        "Targets resueltos: 0",
+        "Filas creadas: 0",
+        "Filas actualizadas: 0",
+        "Targets sin archivo: 0",
+        "Fallos de fetch: 0"
+      ],
+      "stderr_tail": []
+    },
+    {
+      "name": "blind_snapshot_resolution_audit",
+      "command": [
+        "/Users/marc/Documents/Polymarket/WeatherTrading/venv/bin/python",
+        "/Users/marc/Documents/Polymarket/WeatherTrading/scripts/run_blind_snapshot_resolution_audit.py",
+        "--reference-date",
+        "2026-04-27"
+      ],
+      "started_at_utc": "2026-04-27T14:21:28.140011",
+      "finished_at_utc": "2026-04-27T14:21:28.328952",
+      "exit_code": 0,
+      "status": "ok",
+      "expected_artifacts": {
+        "logs/snapshots/2026-04-27_blind_snapshot_resolution_audit.json": true,
+        "logs/snapshots/2026-04-27_watchlist_strategy_simulation.json": true
+      },
+      "notes": [],
+      "audit_quality": {
+        "classification": "complete",
+        "reason": "mature_coverage_at_or_above_complete_threshold",
+        "is_actionable": true,
+        "is_comparable_to_full_coverage": true,
+        "min_mature_coverage_for_complete": 0.95,
+        "min_mature_coverage_for_actionable": 0.85,
+        "mature_resolution_coverage": 1.0
+      },
+      "stdout_tail": [
+        "  model_current: trades=149 | hit_rate=25.5% | pnl=+9.374 | roi=32.7%",
+        "  model_skip_opposed: trades=144 | hit_rate=26.4% | pnl=+10.007 | roi=35.7%",
+        "  model_skip_celsius_active_unclassified: trades=137 | hit_rate=26.3% | pnl=+8.540 | roi=31.1%",
+        "  model_skip_opposed_and_celsius_active_unclassified: trades=132 | hit_rate=27.3% | pnl=+9.173 | roi=34.2%",
+        "Por estrategia:",
+        "  baseline_short_horizon: events=240 | paper_trades=149 | log_loss=2.330 | pnl=9.374",
+        "Por horizonte:",
+        "  H0: events=40 | paper_trades=20 | log_loss=5.536 | pnl=-0.636",
+        "  H1: events=200 | paper_trades=129 | log_loss=1.689 | pnl=10.010",
+        "Por calidad:",
+        "  A: events=150 | paper_trades=88 | log_loss=2.182 | pnl=5.002",
+        "  B: events=36 | paper_trades=22 | log_loss=2.566 | pnl=-1.272",
+        "  C: events=13 | paper_trades=5 | log_loss=4.398 | pnl=0.644",
+        "  D: events=1 | paper_trades=0 | log_loss=1.059 | pnl=0.000",
+        "  unknown: events=40 | paper_trades=34 | log_loss=2.033 | pnl=5.000",
+        "Por evidencia:",
+        "  A: events=200 | operable=175 | log_loss=2.390 | pnl=4.374",
+        "  unknown: events=40 | operable=40 | log_loss=2.033 | pnl=5.000",
+        "Por fuente de temperatura real:",
+        "  local_open_meteo_archive_backfill: events=240 | log_loss=2.330 | pnl=9.374"
+      ],
+      "stderr_tail": []
+    },
+    {
+      "name": "cohort_overlay_diagnostics",
+      "command": [
+        "/Users/marc/Documents/Polymarket/WeatherTrading/venv/bin/python",
+        "/Users/marc/Documents/Polymarket/WeatherTrading/scripts/run_cohort_overlay_diagnostics.py",
+        "--reference-date",
+        "2026-04-27"
+      ],
+      "started_at_utc": "2026-04-27T14:21:28.330409",
+      "finished_at_utc": "2026-04-27T14:21:28.389365",
+      "exit_code": 0,
+      "status": "ok",
+      "expected_artifacts": {},
+      "notes": [],
+      "audit_quality": null,
+      "stdout_tail": [
+        "Diagnostico guardado en: /Users/marc/Documents/Polymarket/WeatherTrading/logs/snapshots/2026-04-27_cohort_overlay_diagnostics_2026-04-26.json",
+        "=== DIAGNOSTICO DE COHORTE ===",
+        "Cohorte 2026-04-26 | eventos=20 | model_hit=20.0% | market_hit=30.0% | model_log_loss=7.443 | market_log_loss=2.488 | paper_pnl=-2.870",
+        "Peores tiers de calidad:",
+        "- A: events=12 | log_loss_delta=+4.371 | paper_pnl=-2.225 | roi=-69.0%",
+        "- B: events=4 | log_loss_delta=+5.291 | paper_pnl=-0.645 | roi=-100.0%",
+        "- C: events=4 | log_loss_delta=+6.372 | paper_pnl=+0.000 | roi=0.0%",
+        "Peores señales de watchlist:",
+        "- aligned: events=3 | log_loss_delta=+6.591 | paper_pnl=-1.480 | roi=-100.0%",
+        "- mixed: events=8 | log_loss_delta=+4.520 | paper_pnl=-1.390 | roi=-58.2%",
+        "- active_unclassified: events=1 | log_loss_delta=+0.793 | paper_pnl=+0.000 | roi=0.0%",
+        "- opposed: events=6 | log_loss_delta=+4.653 | paper_pnl=+0.000 | roi=0.0%",
+        "- silent: events=2 | log_loss_delta=+7.228 | paper_pnl=+0.000 | roi=0.0%"
+      ],
+      "stderr_tail": []
+    },
+    {
+      "name": "operational_readiness",
+      "command": [
+        "/Users/marc/Documents/Polymarket/WeatherTrading/venv/bin/python",
+        "/Users/marc/Documents/Polymarket/WeatherTrading/scripts/run_operational_readiness.py",
+        "--reference-date",
+        "2026-04-27"
+      ],
+      "started_at_utc": "2026-04-27T14:21:28.389770",
+      "finished_at_utc": "2026-04-27T14:21:28.491934",
+      "exit_code": 0,
+      "status": "ok",
+      "expected_artifacts": {
+        "logs/snapshots/2026-04-27_operational_readiness.json": true
+      },
+      "notes": [],
+      "audit_quality": null,
+      "stdout_tail": [
+        "Readiness guardado en: /Users/marc/Documents/Polymarket/WeatherTrading/logs/snapshots/2026-04-27_operational_readiness.json",
+        "=== OPERATIONAL READINESS ===",
+        "reference_date=2026-04-27 | status=ready | recommended_mode=eligible_for_supervised_execution"
+      ],
+      "stderr_tail": []
+    }
+  ]
+}

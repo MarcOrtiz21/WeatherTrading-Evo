@@ -64,6 +64,23 @@ watchlist_risk:
 experimental_filters:
   celsius_range_bin_active_unclassified_veto_enabled: true
 
+operator_risk:
+  warn_if_log_loss_delta_exceeds: 0.25
+  default_max_stake_usd: 999999.0
+  horizon0_intraday_policy: "cap"
+  horizon0_intraday_stake_multiplier: 0.20
+  horizon0_intraday_max_stake_usd: 1.0
+  horizon0_intraday_block_if_remaining_hours_exceeds: 6
+  horizon0_block_without_local_observed_max_when_late: true
+  horizon0_late_remaining_hours_threshold: 6
+  fahrenheit_range_bin_stake_multiplier: 0.55
+  fahrenheit_range_bin_max_stake_usd: 5.0
+  fahrenheit_other_stake_multiplier: 0.75
+  extreme_fair_probability_threshold: 0.85
+  extreme_probability_stake_multiplier: 0.65
+  tail_price_threshold: 0.03
+  tail_price_stake_multiplier: 0.75
+
 audit_quality:
   min_mature_coverage_for_complete: 0.95
   min_mature_coverage_for_actionable: 0.85
