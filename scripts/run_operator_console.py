@@ -2,6 +2,9 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
+import re
+import subprocess
 import sys
 import tomllib
 from collections import Counter, defaultdict
@@ -22,6 +25,12 @@ from weather_trading.infrastructure.utils import utc_now
 from weather_trading.services.evaluation.watchlist_strategy_analysis import infer_yes_bias
 
 AUTOMATIONS_ROOT = Path.home() / ".codex" / "automations"
+LAUNCH_AGENTS_DIR = Path.home() / "Library" / "LaunchAgents"
+LAUNCHD_LABELS = (
+    "com.weathertrading.evo.daily-pipeline",
+    "com.weathertrading.evo.pipeline-watchdog",
+)
+MACOS_PROTECTED_USER_DIR_NAMES = {"Desktop", "Documents", "Downloads"}
 
 
 def parse_args() -> argparse.Namespace:
@@ -119,19 +128,38 @@ def build_operator_dashboard(
             for username, profile in profiles.items()
         },
         "tickets": build_trade_tickets(live, budget_usd=budget_usd, max_tickets=max_tickets),
-        "execution_policy": {
-            "mode": "supervised_paper_ticket",
-            "live_execution_enabled": False,
-            "approval_text": "OK <ticket_id>",
-            "notes": [
-                "La consola no envia ordenes al CLOB.",
-                "Un OK solo registra una decision paper/dry-run local.",
-                "No se recomienda copytrading directo hasta tener muestra suficiente por trader y mercado.",
-            ],
-        },
+        "execution_policy": build_execution_policy_summary(),
     }
     payload["preflight"] = build_preflight_summary(payload)
     return payload
+
+
+def build_execution_policy_summary() -> dict:
+    min_trade_horizon_days = get_min_trade_horizon_days()
+    horizon_label = f"H{min_trade_horizon_days}+" if min_trade_horizon_days > 0 else "H0+"
+    return {
+        "mode": "supervised_paper_ticket",
+        "live_execution_enabled": bool(ConfigLoader.get("operator_policy.live_execution_enabled", False)),
+        "approval_text": "OK <ticket_id>",
+        "min_trade_horizon_days": min_trade_horizon_days,
+        "trade_horizon_label": horizon_label,
+        "horizon0_mode": str(ConfigLoader.get("operator_policy.horizon0_mode", "quarantined")),
+        "copytrading_mode": str(ConfigLoader.get("operator_policy.copytrading_mode", "veto_only")),
+        "notes": [
+            "La consola no envia ordenes al CLOB.",
+            f"Solo se revisan tickets {horizon_label}; H0 queda en cuarentena hasta que mejore su auditoria.",
+            "Copytrading se usa como veto/contexto, no como entrada directa.",
+            "Un OK solo registra una decision paper/dry-run local.",
+        ],
+    }
+
+
+def get_min_trade_horizon_days(default: int = 1) -> int:
+    value = ConfigLoader.get("operator_policy.min_trade_horizon_days", default)
+    try:
+        return max(0, int(value))
+    except (TypeError, ValueError):
+        return default
 
 
 def build_preflight_summary(payload: dict) -> dict:
@@ -176,6 +204,12 @@ def build_preflight_summary(payload: dict) -> dict:
     warn_delta = to_float(ConfigLoader.get("operator_risk.warn_if_log_loss_delta_exceeds", 0.25))
     if log_loss_delta is not None and float(log_loss_delta) > warn_delta:
         warnings.append("model_log_loss_underperforms_market")
+    horizon0_delta = audit.get("horizon0_model_market_log_loss_delta")
+    if horizon0_delta is not None and float(horizon0_delta) > warn_delta:
+        warnings.append("horizon0_log_loss_underperforms_market")
+    horizon0_roi = audit.get("horizon0_paper_roi_on_stake")
+    if horizon0_roi is not None and float(horizon0_roi) < 0:
+        warnings.append("horizon0_negative_paper_roi")
 
     reviewable_tickets = [
         ticket
@@ -206,6 +240,7 @@ def build_system_health(root: Path, *, reference_date: str) -> dict:
     latest_report = daily_reports[-1] if daily_reports else None
     latest_ok = next((item for item in reversed(daily_reports) if item["overall_status"] == "ok"), None)
     automation_status = discover_automation_status()
+    launchd_status = discover_launchd_status(root)
     missing_dates = find_missing_pipeline_dates(daily_reports)
 
     reference_date_value = parse_date_safe(reference_date)
@@ -231,6 +266,15 @@ def build_system_health(root: Path, *, reference_date: str) -> dict:
     ]
     if not active_daily:
         warnings.append("no_active_daily_automation_detected")
+    failed_launchd = [
+        item
+        for item in launchd_status
+        if item.get("status") in {"failed", "unloaded", "missing_plist", "unknown"}
+    ]
+    if failed_launchd:
+        warnings.append("launchd_scheduler_not_healthy")
+    if is_inside_macos_protected_user_dir(root):
+        warnings.append("project_root_in_macos_protected_directory")
 
     status = "blocked" if blockers else ("warning" if warnings else "ok")
     return {
@@ -241,9 +285,11 @@ def build_system_health(root: Path, *, reference_date: str) -> dict:
         "latest_ok_pipeline_lag_days": latest_ok_lag_days,
         "missing_pipeline_dates": missing_dates,
         "automation_status": automation_status,
+        "launchd_status": launchd_status,
         "warnings": unique_sorted(warnings),
         "blockers": unique_sorted(blockers),
         "recovery_command": f"venv/bin/python scripts/run_daily_pipeline.py --reference-date {reference_date}",
+        "scheduler_reinstall_command": "venv/bin/python scripts/install_launchd_scheduler.py",
     }
 
 
@@ -283,6 +329,84 @@ def discover_automation_status(automations_root: Path = AUTOMATIONS_ROOT) -> lis
             }
         )
     return automations
+
+
+def discover_launchd_status(root: Path = ROOT) -> list[dict]:
+    statuses: list[dict] = []
+    domain = f"gui/{os.getuid()}"
+    for label in LAUNCHD_LABELS:
+        plist_path = LAUNCH_AGENTS_DIR / f"{label}.plist"
+        stderr_path = root / "logs" / "launchd" / f"{label}.err.log"
+        if not plist_path.exists():
+            statuses.append(
+                {
+                    "label": label,
+                    "status": "missing_plist",
+                    "plist_path": plist_path.as_posix(),
+                    "last_exit_code": None,
+                    "runs": None,
+                    "stderr_tail": read_text_tail(stderr_path),
+                }
+            )
+            continue
+
+        result = subprocess.run(
+            ["launchctl", "print", f"{domain}/{label}"],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        output = "\n".join(part for part in (result.stdout, result.stderr) if part)
+        last_exit_code = parse_launchctl_int(output, "last exit code")
+        runs = parse_launchctl_int(output, "runs")
+        state = parse_launchctl_value(output, "state")
+        if result.returncode != 0:
+            status = "unloaded"
+        elif last_exit_code not in (None, 0):
+            status = "failed"
+        elif runs == 0:
+            status = "scheduled"
+        else:
+            status = "ok"
+        statuses.append(
+            {
+                "label": label,
+                "status": status,
+                "plist_path": plist_path.as_posix(),
+                "state": state,
+                "last_exit_code": last_exit_code,
+                "runs": runs,
+                "stderr_tail": read_text_tail(stderr_path),
+            }
+        )
+    return statuses
+
+
+def parse_launchctl_int(output: str, key: str) -> int | None:
+    match = re.search(rf"{re.escape(key)}\s*=\s*(-?\d+)", output)
+    return None if match is None else int(match.group(1))
+
+
+def parse_launchctl_value(output: str, key: str) -> str | None:
+    match = re.search(rf"{re.escape(key)}\s*=\s*([^\n]+)", output)
+    return None if match is None else match.group(1).strip()
+
+
+def read_text_tail(path: Path, *, lines: int = 3) -> list[str]:
+    if not path.exists():
+        return []
+    try:
+        return path.read_text(encoding="utf-8", errors="replace").splitlines()[-lines:]
+    except OSError:
+        return []
+
+
+def is_inside_macos_protected_user_dir(path: Path) -> bool:
+    try:
+        relative = path.resolve().relative_to(Path.home().resolve())
+    except ValueError:
+        return False
+    return bool(relative.parts) and relative.parts[0] in MACOS_PROTECTED_USER_DIR_NAMES
 
 
 def find_missing_pipeline_dates(
@@ -365,6 +489,9 @@ def summarize_readiness(readiness: dict) -> dict:
 
 def summarize_audit(audit: dict) -> dict:
     summary = audit.get("summary", {})
+    by_horizon_days = summary.get("by_horizon_days") or {}
+    horizon0 = by_horizon_days.get("0") or {}
+    horizon1 = by_horizon_days.get("1") or {}
     return {
         "quality": audit.get("audit_quality", {}),
         "events": summary.get("events"),
@@ -382,6 +509,19 @@ def summarize_audit(audit: dict) -> dict:
         "paper_trades": summary.get("paper_trades"),
         "paper_total_pnl": summary.get("paper_total_pnl"),
         "paper_roi_on_stake": summary.get("paper_roi_on_stake"),
+        "by_horizon_days": by_horizon_days,
+        "horizon0_model_market_log_loss_delta": (
+            to_float(horizon0.get("model_log_loss")) - to_float(horizon0.get("market_log_loss"))
+            if horizon0.get("model_log_loss") is not None and horizon0.get("market_log_loss") is not None
+            else None
+        ),
+        "horizon0_paper_roi_on_stake": horizon0.get("paper_roi_on_stake"),
+        "horizon1_model_market_log_loss_delta": (
+            to_float(horizon1.get("model_log_loss")) - to_float(horizon1.get("market_log_loss"))
+            if horizon1.get("model_log_loss") is not None and horizon1.get("market_log_loss") is not None
+            else None
+        ),
+        "horizon1_paper_roi_on_stake": horizon1.get("paper_roi_on_stake"),
     }
 
 
@@ -657,6 +797,10 @@ def compute_stake_suggestion(
 def build_operator_risk_blockers(event: dict, *, reference_date: str | None = None) -> list[str]:
     blockers: list[str] = []
     horizon_days = infer_ticket_horizon_days(event, reference_date=reference_date)
+    if horizon_days is None:
+        return blockers
+    if horizon_days < get_min_trade_horizon_days():
+        blockers.append("below_min_trade_horizon")
     if horizon_days != 0:
         return blockers
 
@@ -837,6 +981,13 @@ def render_text(payload: dict) -> str:
         f"Preflight: {preflight.get('status') or 'missing'} | "
         f"approval_allowed={preflight.get('approval_allowed')}"
     )
+    execution_policy = payload.get("execution_policy") or {}
+    lines.append(
+        f"Policy: {execution_policy.get('trade_horizon_label') or 'unknown'} only | "
+        f"H0={execution_policy.get('horizon0_mode') or 'unknown'} | "
+        f"copytrading={execution_policy.get('copytrading_mode') or 'unknown'} | "
+        f"live={execution_policy.get('live_execution_enabled')}"
+    )
     if preflight.get("warnings"):
         lines.append(f"Preflight warnings: {', '.join(preflight['warnings'])}")
     if preflight.get("blockers"):
@@ -860,6 +1011,15 @@ def render_text(payload: dict) -> str:
         )
         if system_health.get("warnings"):
             lines.append(f"Scheduler warnings: {', '.join(system_health['warnings'])}")
+        launchd_status = system_health.get("launchd_status") or []
+        if launchd_status:
+            launchd_parts = []
+            for item in launchd_status:
+                label = str(item.get("label") or "").replace("com.weathertrading.evo.", "")
+                exit_code = item.get("last_exit_code")
+                exit_text = "n/a" if exit_code is None else str(exit_code)
+                launchd_parts.append(f"{label}:{item.get('status')}({exit_text})")
+            lines.append(f"Launchd: {', '.join(launchd_parts)}")
 
     audit = payload["audit"]
     if audit.get("events") is not None:
@@ -871,6 +1031,19 @@ def render_text(payload: dict) -> str:
             f"log_loss model={format_num(audit.get('model_log_loss'))} vs market={format_num(audit.get('market_log_loss'))} | "
             f"paper_pnl={format_signed(audit.get('paper_total_pnl'))}"
         )
+        horizon_summaries = audit.get("by_horizon_days") or {}
+        if horizon_summaries:
+            horizon_parts = []
+            for horizon in ("0", "1"):
+                horizon_summary = horizon_summaries.get(horizon)
+                if not horizon_summary:
+                    continue
+                horizon_parts.append(
+                    f"H{horizon}: roi={format_pct(horizon_summary.get('paper_roi_on_stake'))} "
+                    f"LL={format_num(horizon_summary.get('model_log_loss'))}/{format_num(horizon_summary.get('market_log_loss'))}"
+                )
+            if horizon_parts:
+                lines.append("Horizon split: " + " | ".join(horizon_parts))
 
     lines.append("")
     lines.append("Copytrading sizing:")

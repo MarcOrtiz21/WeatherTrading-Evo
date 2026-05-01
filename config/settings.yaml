@@ -64,10 +64,16 @@ watchlist_risk:
 experimental_filters:
   celsius_range_bin_active_unclassified_veto_enabled: true
 
+operator_policy:
+  min_trade_horizon_days: 1
+  horizon0_mode: "quarantined"
+  copytrading_mode: "veto_only"
+  live_execution_enabled: false
+
 operator_risk:
   warn_if_log_loss_delta_exceeds: 0.25
   default_max_stake_usd: 999999.0
-  horizon0_intraday_policy: "cap"
+  horizon0_intraday_policy: "block"
   horizon0_intraday_stake_multiplier: 0.20
   horizon0_intraday_max_stake_usd: 1.0
   horizon0_intraday_block_if_remaining_hours_exceeds: 6

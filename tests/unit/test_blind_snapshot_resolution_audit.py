@@ -139,6 +139,32 @@ async def test_actual_temperature_resolver_local_only_skips_remote_fetch(tmp_pat
 
 
 @pytest.mark.asyncio
+async def test_actual_temperature_resolver_falls_back_when_local_db_cannot_open(tmp_path, monkeypatch):
+    db_path = tmp_path / "weather_trading.db"
+    create_weather_observations_db(db_path)
+
+    def fail_connect(*args, **kwargs):
+        raise sqlite3.OperationalError("unable to open database file")
+
+    class RemoteClient:
+        async def fetch_archive_daily_max(self, **kwargs):
+            return 21.4
+
+    monkeypatch.setattr("scripts.run_blind_snapshot_resolution_audit.sqlite3.connect", fail_connect)
+    resolver = ActualTemperatureResolver(db_path, RemoteClient())
+
+    result = await resolver.resolve(
+        station_code="AAA",
+        station_timezone="UTC",
+        latitude=0.0,
+        longitude=0.0,
+        local_date=date(2026, 4, 6),
+    )
+
+    assert result == (21.4, "openmeteo_archive", None)
+
+
+@pytest.mark.asyncio
 async def test_actual_temperature_resolver_labels_local_archive_backfill_source(tmp_path):
     db_path = tmp_path / "weather_trading.db"
     create_weather_observations_db(db_path)

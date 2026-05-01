@@ -17,6 +17,8 @@ MAX_TICKETS="${WEATHERTRADING_MAX_TICKETS:-12}"
   echo "=== WeatherTrading launchd ${MODE} ${REFERENCE_DATE} ==="
   /bin/date -u "+started_at_utc=%Y-%m-%dT%H:%M:%SZ"
   echo "project_root=$PROJECT_ROOT"
+  ulimit -n 4096 2>/dev/null || true
+  echo "open_file_limit=$(ulimit -n 2>/dev/null || echo unknown)"
 
   if [ ! -x "$PYTHON_BIN" ]; then
     echo "missing_python=$PYTHON_BIN"

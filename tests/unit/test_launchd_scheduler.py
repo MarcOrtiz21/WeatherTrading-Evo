@@ -18,6 +18,8 @@ def test_build_launch_agent_plist_uses_runner_and_schedule() -> None:
     assert payload["StartCalendarInterval"] == {"Hour": 8, "Minute": 20}
     assert payload["RunAtLoad"] is False
     assert payload["EnvironmentVariables"]["TZ"] == "Europe/Madrid"
+    assert payload["SoftResourceLimits"]["NumberOfFiles"] == 4096
+    assert payload["HardResourceLimits"]["NumberOfFiles"] == 4096
 
 
 def test_write_launch_agent_creates_plist(tmp_path, monkeypatch) -> None:

@@ -12,6 +12,8 @@ def test_build_operator_ui_html_contains_app_shell() -> None:
     assert "Recover" in html
     assert "Aprobar paper" in html
     assert "Copy & Edge" in html
+    assert "Policy" in html
+    assert "policyValue" in html
 
 
 def test_parse_query_options_uses_defaults_for_invalid_values() -> None:

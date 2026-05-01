@@ -421,6 +421,7 @@ def build_operator_ui_html() -> str:
             <div class="kpi"><div class="label">Readiness</div><div id="readinessValue" class="value">-</div><div id="readinessHint" class="hint">-</div></div>
             <div class="kpi"><div class="label">Pipeline</div><div id="pipelineValue" class="value">-</div><div id="pipelineHint" class="hint">-</div></div>
             <div class="kpi"><div class="label">Scheduler</div><div id="schedulerValue" class="value">-</div><div id="schedulerHint" class="hint">-</div></div>
+            <div class="kpi"><div class="label">Policy</div><div id="policyValue" class="value">-</div><div id="policyHint" class="hint">-</div></div>
             <div class="kpi"><div class="label">DB Lag</div><div id="dbLagValue" class="value">-</div><div id="dbHint" class="hint">-</div></div>
             <div class="kpi"><div class="label">Paper PnL</div><div id="pnlValue" class="value">-</div><div id="auditHint" class="hint">-</div></div>
           </div>
@@ -602,6 +603,7 @@ def build_operator_ui_html() -> str:
       const audit = dashboard.audit || {};
       const preflight = dashboard.preflight || {};
       const health = dashboard.system_health || {};
+      const executionPolicy = dashboard.execution_policy || {};
       const db = readiness.database_health || {};
       $("modeChip").className = chipClass(preflight.status || readiness.status);
       $("modeChip").textContent = preflight.approval_allowed ? "approval ready" : (preflight.status || readiness.recommended_mode || "unknown");
@@ -612,7 +614,10 @@ def build_operator_ui_html() -> str:
       $("pipelineValue").textContent = pipeline.overall_status || "missing";
       $("pipelineHint").textContent = `${(pipeline.steps || []).length} pasos`;
       $("schedulerValue").textContent = health.status || "missing";
-      $("schedulerHint").textContent = `latest ok ${health.latest_ok_pipeline_date || "n/a"}`;
+      const launchdFailed = (health.launchd_status || []).filter(item => ["failed", "unloaded", "missing_plist", "unknown"].includes(item.status));
+      $("schedulerHint").textContent = launchdFailed.length ? `${launchdFailed.length} launchd con fallo` : `latest ok ${health.latest_ok_pipeline_date || "n/a"}`;
+      $("policyValue").textContent = executionPolicy.trade_horizon_label || "H1+";
+      $("policyHint").textContent = `H0 ${executionPolicy.horizon0_mode || "quarantined"} | copy ${executionPolicy.copytrading_mode || "veto_only"}`;
       $("dbLagValue").textContent = db.observation_lag_days === null || db.observation_lag_days === undefined ? "-" : `${db.observation_lag_days}d`;
       $("dbHint").textContent = `${db.status || "unknown"} | obs=${db.observation_count || 0}`;
       $("pnlValue").textContent = signed(audit.paper_total_pnl);
@@ -626,6 +631,10 @@ def build_operator_ui_html() -> str:
       for (const warning of readiness.warnings || []) chips.push(`<span class="chip warn">${escapeHtml(warning)}</span>`);
       for (const blocker of health.blockers || []) chips.push(`<span class="chip bad">scheduler:${escapeHtml(blocker)}</span>`);
       for (const warning of health.warnings || []) chips.push(`<span class="chip warn">scheduler:${escapeHtml(warning)}</span>`);
+      for (const item of health.launchd_status || []) {
+        if (["ok", "scheduled"].includes(item.status)) continue;
+        chips.push(`<span class="chip bad">launchd:${escapeHtml((item.label || "").replace("com.weathertrading.evo.", ""))}:${escapeHtml(item.status || "unknown")}</span>`);
+      }
       for (const missing of health.missing_pipeline_dates || []) chips.push(`<span class="chip warn">missing ${escapeHtml(missing)}</span>`);
       if (!chips.length) chips.push(`<span class="chip good">sin blockers</span>`);
       $("blockerChips").innerHTML = chips.join("");

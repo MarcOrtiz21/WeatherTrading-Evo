@@ -222,10 +222,11 @@ def test_build_trade_ticket_blocks_early_same_day_intraday() -> None:
 
     assert ticket["action"] == "NO_TRADE"
     assert ticket["stake_suggestion_usd"] == 0.0
-    assert "same_day_intraday_too_early" in ticket["blockers"]
+    assert "below_min_trade_horizon" in ticket["blockers"]
+    assert "same_day_intraday_blocked" in ticket["blockers"]
 
 
-def test_build_trade_ticket_caps_late_same_day_intraday_with_local_observation() -> None:
+def test_build_trade_ticket_blocks_same_day_intraday_even_with_local_observation() -> None:
     event = {
         "event_slug": "e1",
         "event_date": "2026-04-27",
@@ -257,11 +258,23 @@ def test_build_trade_ticket_caps_late_same_day_intraday_with_local_observation()
         reference_date="2026-04-27",
     )
 
-    assert ticket["action"] == "REVIEW"
+    assert ticket["action"] == "NO_TRADE"
     assert ticket["horizon_days"] == 0
-    assert ticket["stake_suggestion_usd"] == 1.0
+    assert ticket["stake_suggestion_usd"] == 0.0
+    assert "below_min_trade_horizon" in ticket["blockers"]
+    assert "same_day_intraday_blocked" in ticket["blockers"]
     assert ticket["risk_controls"]["multipliers"]["same_day_intraday"] == 0.2
     assert "same_day_intraday_exposure_capped" in ticket["risk_controls"]["notes"]
+
+
+def test_build_execution_policy_summary_defaults_to_h1_only_veto_mode() -> None:
+    policy = run_operator_console.build_execution_policy_summary()
+
+    assert policy["min_trade_horizon_days"] == 1
+    assert policy["trade_horizon_label"] == "H1+"
+    assert policy["horizon0_mode"] == "quarantined"
+    assert policy["copytrading_mode"] == "veto_only"
+    assert policy["live_execution_enabled"] is False
 
 
 def test_classify_copy_confirmation_prefers_conflicted_when_both_sides_present() -> None:
@@ -414,6 +427,7 @@ def test_build_system_health_detects_pipeline_gaps(tmp_path: Path, monkeypatch) 
     monkeypatch.setattr(run_operator_console, "discover_automation_status", lambda: [
         {"id": "daily-live-snapshot", "status": "ACTIVE"}
     ])
+    monkeypatch.setattr(run_operator_console, "discover_launchd_status", lambda root: [])
 
     health = run_operator_console.build_system_health(tmp_path, reference_date="2026-04-26")
 
@@ -421,3 +435,52 @@ def test_build_system_health_detects_pipeline_gaps(tmp_path: Path, monkeypatch) 
     assert health["latest_ok_pipeline_date"] == "2026-04-26"
     assert health["missing_pipeline_dates"] == ["2026-04-25"]
     assert "pipeline_date_gap_detected" in health["warnings"]
+
+
+def test_build_system_health_warns_on_failed_launchd(tmp_path: Path, monkeypatch) -> None:
+    snapshots = tmp_path / "logs" / "snapshots"
+    snapshots.mkdir(parents=True)
+    (snapshots / "2026-04-26_daily_pipeline_report.json").write_text(
+        json.dumps({"overall_status": "ok"}),
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(run_operator_console, "discover_automation_status", lambda: [
+        {"id": "daily-live-snapshot", "status": "ACTIVE"}
+    ])
+    monkeypatch.setattr(run_operator_console, "discover_launchd_status", lambda root: [
+        {"label": "com.weathertrading.evo.daily-pipeline", "status": "failed", "last_exit_code": 127}
+    ])
+
+    health = run_operator_console.build_system_health(tmp_path, reference_date="2026-04-26")
+
+    assert health["status"] == "warning"
+    assert "launchd_scheduler_not_healthy" in health["warnings"]
+    assert health["launchd_status"][0]["last_exit_code"] == 127
+
+
+def test_summarize_audit_exposes_horizon0_deterioration() -> None:
+    audit = {
+        "audit_quality": {"is_actionable": True},
+        "summary": {
+            "model_log_loss": 2.0,
+            "market_log_loss": 1.5,
+            "by_horizon_days": {
+                "0": {
+                    "model_log_loss": 5.0,
+                    "market_log_loss": 2.0,
+                    "paper_roi_on_stake": -0.2,
+                },
+                "1": {
+                    "model_log_loss": 1.4,
+                    "market_log_loss": 1.2,
+                    "paper_roi_on_stake": 0.4,
+                },
+            },
+        },
+    }
+
+    summary = run_operator_console.summarize_audit(audit)
+
+    assert summary["horizon0_model_market_log_loss_delta"] == 3.0
+    assert summary["horizon0_paper_roi_on_stake"] == -0.2
+    assert summary["horizon1_model_market_log_loss_delta"] == 0.19999999999999996

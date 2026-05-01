@@ -10,6 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 LAUNCH_AGENTS_DIR = Path.home() / "Library" / "LaunchAgents"
 RUNNER = ROOT / "scripts" / "run_daily_pipeline_launchd.sh"
+MACOS_PROTECTED_USER_DIR_NAMES = {"Desktop", "Documents", "Downloads"}
 
 
 @dataclass(frozen=True)
@@ -61,6 +62,12 @@ def build_launch_agent_plist(job: LaunchdJob, *, run_at_load: bool = False) -> d
         "RunAtLoad": bool(run_at_load),
         "StandardOutPath": (log_dir / f"{job.label}.out.log").as_posix(),
         "StandardErrorPath": (log_dir / f"{job.label}.err.log").as_posix(),
+        "SoftResourceLimits": {
+            "NumberOfFiles": 4096,
+        },
+        "HardResourceLimits": {
+            "NumberOfFiles": 4096,
+        },
         "EnvironmentVariables": {
             "PATH": "/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin",
             "TZ": "Europe/Madrid",
@@ -145,6 +152,14 @@ def uninstall_launch_agents() -> list[dict]:
     return results
 
 
+def is_inside_macos_protected_user_dir(path: Path) -> bool:
+    try:
+        relative = path.resolve().relative_to(Path.home().resolve())
+    except ValueError:
+        return False
+    return bool(relative.parts) and relative.parts[0] in MACOS_PROTECTED_USER_DIR_NAMES
+
+
 def main() -> None:
     args = parse_args()
     if args.uninstall:
@@ -153,6 +168,12 @@ def main() -> None:
         results = install_launch_agents(load=not args.no_load, run_at_load=bool(args.run_at_load))
 
     print("=== WEATHERTRADING LAUNCHD SCHEDULER ===")
+    if is_inside_macos_protected_user_dir(ROOT):
+        print(
+            "WARNING: el proyecto esta dentro de Desktop/Documents/Downloads. "
+            "macOS puede bloquear LaunchAgents con permisos de privacidad; "
+            "si ves exit code 127, mueve el repo a ~/Developer o concede Full Disk Access."
+        )
     for result in results:
         print(result)
 

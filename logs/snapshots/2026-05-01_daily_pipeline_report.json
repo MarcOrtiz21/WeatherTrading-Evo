@@ -1,0 +1,192 @@
+{
+  "captured_at_utc": "2026-05-01T19:30:49.835407",
+  "reference_date": "2026-05-01",
+  "overall_status": "ok",
+  "steps": [
+    {
+      "name": "blind_live_validation",
+      "command": [
+        "/Users/marc/Developer/WeatherTrading-Evo/venv/bin/python",
+        "/Users/marc/Developer/WeatherTrading-Evo/scripts/run_blind_live_validation.py",
+        "--as-of-date",
+        "2026-05-01",
+        "--max-events",
+        "20",
+        "--min-horizon-days",
+        "0",
+        "--max-horizon-days",
+        "4"
+      ],
+      "started_at_utc": "2026-05-01T19:30:49.122501",
+      "finished_at_utc": "2026-05-01T19:30:49.258752",
+      "exit_code": 0,
+      "status": "ok",
+      "expected_artifacts": {
+        "logs/snapshots/2026-05-01_polymarket_blind_live_validation.json": true
+      },
+      "notes": [],
+      "audit_quality": null,
+      "stdout_tail": [
+        "- Highest temperature in Milan on May 1? [LIMC] 2026-05-01",
+        "  Forecast centro: 20.3C | modo modelo: Will the highest temperature in Milan be 20°C on May 1? (100.0%)",
+        "  Modo mercado: Will the highest temperature in Milan be 21°C on May 1? (100.0%) | top edge: Will the highest temperature in Milan be 20°C on May 1? (92.6%)",
+        "  Evidence: tier B (0.80) | operable=False | tradeable_markets=0",
+        "  Watchlist: mixed | active_traders=1 | aligned=1 | opposed=1 | veto=False",
+        "- Highest temperature in Moscow on May 1? [UUWW] 2026-05-01",
+        "  Forecast centro: 8.4C | modo modelo: Will the highest temperature in Moscow be 8°C on May 1? (100.0%)",
+        "  Modo mercado: Will the highest temperature in Moscow be 8°C on May 1? (99.8%) | top edge: Will the highest temperature in Moscow be 8°C on May 1? (-7.3%)",
+        "  Evidence: tier B (0.80) | operable=False | tradeable_markets=0",
+        "  Watchlist: mixed | active_traders=2 | aligned=2 | opposed=2 | veto=False",
+        "- Highest temperature in Munich on May 1? [EDDM] 2026-05-01",
+        "  Forecast centro: 19.9C | modo modelo: Will the highest temperature in Munich be 19°C on May 1? (50.0%)",
+        "  Modo mercado: Will the highest temperature in Munich be 20°C on May 1? (100.0%) | top edge: Will the highest temperature in Munich be 19°C on May 1? (42.6%)",
+        "  Evidence: tier B (0.80) | operable=False | tradeable_markets=0",
+        "  Watchlist: active_unclassified | active_traders=1 | aligned=0 | opposed=0 | veto=False",
+        "- Highest temperature in NYC on May 1? [KLGA] 2026-05-01",
+        "  Forecast centro: 18.2C | modo modelo: Will the highest temperature in New York City be between 64-65°F on May 1? (91.0%)",
+        "  Modo mercado: Will the highest temperature in New York City be between 64-65°F on May 1? (52.5%) | top edge: Will the highest temperature in New York City be between 64-65°F on May 1? (30.8%)",
+        "  Evidence: tier A (0.90) | operable=False | tradeable_markets=0",
+        "  Watchlist: opposed | active_traders=1 | aligned=0 | opposed=1 | veto=True"
+      ],
+      "stderr_tail": []
+    },
+    {
+      "name": "observation_backfill",
+      "command": [
+        "/Users/marc/Developer/WeatherTrading-Evo/venv/bin/python",
+        "/Users/marc/Developer/WeatherTrading-Evo/scripts/run_observation_backfill.py",
+        "--reference-date",
+        "2026-05-01"
+      ],
+      "started_at_utc": "2026-05-01T19:30:49.258862",
+      "finished_at_utc": "2026-05-01T19:30:49.489621",
+      "exit_code": 0,
+      "status": "ok",
+      "expected_artifacts": {
+        "logs/snapshots/2026-05-01_observation_backfill.json": true
+      },
+      "notes": [],
+      "audit_quality": null,
+      "stdout_tail": [
+        "Backfill guardado en: /Users/marc/Developer/WeatherTrading-Evo/logs/snapshots/2026-05-01_observation_backfill.json",
+        "=== RESUMEN BACKFILL OBSERVACIONES ===",
+        "Targets descubiertos: 280",
+        "Targets ya resueltos localmente: 280",
+        "Targets pendientes de fetch remoto: 0",
+        "Estaciones cubiertas: 0",
+        "Targets resueltos: 0",
+        "Filas creadas: 0",
+        "Filas actualizadas: 0",
+        "Targets sin archivo: 0",
+        "Fallos de fetch: 0"
+      ],
+      "stderr_tail": []
+    },
+    {
+      "name": "blind_snapshot_resolution_audit",
+      "command": [
+        "/Users/marc/Developer/WeatherTrading-Evo/venv/bin/python",
+        "/Users/marc/Developer/WeatherTrading-Evo/scripts/run_blind_snapshot_resolution_audit.py",
+        "--reference-date",
+        "2026-05-01"
+      ],
+      "started_at_utc": "2026-05-01T19:30:49.489816",
+      "finished_at_utc": "2026-05-01T19:30:49.675094",
+      "exit_code": 0,
+      "status": "ok",
+      "expected_artifacts": {
+        "logs/snapshots/2026-05-01_blind_snapshot_resolution_audit.json": true,
+        "logs/snapshots/2026-05-01_watchlist_strategy_simulation.json": true
+      },
+      "notes": [],
+      "audit_quality": {
+        "classification": "complete",
+        "reason": "mature_coverage_at_or_above_complete_threshold",
+        "is_actionable": true,
+        "is_comparable_to_full_coverage": true,
+        "min_mature_coverage_for_complete": 0.95,
+        "min_mature_coverage_for_actionable": 0.85,
+        "mature_resolution_coverage": 1.0
+      },
+      "stdout_tail": [
+        "  model_current: trades=167 | hit_rate=25.1% | pnl=+7.397 | roi=21.4%",
+        "  model_skip_opposed: trades=162 | hit_rate=25.9% | pnl=+8.030 | roi=23.6%",
+        "  model_skip_celsius_active_unclassified: trades=155 | hit_rate=25.8% | pnl=+6.563 | roi=19.6%",
+        "  model_skip_opposed_and_celsius_active_unclassified: trades=150 | hit_rate=26.7% | pnl=+7.196 | roi=21.9%",
+        "Por estrategia:",
+        "  baseline_short_horizon: events=280 | paper_trades=167 | log_loss=2.801 | pnl=7.397",
+        "Por horizonte:",
+        "  H0: events=80 | paper_trades=38 | log_loss=5.582 | pnl=-2.613",
+        "  H1: events=200 | paper_trades=129 | log_loss=1.689 | pnl=10.010",
+        "Por calidad:",
+        "  A: events=177 | paper_trades=103 | log_loss=2.582 | pnl=3.530",
+        "  B: events=42 | paper_trades=25 | log_loss=3.378 | pnl=-1.777",
+        "  C: events=20 | paper_trades=5 | log_loss=5.156 | pnl=0.644",
+        "  D: events=1 | paper_trades=0 | log_loss=1.059 | pnl=0.000",
+        "  unknown: events=40 | paper_trades=34 | log_loss=2.033 | pnl=5.000",
+        "Por evidencia:",
+        "  A: events=240 | operable=199 | log_loss=2.929 | pnl=2.397",
+        "  unknown: events=40 | operable=40 | log_loss=2.033 | pnl=5.000",
+        "Por fuente de temperatura real:",
+        "  local_open_meteo_archive_backfill: events=280 | log_loss=2.801 | pnl=7.397"
+      ],
+      "stderr_tail": []
+    },
+    {
+      "name": "cohort_overlay_diagnostics",
+      "command": [
+        "/Users/marc/Developer/WeatherTrading-Evo/venv/bin/python",
+        "/Users/marc/Developer/WeatherTrading-Evo/scripts/run_cohort_overlay_diagnostics.py",
+        "--reference-date",
+        "2026-05-01"
+      ],
+      "started_at_utc": "2026-05-01T19:30:49.676768",
+      "finished_at_utc": "2026-05-01T19:30:49.731214",
+      "exit_code": 0,
+      "status": "ok",
+      "expected_artifacts": {},
+      "notes": [],
+      "audit_quality": null,
+      "stdout_tail": [
+        "Diagnostico guardado en: /Users/marc/Developer/WeatherTrading-Evo/logs/snapshots/2026-05-01_cohort_overlay_diagnostics_2026-04-29.json",
+        "=== DIAGNOSTICO DE COHORTE ===",
+        "Cohorte 2026-04-29 | eventos=20 | model_hit=25.0% | market_hit=30.0% | model_log_loss=5.895 | market_log_loss=1.832 | paper_pnl=-0.337",
+        "Peores tiers de calidad:",
+        "- A: events=15 | log_loss_delta=+3.085 | paper_pnl=-0.305 | roi=-9.2%",
+        "- B: events=2 | log_loss_delta=+16.715 | paper_pnl=-0.033 | roi=-100.0%",
+        "- C: events=3 | log_loss_delta=+0.522 | paper_pnl=+0.000 | roi=0.0%",
+        "Peores señales de watchlist:",
+        "- aligned: events=3 | log_loss_delta=+5.961 | paper_pnl=-0.863 | roi=-100.0%",
+        "- mixed: events=4 | log_loss_delta=+2.250 | paper_pnl=-0.090 | roi=-8.3%",
+        "- silent: events=6 | log_loss_delta=+6.093 | paper_pnl=-0.028 | roi=-2.7%",
+        "- opposed: events=4 | log_loss_delta=+3.816 | paper_pnl=+0.000 | roi=0.0%",
+        "- active_unclassified: events=3 | log_loss_delta=+0.854 | paper_pnl=+0.643 | roi=180.1%"
+      ],
+      "stderr_tail": []
+    },
+    {
+      "name": "operational_readiness",
+      "command": [
+        "/Users/marc/Developer/WeatherTrading-Evo/venv/bin/python",
+        "/Users/marc/Developer/WeatherTrading-Evo/scripts/run_operational_readiness.py",
+        "--reference-date",
+        "2026-05-01"
+      ],
+      "started_at_utc": "2026-05-01T19:30:49.731618",
+      "finished_at_utc": "2026-05-01T19:30:49.835267",
+      "exit_code": 0,
+      "status": "ok",
+      "expected_artifacts": {
+        "logs/snapshots/2026-05-01_operational_readiness.json": true
+      },
+      "notes": [],
+      "audit_quality": null,
+      "stdout_tail": [
+        "Readiness guardado en: /Users/marc/Developer/WeatherTrading-Evo/logs/snapshots/2026-05-01_operational_readiness.json",
+        "=== OPERATIONAL READINESS ===",
+        "reference_date=2026-05-01 | status=ready | recommended_mode=eligible_for_supervised_execution"
+      ],
+      "stderr_tail": []
+    }
+  ]
+}

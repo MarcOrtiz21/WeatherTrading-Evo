@@ -106,23 +106,28 @@ class ActualTemperatureResolver:
             return None, None
 
         start_utc, end_utc = local_date_utc_bounds(local_date, station_timezone)
-        with sqlite3.connect(self.db_path) as conn:
-            row = conn.execute(
-                """
-                SELECT temp_c, provider, raw_reference
-                FROM weather_observations
-                WHERE station_code = ?
-                  AND observed_at_utc >= ?
-                  AND observed_at_utc < ?
-                ORDER BY temp_c DESC, observed_at_utc DESC
-                LIMIT 1
-                """,
-                (
-                    station_code,
-                    start_utc.isoformat(sep=" "),
-                    end_utc.isoformat(sep=" "),
-                ),
-            ).fetchone()
+        try:
+            db_uri = f"{self.db_path.resolve().as_uri()}?mode=ro"
+            with sqlite3.connect(db_uri, uri=True) as conn:
+                row = conn.execute(
+                    """
+                    SELECT temp_c, provider, raw_reference
+                    FROM weather_observations
+                    WHERE station_code = ?
+                      AND observed_at_utc >= ?
+                      AND observed_at_utc < ?
+                    ORDER BY temp_c DESC, observed_at_utc DESC
+                    LIMIT 1
+                    """,
+                    (
+                        station_code,
+                        start_utc.isoformat(sep=" "),
+                        end_utc.isoformat(sep=" "),
+                    ),
+                ).fetchone()
+        except sqlite3.Error:
+            self._local_cache[cache_key] = (None, None)
+            return None, None
 
         if row is None or row[0] is None:
             self._local_cache[cache_key] = (None, None)
