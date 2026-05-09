@@ -125,6 +125,41 @@ def test_build_trade_ticket_suggests_scaled_review_stake() -> None:
     assert ticket["stake_suggestion_usd"] == 2.5
 
 
+def test_build_trade_ticket_blocks_silent_watchlist_signal(monkeypatch) -> None:
+    def fake_get(key, default=None):
+        if key == "operator_risk.block_silent_watchlist_signal":
+            return True
+        return default
+
+    monkeypatch.setattr(run_operator_console.ConfigLoader, "get", staticmethod(fake_get))
+
+    event = {
+        "event_slug": "e1",
+        "event_operable": True,
+        "top_edge_tradeable": True,
+        "event_blockers": [],
+        "watchlist_signal": "silent",
+        "watchlist_trades": [],
+    }
+    market = {
+        "market_id": "m1",
+        "question": "Q",
+        "is_tradeable": True,
+        "execution_price": 0.2,
+        "fair_probability": 0.5,
+        "market_probability": 0.2,
+        "edge_net": 0.25,
+        "quality_tier": "A",
+        "blockers": [],
+    }
+
+    ticket = run_operator_console.build_trade_ticket(event, market=market, budget_usd=10.0)
+
+    assert ticket["action"] == "NO_TRADE"
+    assert ticket["stake_suggestion_usd"] == 0.0
+    assert "watchlist_silent_blocked" in ticket["blockers"]
+
+
 def test_build_trade_ticket_reduces_fahrenheit_range_bin_exposure() -> None:
     event = {
         "event_slug": "e1",
@@ -164,7 +199,9 @@ def test_build_trade_ticket_reduces_extreme_probability_and_tail_price() -> None
         "event_operable": True,
         "top_edge_tradeable": True,
         "event_blockers": [],
-        "watchlist_signal": "silent",
+        "watchlist_signal": "mixed",
+        "watchlist_aligned_traders": ["Poligarch"],
+        "watchlist_opposed_traders": ["ColdMath"],
         "watchlist_trades": [],
         "temperature_unit": "celsius",
     }
@@ -342,7 +379,8 @@ def test_build_operator_dashboard_reads_fixture_snapshots(tmp_path: Path) -> Non
 
     assert payload["reference_date"] == "2026-04-24"
     assert payload["pipeline"]["overall_status"] == "ok"
-    assert payload["tickets"][0]["action"] == "REVIEW"
+    assert payload["tickets"][0]["action"] == "NO_TRADE"
+    assert "watchlist_silent_blocked" in payload["tickets"][0]["blockers"]
     assert payload["preflight"]["approval_allowed"] is False
     assert "audit_not_actionable" in payload["preflight"]["blockers"]
 

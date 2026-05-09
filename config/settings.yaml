@@ -72,6 +72,7 @@ operator_policy:
 
 operator_risk:
   warn_if_log_loss_delta_exceeds: 0.25
+  block_silent_watchlist_signal: true
   default_max_stake_usd: 999999.0
   horizon0_intraday_policy: "block"
   horizon0_intraday_stake_multiplier: 0.20

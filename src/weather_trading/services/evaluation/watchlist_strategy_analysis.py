@@ -34,6 +34,9 @@ async def build_watchlist_strategy_summary(
     strategies = {
         "model_current": [],
         "model_skip_opposed": [],
+        "model_skip_silent": [],
+        "model_skip_opposed_and_silent": [],
+        "model_skip_weak_watchlist": [],
         "model_skip_celsius_active_unclassified": [],
         "model_skip_opposed_and_celsius_active_unclassified": [],
         "model_confirmed_only": [],
@@ -72,6 +75,12 @@ async def build_watchlist_strategy_summary(
             model_current_by_overlay_signal[signal].append(current_trade)
             if signal != "opposed":
                 strategies["model_skip_opposed"].append(current_trade)
+            if signal != "silent":
+                strategies["model_skip_silent"].append(current_trade)
+            if signal not in {"opposed", "silent"}:
+                strategies["model_skip_opposed_and_silent"].append(current_trade)
+            if signal not in {"opposed", "silent", "active_unclassified"}:
+                strategies["model_skip_weak_watchlist"].append(current_trade)
             if not experimental_filter_applies:
                 strategies["model_skip_celsius_active_unclassified"].append(current_trade)
             if signal != "opposed" and not experimental_filter_applies:
@@ -135,6 +144,9 @@ async def build_watchlist_strategy_summary(
             "copy_*_directional simula el lado real del trader: BUY YES/SELL NO como sesgo positivo y BUY NO/SELL YES como sesgo negativo",
             "model_aligned_only toma exactamente el top-edge del modelo cuando la watchlist esta alineada",
             "model_skip_opposed mantiene el trade del modelo salvo cuando la watchlist va en contra",
+            "model_skip_silent mantiene el trade del modelo solo cuando hay actividad observable en watchlist",
+            "model_skip_opposed_and_silent combina veto por oposicion y ausencia de actividad observable",
+            "model_skip_weak_watchlist bloquea opposed, silent y active_unclassified para estimar una postura mas conservadora",
             "model_skip_celsius_active_unclassified bloquea el top-edge si la watchlist esta en active_unclassified y el top-edge pertenece a celsius|range_bin",
             "model_skip_opposed_and_celsius_active_unclassified combina ambos filtros",
             "model_confirmed_only solo mantiene trades del modelo con watchlist aligned o mixed",
@@ -148,6 +160,9 @@ def build_strategy_comparison_digest(strategy_summary: dict) -> dict:
     selected_names = [
         "model_current",
         "model_skip_opposed",
+        "model_skip_silent",
+        "model_skip_opposed_and_silent",
+        "model_skip_weak_watchlist",
         "model_skip_celsius_active_unclassified",
         "model_skip_opposed_and_celsius_active_unclassified",
     ]

@@ -552,6 +552,9 @@ def summarize_watchlist_strategy(watchlist: dict) -> dict:
         for name in (
             "model_current",
             "model_skip_opposed",
+            "model_skip_silent",
+            "model_skip_opposed_and_silent",
+            "model_skip_weak_watchlist",
             "copy_coldmath_directional",
             "copy_poligarch_directional",
             "copy_watchlist_consensus_directional",
@@ -648,6 +651,7 @@ def build_trade_ticket(event: dict, *, market: dict, budget_usd: float, referenc
     is_tradeable = bool(event.get("event_operable")) and bool(event.get("top_edge_tradeable")) and bool(market.get("is_tradeable"))
     if bool(event.get("watchlist_veto_applied")) and "watchlist_opposed_veto" not in blockers:
         blockers.append("watchlist_opposed_veto")
+    blockers = list(dict.fromkeys(blockers))
     action = "REVIEW" if is_tradeable and not blockers else "NO_TRADE"
     copy_confirmation = classify_copy_confirmation(event)
     risk_controls = build_ticket_risk_controls(
@@ -796,6 +800,8 @@ def compute_stake_suggestion(
 
 def build_operator_risk_blockers(event: dict, *, reference_date: str | None = None) -> list[str]:
     blockers: list[str] = []
+    if should_block_silent_watchlist_signal(event):
+        blockers.append("watchlist_silent_blocked")
     horizon_days = infer_ticket_horizon_days(event, reference_date=reference_date)
     if horizon_days is None:
         return blockers
@@ -821,6 +827,12 @@ def build_operator_risk_blockers(event: dict, *, reference_date: str | None = No
             blockers.append("same_day_intraday_without_local_observed_max")
 
     return blockers
+
+
+def should_block_silent_watchlist_signal(event: dict) -> bool:
+    if not bool(ConfigLoader.get("operator_risk.block_silent_watchlist_signal", False)):
+        return False
+    return str(event.get("watchlist_signal") or "").strip().lower() == "silent"
 
 
 def build_ticket_risk_controls(

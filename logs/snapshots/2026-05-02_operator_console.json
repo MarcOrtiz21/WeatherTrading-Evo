@@ -1,0 +1,1308 @@
+{
+  "captured_at_utc": "2026-05-02T07:10:11.286891",
+  "reference_date": "2026-05-02",
+  "budget_usd": 10.0,
+  "artifact_paths": {
+    "pipeline": "logs/snapshots/2026-05-02_daily_pipeline_report.json",
+    "readiness": "logs/snapshots/2026-05-02_operational_readiness.json",
+    "audit": "logs/snapshots/2026-05-02_blind_snapshot_resolution_audit.json",
+    "live": "logs/snapshots/2026-05-02_polymarket_blind_live_validation.json",
+    "watchlist_strategy": "logs/snapshots/2026-05-02_watchlist_strategy_simulation.json",
+    "trader_profiles": {
+      "ColdMath": "logs/snapshots/2026-04-24_coldmath_behavior_profile.json",
+      "Poligarch": "logs/snapshots/2026-04-24_poligarch_behavior_profile.json"
+    }
+  },
+  "system_health": {
+    "status": "warning",
+    "reference_pipeline_status": "ok",
+    "latest_report_date": "2026-05-02",
+    "latest_ok_pipeline_date": "2026-05-02",
+    "latest_ok_pipeline_lag_days": 0,
+    "missing_pipeline_dates": [
+      "2026-04-28",
+      "2026-04-30"
+    ],
+    "automation_status": [
+      {
+        "id": "daily-live-snapshot",
+        "name": "Daily Pipeline",
+        "status": "ACTIVE",
+        "rrule": "FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR,SA,SU;BYHOUR=8;BYMINUTE=15",
+        "cwd_matches": false
+      },
+      {
+        "id": "daily-live-snapshot-2",
+        "name": "Daily Cohort Diagnostics",
+        "status": "PAUSED",
+        "rrule": "FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR,SA,SU;BYHOUR=9;BYMINUTE=12",
+        "cwd_matches": false
+      },
+      {
+        "id": "daily-observation-backfill",
+        "name": "Daily Observation Backfill",
+        "status": "PAUSED",
+        "rrule": "FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR,SA,SU;BYHOUR=8;BYMINUTE=20",
+        "cwd_matches": false
+      },
+      {
+        "id": "daily-snapshot-audit",
+        "name": "Daily Pipeline Watchdog",
+        "status": "ACTIVE",
+        "rrule": "FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR,SA,SU;BYHOUR=9;BYMINUTE=0",
+        "cwd_matches": false
+      },
+      {
+        "id": "weekly-policy-review",
+        "name": "Weekly Policy Review",
+        "status": "ACTIVE",
+        "rrule": "FREQ=WEEKLY;BYDAY=MO;BYHOUR=10;BYMINUTE=0",
+        "cwd_matches": false
+      }
+    ],
+    "launchd_status": [
+      {
+        "label": "com.weathertrading.evo.daily-pipeline",
+        "status": "ok",
+        "plist_path": "/Users/marc/Library/LaunchAgents/com.weathertrading.evo.daily-pipeline.plist",
+        "state": "not running",
+        "last_exit_code": 0,
+        "runs": 2,
+        "stderr_tail": []
+      },
+      {
+        "label": "com.weathertrading.evo.pipeline-watchdog",
+        "status": "ok",
+        "plist_path": "/Users/marc/Library/LaunchAgents/com.weathertrading.evo.pipeline-watchdog.plist",
+        "state": "running",
+        "last_exit_code": 0,
+        "runs": 2,
+        "stderr_tail": []
+      }
+    ],
+    "warnings": [
+      "pipeline_date_gap_detected"
+    ],
+    "blockers": [],
+    "recovery_command": "venv/bin/python scripts/run_daily_pipeline.py --reference-date 2026-05-02",
+    "scheduler_reinstall_command": "venv/bin/python scripts/install_launchd_scheduler.py"
+  },
+  "pipeline": {
+    "overall_status": "ok",
+    "steps": [
+      {
+        "name": "blind_live_validation",
+        "status": "ok",
+        "exit_code": 0,
+        "notes": []
+      },
+      {
+        "name": "observation_backfill",
+        "status": "ok",
+        "exit_code": 0,
+        "notes": []
+      },
+      {
+        "name": "blind_snapshot_resolution_audit",
+        "status": "ok",
+        "exit_code": 0,
+        "notes": []
+      },
+      {
+        "name": "cohort_overlay_diagnostics",
+        "status": "ok",
+        "exit_code": 0,
+        "notes": []
+      },
+      {
+        "name": "operational_readiness",
+        "status": "ok",
+        "exit_code": 0,
+        "notes": []
+      }
+    ]
+  },
+  "readiness": {
+    "status": "ready",
+    "recommended_mode": "eligible_for_supervised_execution",
+    "blockers": [],
+    "warnings": [],
+    "database_health": {
+      "path": "weather_trading.db",
+      "exists": true,
+      "status": "ok",
+      "observation_count": 309,
+      "latest_observed_at_utc": "2026-05-02 06:59:00.000000",
+      "latest_observed_date": "2026-05-02",
+      "observation_lag_days": 0,
+      "error": null
+    }
+  },
+  "audit": {
+    "quality": {
+      "classification": "complete",
+      "reason": "mature_coverage_at_or_above_complete_threshold",
+      "is_actionable": true,
+      "is_comparable_to_full_coverage": true,
+      "min_mature_coverage_for_complete": 0.95,
+      "min_mature_coverage_for_actionable": 0.85,
+      "mature_resolution_coverage": 1.0
+    },
+    "events": 300,
+    "model_mode_hit_rate": 0.4766666666666667,
+    "market_mode_hit_rate": 0.44333333333333336,
+    "model_log_loss": 3.102623568118566,
+    "market_log_loss": 1.535262321176822,
+    "model_market_log_loss_delta": 1.567361246941744,
+    "model_brier": 0.7416440197658002,
+    "market_brier": 0.7081323775,
+    "paper_trades": 169,
+    "paper_total_pnl": 8.02675,
+    "paper_roi_on_stake": 0.22951112636086152,
+    "by_horizon_days": {
+      "0": {
+        "events": 100,
+        "operable_events": 58,
+        "operable_rate": 0.58,
+        "avg_event_evidence_score": 0.8905,
+        "model_mode_hit_rate": 0.38,
+        "market_mode_hit_rate": 0.39,
+        "avg_winner_fair_probability": 0.3949177904804022,
+        "avg_winner_market_probability": 0.37094,
+        "model_log_loss": 5.930002296495182,
+        "market_log_loss": 2.1133840441497296,
+        "model_brier": 0.9335676076393316,
+        "market_brier": 0.8745053125,
+        "paper_edge_threshold": 0.0,
+        "paper_trades": 40,
+        "paper_trade_hit_rate": 0.3,
+        "paper_total_stake": 13.983,
+        "paper_total_pnl": -1.9829999999999999,
+        "paper_roi_on_stake": -0.14181506114567688
+      },
+      "1": {
+        "events": 200,
+        "operable_events": 187,
+        "operable_rate": 0.935,
+        "avg_event_evidence_score": 1.0,
+        "model_mode_hit_rate": 0.525,
+        "market_mode_hit_rate": 0.47,
+        "avg_winner_fair_probability": 0.3757079748853821,
+        "avg_winner_market_probability": 0.3952825,
+        "model_log_loss": 1.6889342039302573,
+        "market_log_loss": 1.2462014596903679,
+        "model_brier": 0.6456822258290346,
+        "market_brier": 0.62494591,
+        "paper_edge_threshold": 0.0,
+        "paper_trades": 129,
+        "paper_trade_hit_rate": 0.24031007751937986,
+        "paper_total_stake": 20.99025,
+        "paper_total_pnl": 10.00975,
+        "paper_roi_on_stake": 0.4768761686973714
+      }
+    },
+    "horizon0_model_market_log_loss_delta": 3.8166182523454526,
+    "horizon0_paper_roi_on_stake": -0.14181506114567688,
+    "horizon1_model_market_log_loss_delta": 0.4427327442398894,
+    "horizon1_paper_roi_on_stake": 0.4768761686973714
+  },
+  "live": {
+    "as_of_date": "2026-05-02",
+    "evaluated_events": 20,
+    "tradeable_events": 7,
+    "watchlist_signals": {
+      "active_unclassified": 1,
+      "mixed": 4,
+      "opposed": 10,
+      "silent": 5
+    },
+    "event_blockers": {
+      "experimental_celsius_range_bin_active_unclassified_veto": 1,
+      "same_day_without_intraday_context": 1,
+      "watchlist_opposed_veto": 10
+    },
+    "watchlist_error": null,
+    "tracked_traders": [
+      {
+        "username": "ColdMath",
+        "label": "ColdMath",
+        "proxy_wallet": "0x594edb9112f526fa6a80b8f858a6379c8a2c1c11",
+        "monthly_rank": 3,
+        "monthly_pnl": 1603.3318836257677,
+        "monthly_volume": 152455.84631599998,
+        "all_time_rank": 3,
+        "all_time_pnl": 128470.49168075001,
+        "all_time_volume": 9410325.458142998
+      },
+      {
+        "username": "Poligarch",
+        "label": "Poligarch",
+        "proxy_wallet": "0xb40e89677d59665d5188541ad860450a6e2a7cc9",
+        "monthly_rank": null,
+        "monthly_pnl": null,
+        "monthly_volume": null,
+        "all_time_rank": 15,
+        "all_time_pnl": 53493.0627352072,
+        "all_time_volume": 6700121.076272001
+      },
+      {
+        "username": "Handsanitizer23",
+        "label": "Handsanitizer23",
+        "proxy_wallet": "0x05e70727a2e2dcd079baa2ef1c0b88af06bb9641",
+        "monthly_rank": null,
+        "monthly_pnl": null,
+        "monthly_volume": null,
+        "all_time_rank": 7,
+        "all_time_pnl": 71174.40067137999,
+        "all_time_volume": 953274.808
+      }
+    ]
+  },
+  "watchlist_strategy": {
+    "evaluated_events": 300,
+    "overlay_breakdown": {
+      "active_unclassified": 30,
+      "aligned": 11,
+      "mixed": 42,
+      "opposed": 52,
+      "silent": 45,
+      "unavailable": 120
+    },
+    "selected_strategies": {
+      "model_current": {
+        "trades": 169,
+        "selected_market_hit_rate": 0.25443786982248523,
+        "total_stake": 34.97325,
+        "total_pnl": 8.02675,
+        "roi_on_stake": 0.22951112636086152,
+        "avg_execution_price": 0.1861834319526627
+      },
+      "model_skip_opposed": {
+        "trades": 164,
+        "selected_market_hit_rate": 0.2621951219512195,
+        "total_stake": 34.33975,
+        "total_pnl": 8.66025,
+        "roi_on_stake": 0.2521931580748258,
+        "avg_execution_price": 0.18883536585365854
+      },
+      "copy_coldmath_directional": {
+        "trades": 4,
+        "selected_market_hit_rate": 0.5,
+        "total_stake": 2.13625,
+        "total_pnl": -0.13624999999999998,
+        "roi_on_stake": -0.06377998829724985,
+        "avg_execution_price": 0.509
+      },
+      "copy_poligarch_directional": {
+        "trades": 34,
+        "selected_market_hit_rate": 0.35294117647058826,
+        "total_stake": 16.651,
+        "total_pnl": -4.651,
+        "roi_on_stake": -0.27932256320941684,
+        "avg_execution_price": 0.46341176470588236
+      },
+      "copy_watchlist_consensus_directional": {
+        "trades": 35,
+        "selected_market_hit_rate": 0.34285714285714286,
+        "total_stake": 17.41225,
+        "total_pnl": -5.412249999999999,
+        "roi_on_stake": -0.31083001909575153,
+        "avg_execution_price": 0.4712
+      }
+    },
+    "best_strategy_by_pnl": "model_skip_opposed",
+    "best_strategy_by_roi": "model_skip_opposed"
+  },
+  "copytrading_size_guidance": {
+    "ColdMath": {
+      "username": "ColdMath",
+      "profile_captured_at_utc": "2026-04-24T09:42:59.793317",
+      "trade_count": 2000,
+      "unique_event_count": 231,
+      "avg_notional_usd": 137.94073500270704,
+      "median_notional_usd": 8.05383,
+      "budget_vs_avg_notional": 0.07249490152277174,
+      "budget_vs_median_notional": 1.2416452793267303,
+      "avg_hours_before_event": 28.468695935868755,
+      "median_hours_before_event": 27.733333333333334,
+      "same_day_share": 0.4569351230425056,
+      "yes_buy_share": 0.368,
+      "no_buy_share": 0.5265,
+      "sell_share": 0.0,
+      "sizing_note": "media muy sesgada por trades grandes; usar mediana/cap, no copiar tamano absoluto"
+    },
+    "Poligarch": {
+      "username": "Poligarch",
+      "profile_captured_at_utc": "2026-04-24T09:43:30.056923",
+      "trade_count": 2000,
+      "unique_event_count": 174,
+      "avg_notional_usd": 12.022169825438029,
+      "median_notional_usd": 4.26232,
+      "budget_vs_avg_notional": 0.8317966012125976,
+      "budget_vs_median_notional": 2.3461401302577003,
+      "avg_hours_before_event": 18.148354080840647,
+      "median_hours_before_event": 17.533055555555556,
+      "same_day_share": 0.7796883396023643,
+      "yes_buy_share": 0.52,
+      "no_buy_share": 0.479,
+      "sell_share": 0.001,
+      "sizing_note": "el presupuesto supera bastante la mediana del trader; reducir si es live"
+    }
+  },
+  "tickets": [
+    {
+      "action": "NO_TRADE",
+      "event_slug": "highest-temperature-in-milan-on-may-2-2026",
+      "event_title": "Highest temperature in Milan on May 2?",
+      "event_date": "2026-05-02",
+      "city": "Milan",
+      "station_code": "LIMC",
+      "question": "Will the highest temperature in Milan be 22°C on May 2?",
+      "market_id": "2122397",
+      "market_slug": "highest-temperature-in-milan-on-may-2-2026-22c",
+      "execution_price": 0.009,
+      "fair_probability": 0.8202428963418538,
+      "market_probability": 0.0085,
+      "edge_net": 0.7387428963418537,
+      "quality_tier": "A",
+      "temperature_unit": "celsius",
+      "market_family": "celsius|range_bin",
+      "horizon_days": 0,
+      "forecast": {
+        "center_c": 22.51,
+        "mode_c": 22,
+        "std_dev_c": 0.33,
+        "model_name": "openmeteo_intraday_max_so_far_v1"
+      },
+      "watchlist": {
+        "signal": "opposed",
+        "copy_confirmation": "opposed",
+        "alignment_score": -1.0,
+        "active_traders": [
+          "ColdMath",
+          "Poligarch"
+        ],
+        "aligned_traders": [],
+        "opposed_traders": [
+          "ColdMath",
+          "Poligarch"
+        ],
+        "copy_flow": [
+          {
+            "trader": "ColdMath",
+            "trade_count": 3,
+            "gross_notional_usd": 18.2943,
+            "net_yes_notional_usd": 3.8943,
+            "direction": "YES",
+            "classifications": {
+              "opposed": 2,
+              "event_only": 1
+            },
+            "latest_timestamp": 1777537294
+          },
+          {
+            "trader": "Poligarch",
+            "trade_count": 2,
+            "gross_notional_usd": 7.9871,
+            "net_yes_notional_usd": -1.0335,
+            "direction": "NO",
+            "classifications": {
+              "opposed": 1,
+              "event_only": 1
+            },
+            "latest_timestamp": 1777681014
+          }
+        ]
+      },
+      "risk_controls": {
+        "market_family": "celsius|range_bin",
+        "horizon_days": 0,
+        "fair_probability": 0.8202428963418538,
+        "execution_price": 0.009,
+        "combined_multiplier": 0.15,
+        "max_stake_usd": 1.0,
+        "multipliers": {
+          "same_day_intraday": 0.2,
+          "tail_price": 0.75
+        },
+        "notes": [
+          "same_day_intraday_exposure_capped",
+          "tail_price_exposure_reduced",
+          "opposed_copy_signal_blocks_ticket"
+        ]
+      },
+      "blockers": [
+        "watchlist_opposed_veto",
+        "watchlist_opposed_veto",
+        "below_min_trade_horizon",
+        "same_day_intraday_blocked"
+      ],
+      "stake_suggestion_usd": 0.0,
+      "approval_command": "OK {ticket_id}",
+      "ticket_id": "T01"
+    },
+    {
+      "action": "NO_TRADE",
+      "event_slug": "highest-temperature-in-houston-on-may-2-2026",
+      "event_title": "Highest temperature in Houston on May 2?",
+      "event_date": "2026-05-02",
+      "city": "Houston",
+      "station_code": "KHOU",
+      "question": "Will the highest temperature in Houston be between 70-71°F on May 2?",
+      "market_id": "2122513",
+      "market_slug": "highest-temperature-in-houston-on-may-2-2026-70-71f",
+      "execution_price": 0.069,
+      "fair_probability": 0.8358822199326913,
+      "market_probability": 0.0685,
+      "edge_net": 0.6943822199326912,
+      "quality_tier": "A",
+      "temperature_unit": "fahrenheit",
+      "market_family": "fahrenheit|range_bin",
+      "horizon_days": 0,
+      "forecast": {
+        "center_c": 21.2,
+        "mode_c": 21,
+        "std_dev_c": 0.35,
+        "model_name": "openmeteo_intraday_max_so_far_v1"
+      },
+      "watchlist": {
+        "signal": "opposed",
+        "copy_confirmation": "opposed",
+        "alignment_score": -1.0,
+        "active_traders": [
+          "Poligarch"
+        ],
+        "aligned_traders": [],
+        "opposed_traders": [
+          "Poligarch"
+        ],
+        "copy_flow": [
+          {
+            "trader": "Poligarch",
+            "trade_count": 2,
+            "gross_notional_usd": 8.0966,
+            "net_yes_notional_usd": -5.159,
+            "direction": "NO",
+            "classifications": {
+              "opposed": 1,
+              "event_only": 1
+            },
+            "latest_timestamp": 1777662912
+          }
+        ]
+      },
+      "risk_controls": {
+        "market_family": "fahrenheit|range_bin",
+        "horizon_days": 0,
+        "fair_probability": 0.8358822199326913,
+        "execution_price": 0.069,
+        "combined_multiplier": 0.11,
+        "max_stake_usd": 1.0,
+        "multipliers": {
+          "same_day_intraday": 0.2,
+          "fahrenheit_range_bin": 0.55
+        },
+        "notes": [
+          "same_day_intraday_exposure_capped",
+          "fahrenheit_range_bin_exposure_reduced",
+          "opposed_copy_signal_blocks_ticket"
+        ]
+      },
+      "blockers": [
+        "watchlist_opposed_veto",
+        "watchlist_opposed_veto",
+        "below_min_trade_horizon",
+        "same_day_intraday_blocked"
+      ],
+      "stake_suggestion_usd": 0.0,
+      "approval_command": "OK {ticket_id}",
+      "ticket_id": "T02"
+    },
+    {
+      "action": "NO_TRADE",
+      "event_slug": "highest-temperature-in-nyc-on-may-2-2026",
+      "event_title": "Highest temperature in NYC on May 2?",
+      "event_date": "2026-05-02",
+      "city": "New York",
+      "station_code": "KLGA",
+      "question": "Will the highest temperature in New York City be between 62-63°F on May 2?",
+      "market_id": "2122243",
+      "market_slug": "highest-temperature-in-nyc-on-may-2-2026-62-63f",
+      "execution_price": 0.11,
+      "fair_probability": 0.8553498868185354,
+      "market_probability": 0.10550000000000001,
+      "edge_net": 0.6728498868185354,
+      "quality_tier": "A",
+      "temperature_unit": "fahrenheit",
+      "market_family": "fahrenheit|range_bin",
+      "horizon_days": 0,
+      "forecast": {
+        "center_c": 16.97,
+        "mode_c": 16,
+        "std_dev_c": 0.38,
+        "model_name": "openmeteo_intraday_max_so_far_v1"
+      },
+      "watchlist": {
+        "signal": "opposed",
+        "copy_confirmation": "opposed",
+        "alignment_score": -1.0,
+        "active_traders": [
+          "ColdMath",
+          "Poligarch"
+        ],
+        "aligned_traders": [],
+        "opposed_traders": [
+          "Poligarch"
+        ],
+        "copy_flow": [
+          {
+            "trader": "ColdMath",
+            "trade_count": 1,
+            "gross_notional_usd": 91.8657,
+            "net_yes_notional_usd": -91.8657,
+            "direction": "NO",
+            "classifications": {
+              "event_only": 1
+            },
+            "latest_timestamp": 1777539382
+          },
+          {
+            "trader": "Poligarch",
+            "trade_count": 3,
+            "gross_notional_usd": 8.9144,
+            "net_yes_notional_usd": 8.9144,
+            "direction": "YES",
+            "classifications": {
+              "opposed": 3
+            },
+            "latest_timestamp": 1777683510
+          }
+        ]
+      },
+      "risk_controls": {
+        "market_family": "fahrenheit|range_bin",
+        "horizon_days": 0,
+        "fair_probability": 0.8553498868185354,
+        "execution_price": 0.11,
+        "combined_multiplier": 0.0715,
+        "max_stake_usd": 1.0,
+        "multipliers": {
+          "same_day_intraday": 0.2,
+          "fahrenheit_range_bin": 0.55,
+          "extreme_fair_probability": 0.65
+        },
+        "notes": [
+          "same_day_intraday_exposure_capped",
+          "fahrenheit_range_bin_exposure_reduced",
+          "overconfidence_guardrail",
+          "opposed_copy_signal_blocks_ticket"
+        ]
+      },
+      "blockers": [
+        "watchlist_opposed_veto",
+        "watchlist_opposed_veto",
+        "below_min_trade_horizon",
+        "same_day_intraday_blocked"
+      ],
+      "stake_suggestion_usd": 0.0,
+      "approval_command": "OK {ticket_id}",
+      "ticket_id": "T03"
+    },
+    {
+      "action": "NO_TRADE",
+      "event_slug": "highest-temperature-in-austin-on-may-2-2026",
+      "event_title": "Highest temperature in Austin on May 2?",
+      "event_date": "2026-05-02",
+      "city": "Austin",
+      "station_code": "KAUS",
+      "question": "Will the highest temperature in Austin be between 70-71°F on May 2?",
+      "market_id": "2122498",
+      "market_slug": "highest-temperature-in-austin-on-may-2-2026-70-71f",
+      "execution_price": 0.029,
+      "fair_probability": 0.7517529715327892,
+      "market_probability": 0.0245,
+      "edge_net": 0.6502529715327892,
+      "quality_tier": "B",
+      "temperature_unit": "fahrenheit",
+      "market_family": "fahrenheit|range_bin",
+      "horizon_days": 0,
+      "forecast": {
+        "center_c": 21.07,
+        "mode_c": 21,
+        "std_dev_c": 0.34,
+        "model_name": "openmeteo_intraday_max_so_far_v1"
+      },
+      "watchlist": {
+        "signal": "opposed",
+        "copy_confirmation": "opposed",
+        "alignment_score": -1.0,
+        "active_traders": [
+          "ColdMath",
+          "Poligarch"
+        ],
+        "aligned_traders": [],
+        "opposed_traders": [
+          "ColdMath",
+          "Poligarch"
+        ],
+        "copy_flow": [
+          {
+            "trader": "ColdMath",
+            "trade_count": 1,
+            "gross_notional_usd": 56.4635,
+            "net_yes_notional_usd": 56.4635,
+            "direction": "YES",
+            "classifications": {
+              "opposed": 1
+            },
+            "latest_timestamp": 1777541592
+          },
+          {
+            "trader": "Poligarch",
+            "trade_count": 8,
+            "gross_notional_usd": 32.0137,
+            "net_yes_notional_usd": 0.8407,
+            "direction": "YES",
+            "classifications": {
+              "opposed": 5,
+              "event_only": 3
+            },
+            "latest_timestamp": 1777680682
+          }
+        ]
+      },
+      "risk_controls": {
+        "market_family": "fahrenheit|range_bin",
+        "horizon_days": 0,
+        "fair_probability": 0.7517529715327892,
+        "execution_price": 0.029,
+        "combined_multiplier": 0.0825,
+        "max_stake_usd": 1.0,
+        "multipliers": {
+          "same_day_intraday": 0.2,
+          "fahrenheit_range_bin": 0.55,
+          "tail_price": 0.75
+        },
+        "notes": [
+          "same_day_intraday_exposure_capped",
+          "fahrenheit_range_bin_exposure_reduced",
+          "tail_price_exposure_reduced",
+          "opposed_copy_signal_blocks_ticket"
+        ]
+      },
+      "blockers": [
+        "watchlist_opposed_veto",
+        "watchlist_opposed_veto",
+        "below_min_trade_horizon",
+        "same_day_intraday_blocked"
+      ],
+      "stake_suggestion_usd": 0.0,
+      "approval_command": "OK {ticket_id}",
+      "ticket_id": "T04"
+    },
+    {
+      "action": "NO_TRADE",
+      "event_slug": "highest-temperature-in-moscow-on-may-2-2026",
+      "event_title": "Highest temperature in Moscow on May 2?",
+      "event_date": "2026-05-02",
+      "city": "Moscow",
+      "station_code": "UUWW",
+      "question": "Will the highest temperature in Moscow be 12°C on May 2?",
+      "market_id": "2122548",
+      "market_slug": "highest-temperature-in-moscow-on-may-2-2026-12c",
+      "execution_price": 0.07,
+      "fair_probability": 0.727837143404822,
+      "market_probability": 0.0605,
+      "edge_net": 0.5830871434048219,
+      "quality_tier": "A",
+      "temperature_unit": "celsius",
+      "market_family": "celsius|range_bin",
+      "horizon_days": 0,
+      "forecast": {
+        "center_c": 12.22,
+        "mode_c": 12,
+        "std_dev_c": 0.33,
+        "model_name": "openmeteo_intraday_max_so_far_v1"
+      },
+      "watchlist": {
+        "signal": "mixed",
+        "copy_confirmation": "conflicted",
+        "alignment_score": 0.0,
+        "active_traders": [
+          "ColdMath",
+          "Poligarch"
+        ],
+        "aligned_traders": [
+          "Poligarch"
+        ],
+        "opposed_traders": [
+          "ColdMath"
+        ],
+        "copy_flow": [
+          {
+            "trader": "Poligarch",
+            "trade_count": 3,
+            "gross_notional_usd": 3.6,
+            "net_yes_notional_usd": 3.6,
+            "direction": "YES",
+            "classifications": {
+              "aligned": 3
+            },
+            "latest_timestamp": 1777681144
+          },
+          {
+            "trader": "ColdMath",
+            "trade_count": 1,
+            "gross_notional_usd": 2.8756,
+            "net_yes_notional_usd": 2.8756,
+            "direction": "YES",
+            "classifications": {
+              "opposed": 1
+            },
+            "latest_timestamp": 1777629934
+          }
+        ]
+      },
+      "risk_controls": {
+        "market_family": "celsius|range_bin",
+        "horizon_days": 0,
+        "fair_probability": 0.727837143404822,
+        "execution_price": 0.07,
+        "combined_multiplier": 0.2,
+        "max_stake_usd": 1.0,
+        "multipliers": {
+          "same_day_intraday": 0.2
+        },
+        "notes": [
+          "same_day_intraday_exposure_capped",
+          "copytrading_conflict_keeps_half_size"
+        ]
+      },
+      "blockers": [
+        "below_min_trade_horizon",
+        "same_day_intraday_blocked"
+      ],
+      "stake_suggestion_usd": 0.0,
+      "approval_command": "OK {ticket_id}",
+      "ticket_id": "T05"
+    },
+    {
+      "action": "NO_TRADE",
+      "event_slug": "highest-temperature-in-miami-on-may-2-2026",
+      "event_title": "Highest temperature in Miami on May 2?",
+      "event_date": "2026-05-02",
+      "city": "Miami",
+      "station_code": "KMIA",
+      "question": "Will the highest temperature in Miami be between 94-95°F on May 2?",
+      "market_id": "2122276",
+      "market_slug": "highest-temperature-in-miami-on-may-2-2026-94-95f",
+      "execution_price": 0.22,
+      "fair_probability": 0.8724057976596901,
+      "market_probability": 0.2195,
+      "edge_net": 0.5799057976596901,
+      "quality_tier": "A",
+      "temperature_unit": "fahrenheit",
+      "market_family": "fahrenheit|range_bin",
+      "horizon_days": 0,
+      "forecast": {
+        "center_c": 34.78,
+        "mode_c": 34,
+        "std_dev_c": 0.36,
+        "model_name": "openmeteo_intraday_max_so_far_v1"
+      },
+      "watchlist": {
+        "signal": "opposed",
+        "copy_confirmation": "opposed",
+        "alignment_score": -1.0,
+        "active_traders": [
+          "Poligarch"
+        ],
+        "aligned_traders": [],
+        "opposed_traders": [
+          "Poligarch"
+        ],
+        "copy_flow": [
+          {
+            "trader": "Poligarch",
+            "trade_count": 4,
+            "gross_notional_usd": 15.1435,
+            "net_yes_notional_usd": 3.1435,
+            "direction": "YES",
+            "classifications": {
+              "event_only": 1,
+              "opposed": 3
+            },
+            "latest_timestamp": 1777683272
+          }
+        ]
+      },
+      "risk_controls": {
+        "market_family": "fahrenheit|range_bin",
+        "horizon_days": 0,
+        "fair_probability": 0.8724057976596901,
+        "execution_price": 0.22,
+        "combined_multiplier": 0.0715,
+        "max_stake_usd": 1.0,
+        "multipliers": {
+          "same_day_intraday": 0.2,
+          "fahrenheit_range_bin": 0.55,
+          "extreme_fair_probability": 0.65
+        },
+        "notes": [
+          "same_day_intraday_exposure_capped",
+          "fahrenheit_range_bin_exposure_reduced",
+          "overconfidence_guardrail",
+          "opposed_copy_signal_blocks_ticket"
+        ]
+      },
+      "blockers": [
+        "watchlist_opposed_veto",
+        "watchlist_opposed_veto",
+        "below_min_trade_horizon",
+        "same_day_intraday_blocked"
+      ],
+      "stake_suggestion_usd": 0.0,
+      "approval_command": "OK {ticket_id}",
+      "ticket_id": "T06"
+    },
+    {
+      "action": "NO_TRADE",
+      "event_slug": "highest-temperature-in-helsinki-on-may-2-2026",
+      "event_title": "Highest temperature in Helsinki on May 2?",
+      "event_date": "2026-05-02",
+      "city": "Helsinki",
+      "station_code": "EFHK",
+      "question": "Will the highest temperature in Helsinki be 22°C on May 2?",
+      "market_id": "2122609",
+      "market_slug": "highest-temperature-in-helsinki-on-may-2-2026-22c",
+      "execution_price": 0.018,
+      "fair_probability": 0.5733678088011955,
+      "market_probability": 0.013999999999999999,
+      "edge_net": 0.4828678088011955,
+      "quality_tier": "B",
+      "temperature_unit": "celsius",
+      "market_family": "celsius|range_bin",
+      "horizon_days": 0,
+      "forecast": {
+        "center_c": 22.84,
+        "mode_c": 22,
+        "std_dev_c": 0.31,
+        "model_name": "openmeteo_intraday_max_so_far_v1"
+      },
+      "watchlist": {
+        "signal": "opposed",
+        "copy_confirmation": "opposed",
+        "alignment_score": -1.0,
+        "active_traders": [
+          "ColdMath",
+          "Poligarch"
+        ],
+        "aligned_traders": [],
+        "opposed_traders": [
+          "ColdMath"
+        ],
+        "copy_flow": [
+          {
+            "trader": "Poligarch",
+            "trade_count": 3,
+            "gross_notional_usd": 37.9011,
+            "net_yes_notional_usd": -37.9011,
+            "direction": "NO",
+            "classifications": {
+              "event_only": 3
+            },
+            "latest_timestamp": 1777679976
+          },
+          {
+            "trader": "ColdMath",
+            "trade_count": 4,
+            "gross_notional_usd": 4.9825,
+            "net_yes_notional_usd": 4.9825,
+            "direction": "YES",
+            "classifications": {
+              "opposed": 4
+            },
+            "latest_timestamp": 1777630130
+          }
+        ]
+      },
+      "risk_controls": {
+        "market_family": "celsius|range_bin",
+        "horizon_days": 0,
+        "fair_probability": 0.5733678088011955,
+        "execution_price": 0.018,
+        "combined_multiplier": 0.15,
+        "max_stake_usd": 1.0,
+        "multipliers": {
+          "same_day_intraday": 0.2,
+          "tail_price": 0.75
+        },
+        "notes": [
+          "same_day_intraday_exposure_capped",
+          "tail_price_exposure_reduced",
+          "opposed_copy_signal_blocks_ticket"
+        ]
+      },
+      "blockers": [
+        "watchlist_opposed_veto",
+        "watchlist_opposed_veto",
+        "below_min_trade_horizon",
+        "same_day_intraday_blocked"
+      ],
+      "stake_suggestion_usd": 0.0,
+      "approval_command": "OK {ticket_id}",
+      "ticket_id": "T07"
+    },
+    {
+      "action": "NO_TRADE",
+      "event_slug": "highest-temperature-in-madrid-on-may-2-2026",
+      "event_title": "Highest temperature in Madrid on May 2?",
+      "event_date": "2026-05-02",
+      "city": "Madrid",
+      "station_code": "LEMD",
+      "question": "Will the highest temperature in Madrid be 18°C on May 2?",
+      "market_id": "2122404",
+      "market_slug": "highest-temperature-in-madrid-on-may-2-2026-18c",
+      "execution_price": 0.001,
+      "fair_probability": 0.49680698835864645,
+      "market_probability": 0.001,
+      "edge_net": 0.42330698835864644,
+      "quality_tier": "C",
+      "temperature_unit": "celsius",
+      "market_family": "celsius|range_bin",
+      "horizon_days": 0,
+      "forecast": {
+        "center_c": 18.9,
+        "mode_c": 18,
+        "std_dev_c": 0.33,
+        "model_name": "openmeteo_intraday_max_so_far_v1"
+      },
+      "watchlist": {
+        "signal": "opposed",
+        "copy_confirmation": "opposed",
+        "alignment_score": -1.0,
+        "active_traders": [
+          "Poligarch"
+        ],
+        "aligned_traders": [],
+        "opposed_traders": [
+          "Poligarch"
+        ],
+        "copy_flow": [
+          {
+            "trader": "Poligarch",
+            "trade_count": 5,
+            "gross_notional_usd": 19.5877,
+            "net_yes_notional_usd": 8.6077,
+            "direction": "YES",
+            "classifications": {
+              "opposed": 4,
+              "event_only": 1
+            },
+            "latest_timestamp": 1777675364
+          }
+        ]
+      },
+      "risk_controls": {
+        "market_family": "celsius|range_bin",
+        "horizon_days": 0,
+        "fair_probability": 0.49680698835864645,
+        "execution_price": 0.001,
+        "combined_multiplier": 0.15,
+        "max_stake_usd": 1.0,
+        "multipliers": {
+          "same_day_intraday": 0.2,
+          "tail_price": 0.75
+        },
+        "notes": [
+          "same_day_intraday_exposure_capped",
+          "tail_price_exposure_reduced",
+          "opposed_copy_signal_blocks_ticket"
+        ]
+      },
+      "blockers": [
+        "watchlist_opposed_veto",
+        "missing_two_sided_quote",
+        "watchlist_opposed_veto",
+        "below_min_trade_horizon",
+        "same_day_intraday_blocked"
+      ],
+      "stake_suggestion_usd": 0.0,
+      "approval_command": "OK {ticket_id}",
+      "ticket_id": "T08"
+    },
+    {
+      "action": "NO_TRADE",
+      "event_slug": "highest-temperature-in-amsterdam-on-may-2-2026",
+      "event_title": "Highest temperature in Amsterdam on May 2?",
+      "event_date": "2026-05-02",
+      "city": "Amsterdam",
+      "station_code": "EHAM",
+      "question": "Will the highest temperature in Amsterdam be 22°C on May 2?",
+      "market_id": "2122597",
+      "market_slug": "highest-temperature-in-amsterdam-on-may-2-2026-22c",
+      "execution_price": 0.032,
+      "fair_probability": 0.4831803459086901,
+      "market_probability": 0.027,
+      "edge_net": 0.37868034590869004,
+      "quality_tier": "A",
+      "temperature_unit": "celsius",
+      "market_family": "celsius|range_bin",
+      "horizon_days": 0,
+      "forecast": {
+        "center_c": 22.91,
+        "mode_c": 22,
+        "std_dev_c": 0.36,
+        "model_name": "openmeteo_intraday_max_so_far_v1"
+      },
+      "watchlist": {
+        "signal": "silent",
+        "copy_confirmation": "silent",
+        "alignment_score": 0.0,
+        "active_traders": [],
+        "aligned_traders": [],
+        "opposed_traders": [],
+        "copy_flow": []
+      },
+      "risk_controls": {
+        "market_family": "celsius|range_bin",
+        "horizon_days": 0,
+        "fair_probability": 0.4831803459086901,
+        "execution_price": 0.032,
+        "combined_multiplier": 0.2,
+        "max_stake_usd": 1.0,
+        "multipliers": {
+          "same_day_intraday": 0.2
+        },
+        "notes": [
+          "same_day_intraday_exposure_capped"
+        ]
+      },
+      "blockers": [
+        "below_min_trade_horizon",
+        "same_day_intraday_blocked"
+      ],
+      "stake_suggestion_usd": 0.0,
+      "approval_command": "OK {ticket_id}",
+      "ticket_id": "T09"
+    },
+    {
+      "action": "NO_TRADE",
+      "event_slug": "highest-temperature-in-chicago-on-may-2-2026",
+      "event_title": "Highest temperature in Chicago on May 2?",
+      "event_date": "2026-05-02",
+      "city": "Chicago",
+      "station_code": "KORD",
+      "question": "Will the highest temperature in Chicago be 54°F or higher on May 2?",
+      "market_id": "2122291",
+      "market_slug": "highest-temperature-in-chicago-on-may-2-2026-54forhigher",
+      "execution_price": 0.61,
+      "fair_probability": 0.9927462288751322,
+      "market_probability": 0.585,
+      "edge_net": 0.3002462288751322,
+      "quality_tier": "A",
+      "temperature_unit": "fahrenheit",
+      "market_family": "fahrenheit|upper_tail",
+      "horizon_days": 0,
+      "forecast": {
+        "center_c": 12.8,
+        "mode_c": 12,
+        "std_dev_c": 0.35,
+        "model_name": "openmeteo_intraday_max_so_far_v1"
+      },
+      "watchlist": {
+        "signal": "silent",
+        "copy_confirmation": "silent",
+        "alignment_score": 0.0,
+        "active_traders": [],
+        "aligned_traders": [],
+        "opposed_traders": [],
+        "copy_flow": []
+      },
+      "risk_controls": {
+        "market_family": "fahrenheit|upper_tail",
+        "horizon_days": 0,
+        "fair_probability": 0.9927462288751322,
+        "execution_price": 0.61,
+        "combined_multiplier": 0.0975,
+        "max_stake_usd": 1.0,
+        "multipliers": {
+          "same_day_intraday": 0.2,
+          "fahrenheit_other": 0.75,
+          "extreme_fair_probability": 0.65
+        },
+        "notes": [
+          "same_day_intraday_exposure_capped",
+          "fahrenheit_exposure_reduced",
+          "overconfidence_guardrail"
+        ]
+      },
+      "blockers": [
+        "below_min_trade_horizon",
+        "same_day_intraday_blocked"
+      ],
+      "stake_suggestion_usd": 0.0,
+      "approval_command": "OK {ticket_id}",
+      "ticket_id": "T10"
+    },
+    {
+      "action": "NO_TRADE",
+      "event_slug": "highest-temperature-in-buenos-aires-on-may-2-2026",
+      "event_title": "Highest temperature in Buenos Aires on May 2?",
+      "event_date": "2026-05-02",
+      "city": "Buenos Aires",
+      "station_code": "SAEZ",
+      "question": "Will the highest temperature in Buenos Aires be 15°C on May 2?",
+      "market_id": "2122198",
+      "market_slug": "highest-temperature-in-buenos-aires-on-may-2-2026-15c",
+      "execution_price": 0.13,
+      "fair_probability": 0.5,
+      "market_probability": 0.101,
+      "edge_net": 0.2855,
+      "quality_tier": "B",
+      "temperature_unit": "celsius",
+      "market_family": "celsius|range_bin",
+      "horizon_days": 0,
+      "forecast": {
+        "center_c": 15.9,
+        "mode_c": 15,
+        "std_dev_c": 0.05,
+        "model_name": "openmeteo_intraday_max_so_far_v1"
+      },
+      "watchlist": {
+        "signal": "silent",
+        "copy_confirmation": "silent",
+        "alignment_score": 0.0,
+        "active_traders": [],
+        "aligned_traders": [],
+        "opposed_traders": [],
+        "copy_flow": []
+      },
+      "risk_controls": {
+        "market_family": "celsius|range_bin",
+        "horizon_days": 0,
+        "fair_probability": 0.5,
+        "execution_price": 0.13,
+        "combined_multiplier": 0.2,
+        "max_stake_usd": 1.0,
+        "multipliers": {
+          "same_day_intraday": 0.2
+        },
+        "notes": [
+          "same_day_intraday_exposure_capped"
+        ]
+      },
+      "blockers": [
+        "below_min_trade_horizon",
+        "same_day_intraday_blocked"
+      ],
+      "stake_suggestion_usd": 0.0,
+      "approval_command": "OK {ticket_id}",
+      "ticket_id": "T11"
+    },
+    {
+      "action": "NO_TRADE",
+      "event_slug": "highest-temperature-in-istanbul-on-may-2-2026",
+      "event_title": "Highest temperature in Istanbul on May 2?",
+      "event_date": "2026-05-02",
+      "city": "Istanbul",
+      "station_code": "LTFM",
+      "question": "Will the highest temperature in Istanbul be 11°C on May 2?",
+      "market_id": "2122559",
+      "market_slug": "highest-temperature-in-istanbul-on-may-2-2026-11c",
+      "execution_price": 0.43,
+      "fair_probability": 0.7478825932693057,
+      "market_probability": 0.4,
+      "edge_net": 0.23288259326930574,
+      "quality_tier": "B",
+      "temperature_unit": "celsius",
+      "market_family": "celsius|range_bin",
+      "horizon_days": 0,
+      "forecast": {
+        "center_c": 11.64,
+        "mode_c": 11,
+        "std_dev_c": 0.34,
+        "model_name": "openmeteo_intraday_max_so_far_v1"
+      },
+      "watchlist": {
+        "signal": "active_unclassified",
+        "copy_confirmation": "active_unclassified",
+        "alignment_score": 0.0,
+        "active_traders": [
+          "Poligarch"
+        ],
+        "aligned_traders": [],
+        "opposed_traders": [],
+        "copy_flow": [
+          {
+            "trader": "Poligarch",
+            "trade_count": 1,
+            "gross_notional_usd": 7.494,
+            "net_yes_notional_usd": -7.494,
+            "direction": "NO",
+            "classifications": {
+              "event_only": 1
+            },
+            "latest_timestamp": 1777614534
+          }
+        ]
+      },
+      "risk_controls": {
+        "market_family": "celsius|range_bin",
+        "horizon_days": 0,
+        "fair_probability": 0.7478825932693057,
+        "execution_price": 0.43,
+        "combined_multiplier": 0.2,
+        "max_stake_usd": 1.0,
+        "multipliers": {
+          "same_day_intraday": 0.2
+        },
+        "notes": [
+          "same_day_intraday_exposure_capped"
+        ]
+      },
+      "blockers": [
+        "experimental_celsius_range_bin_active_unclassified_veto",
+        "experimental_celsius_range_bin_active_unclassified_veto",
+        "below_min_trade_horizon",
+        "same_day_intraday_blocked"
+      ],
+      "stake_suggestion_usd": 0.0,
+      "approval_command": "OK {ticket_id}",
+      "ticket_id": "T12"
+    }
+  ],
+  "execution_policy": {
+    "mode": "supervised_paper_ticket",
+    "live_execution_enabled": false,
+    "approval_text": "OK <ticket_id>",
+    "min_trade_horizon_days": 1,
+    "trade_horizon_label": "H1+",
+    "horizon0_mode": "quarantined",
+    "copytrading_mode": "veto_only",
+    "notes": [
+      "La consola no envia ordenes al CLOB.",
+      "Solo se revisan tickets H1+; H0 queda en cuarentena hasta que mejore su auditoria.",
+      "Copytrading se usa como veto/contexto, no como entrada directa.",
+      "Un OK solo registra una decision paper/dry-run local."
+    ]
+  },
+  "preflight": {
+    "status": "warning",
+    "approval_allowed": false,
+    "reviewable_ticket_count": 0,
+    "blockers": [],
+    "warnings": [
+      "horizon0_log_loss_underperforms_market",
+      "horizon0_negative_paper_roi",
+      "model_log_loss_underperforms_market",
+      "no_reviewable_tickets",
+      "system_health_warning"
+    ],
+    "live_execution_enabled": false,
+    "notes": [
+      "Preflight bloquea aprobaciones paper si falta evidencia critica.",
+      "La UI nunca ejecuta ordenes reales; solo registra decisiones locales."
+    ]
+  }
+}

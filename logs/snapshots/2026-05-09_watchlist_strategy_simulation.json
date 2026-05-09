@@ -1,0 +1,338 @@
+{
+  "captured_at_utc": "2026-05-09T20:52:33.682738",
+  "reference_date": "2026-05-09",
+  "audit_snapshot": "logs/snapshots/2026-05-09_blind_snapshot_resolution_audit.json",
+  "evaluated_events": 440,
+  "watchlist_events_with_local_snapshot_data": 340,
+  "watchlist_events_with_remote_reconstruction": 0,
+  "watchlist_events_without_overlay": 120,
+  "watchlist_overlay_breakdown": {
+    "active_unclassified": 43,
+    "aligned": 18,
+    "mixed": 57,
+    "opposed": 98,
+    "silent": 104,
+    "unavailable": 120
+  },
+  "tracked_traders": [
+    {
+      "username": "ColdMath",
+      "label": "ColdMath",
+      "proxy_wallet": "0x594edb9112f526fa6a80b8f858a6379c8a2c1c11",
+      "monthly_rank": 30,
+      "monthly_pnl": 2750.6683752919926,
+      "monthly_volume": 1061846.2759590002,
+      "all_time_rank": 3,
+      "all_time_pnl": 129617.82817241614,
+      "all_time_volume": 10319715.887786001
+    },
+    {
+      "username": "Poligarch",
+      "label": "Poligarch",
+      "proxy_wallet": "0xb40e89677d59665d5188541ad860450a6e2a7cc9",
+      "monthly_rank": 22,
+      "monthly_pnl": 3466.2723346465136,
+      "monthly_volume": 770663.5742490002,
+      "all_time_rank": 14,
+      "all_time_pnl": 56995.942283457065,
+      "all_time_volume": 7378307.524211
+    },
+    {
+      "username": "Handsanitizer23",
+      "label": "Handsanitizer23",
+      "proxy_wallet": "0x05e70727a2e2dcd079baa2ef1c0b88af06bb9641",
+      "monthly_rank": null,
+      "monthly_pnl": null,
+      "monthly_volume": null,
+      "all_time_rank": 7,
+      "all_time_pnl": 71174.40067137999,
+      "all_time_volume": 953274.808
+    }
+  ],
+  "strategies": {
+    "model_current": {
+      "trades": 226,
+      "selected_market_hit_rate": 0.2743362831858407,
+      "total_stake": 54.457,
+      "total_pnl": 7.542999999999999,
+      "roi_on_stake": 0.13851295517564316,
+      "avg_execution_price": 0.21866371681415928
+    },
+    "model_skip_opposed": {
+      "trades": 221,
+      "selected_market_hit_rate": 0.28054298642533937,
+      "total_stake": 53.8235,
+      "total_pnl": 8.176499999999999,
+      "roi_on_stake": 0.1519131977667747,
+      "avg_execution_price": 0.22136651583710407
+    },
+    "model_skip_silent": {
+      "trades": 144,
+      "selected_market_hit_rate": 0.2847222222222222,
+      "total_stake": 32.0855,
+      "total_pnl": 8.9145,
+      "roi_on_stake": 0.27783578251858315,
+      "avg_execution_price": 0.20270833333333335
+    },
+    "model_skip_opposed_and_silent": {
+      "trades": 139,
+      "selected_market_hit_rate": 0.2949640287769784,
+      "total_stake": 31.452,
+      "total_pnl": 9.548,
+      "roi_on_stake": 0.3035736996057484,
+      "avg_execution_price": 0.20643165467625899
+    },
+    "model_skip_weak_watchlist": {
+      "trades": 117,
+      "selected_market_hit_rate": 0.3076923076923077,
+      "total_stake": 27.34675,
+      "total_pnl": 8.65325,
+      "roi_on_stake": 0.3164269977236783,
+      "avg_execution_price": 0.21508547008547008
+    },
+    "model_skip_celsius_active_unclassified": {
+      "trades": 214,
+      "selected_market_hit_rate": 0.2803738317757009,
+      "total_stake": 53.291000000000004,
+      "total_pnl": 6.709,
+      "roi_on_stake": 0.12589367810699742,
+      "avg_execution_price": 0.22683177570093457
+    },
+    "model_skip_opposed_and_celsius_active_unclassified": {
+      "trades": 209,
+      "selected_market_hit_rate": 0.28708133971291866,
+      "total_stake": 52.6575,
+      "total_pnl": 7.342499999999999,
+      "roi_on_stake": 0.13943882637800883,
+      "avg_execution_price": 0.22988516746411483
+    },
+    "model_confirmed_only": {
+      "trades": 40,
+      "selected_market_hit_rate": 0.325,
+      "total_stake": 16.6975,
+      "total_pnl": -3.6975,
+      "roi_on_stake": -0.2214403353795478,
+      "avg_execution_price": 0.391
+    },
+    "model_aligned_only": {
+      "trades": 9,
+      "selected_market_hit_rate": 0.4444444444444444,
+      "total_stake": 4.70175,
+      "total_pnl": -0.7017499999999999,
+      "roi_on_stake": -0.14925293773594936,
+      "avg_execution_price": 0.4971111111111111
+    },
+    "copy_coldmath": {
+      "trades": 4,
+      "selected_market_hit_rate": 0.0,
+      "total_stake": 1.8762500000000002,
+      "total_pnl": -1.8762500000000002,
+      "roi_on_stake": -1.0,
+      "avg_execution_price": 0.44225000000000003
+    },
+    "copy_poligarch": {
+      "trades": 39,
+      "selected_market_hit_rate": 0.3333333333333333,
+      "total_stake": 15.459999999999999,
+      "total_pnl": -2.4599999999999995,
+      "roi_on_stake": -0.15912031047865458,
+      "avg_execution_price": 0.37025641025641026
+    },
+    "copy_watchlist_consensus": {
+      "trades": 41,
+      "selected_market_hit_rate": 0.2926829268292683,
+      "total_stake": 16.59125,
+      "total_pnl": -4.59125,
+      "roi_on_stake": -0.27672719053718076,
+      "avg_execution_price": 0.37826829268292683
+    },
+    "copy_coldmath_directional": {
+      "trades": 5,
+      "selected_market_hit_rate": 0.4,
+      "total_stake": 3.06625,
+      "total_pnl": -1.0662500000000001,
+      "roi_on_stake": -0.3477374643293926,
+      "avg_execution_price": 0.5871999999999999
+    },
+    "copy_poligarch_directional": {
+      "trades": 43,
+      "selected_market_hit_rate": 0.3953488372093023,
+      "total_stake": 20.13,
+      "total_pnl": -3.1299999999999994,
+      "roi_on_stake": -0.15548931942374564,
+      "avg_execution_price": 0.4418604651162791
+    },
+    "copy_watchlist_consensus_directional": {
+      "trades": 44,
+      "selected_market_hit_rate": 0.36363636363636365,
+      "total_stake": 21.69125,
+      "total_pnl": -5.691249999999999,
+      "roi_on_stake": -0.26237538177836683,
+      "avg_execution_price": 0.46672727272727277
+    }
+  },
+  "model_current_by_overlay_signal": {
+    "active_unclassified": {
+      "trades": 22,
+      "selected_market_hit_rate": 0.22727272727272727,
+      "total_stake": 4.10525,
+      "total_pnl": 0.8947500000000002,
+      "roi_on_stake": 0.21795262164301812,
+      "avg_execution_price": 0.16040909090909092
+    },
+    "aligned": {
+      "trades": 9,
+      "selected_market_hit_rate": 0.4444444444444444,
+      "total_stake": 4.70175,
+      "total_pnl": -0.7017499999999999,
+      "roi_on_stake": -0.14925293773594936,
+      "avg_execution_price": 0.4971111111111111
+    },
+    "mixed": {
+      "trades": 31,
+      "selected_market_hit_rate": 0.2903225806451613,
+      "total_stake": 11.99575,
+      "total_pnl": -2.9957499999999997,
+      "roi_on_stake": -0.24973428089114894,
+      "avg_execution_price": 0.3601935483870968
+    },
+    "opposed": {
+      "trades": 5,
+      "selected_market_hit_rate": 0.0,
+      "total_stake": 0.6335,
+      "total_pnl": -0.6335,
+      "roi_on_stake": -1.0,
+      "avg_execution_price": 0.0992
+    },
+    "silent": {
+      "trades": 82,
+      "selected_market_hit_rate": 0.25609756097560976,
+      "total_stake": 22.3715,
+      "total_pnl": -1.3715000000000006,
+      "roi_on_stake": -0.06130567910064146,
+      "avg_execution_price": 0.24668292682926832
+    },
+    "unavailable": {
+      "trades": 77,
+      "selected_market_hit_rate": 0.2987012987012987,
+      "total_stake": 10.64925,
+      "total_pnl": 12.35075,
+      "roi_on_stake": 1.1597765100828696,
+      "avg_execution_price": 0.1237012987012987
+    }
+  },
+  "notes": [
+    "prioriza watchlist ya congelada dentro de snapshots live cuando existe, y solo intenta reconstruccion remota como fallback",
+    "copy_* usa solo trades de watchlist anteriores al snapshot y dentro de la ventana reciente configurada",
+    "copy_* mantiene la simulacion historica YES-only para comparabilidad con snapshots previos",
+    "copy_*_directional simula el lado real del trader: BUY YES/SELL NO como sesgo positivo y BUY NO/SELL YES como sesgo negativo",
+    "model_aligned_only toma exactamente el top-edge del modelo cuando la watchlist esta alineada",
+    "model_skip_opposed mantiene el trade del modelo salvo cuando la watchlist va en contra",
+    "model_skip_silent mantiene el trade del modelo solo cuando hay actividad observable en watchlist",
+    "model_skip_opposed_and_silent combina veto por oposicion y ausencia de actividad observable",
+    "model_skip_weak_watchlist bloquea opposed, silent y active_unclassified para estimar una postura mas conservadora",
+    "model_skip_celsius_active_unclassified bloquea el top-edge si la watchlist esta en active_unclassified y el top-edge pertenece a celsius|range_bin",
+    "model_skip_opposed_and_celsius_active_unclassified combina ambos filtros",
+    "model_confirmed_only solo mantiene trades del modelo con watchlist aligned o mixed"
+  ],
+  "strategy_comparison_digest": {
+    "selected_strategies": {
+      "model_current": {
+        "trades": 226,
+        "selected_market_hit_rate": 0.2743362831858407,
+        "total_stake": 54.457,
+        "total_pnl": 7.542999999999999,
+        "roi_on_stake": 0.13851295517564316,
+        "avg_execution_price": 0.21866371681415928
+      },
+      "model_skip_opposed": {
+        "trades": 221,
+        "selected_market_hit_rate": 0.28054298642533937,
+        "total_stake": 53.8235,
+        "total_pnl": 8.176499999999999,
+        "roi_on_stake": 0.1519131977667747,
+        "avg_execution_price": 0.22136651583710407
+      },
+      "model_skip_silent": {
+        "trades": 144,
+        "selected_market_hit_rate": 0.2847222222222222,
+        "total_stake": 32.0855,
+        "total_pnl": 8.9145,
+        "roi_on_stake": 0.27783578251858315,
+        "avg_execution_price": 0.20270833333333335
+      },
+      "model_skip_opposed_and_silent": {
+        "trades": 139,
+        "selected_market_hit_rate": 0.2949640287769784,
+        "total_stake": 31.452,
+        "total_pnl": 9.548,
+        "roi_on_stake": 0.3035736996057484,
+        "avg_execution_price": 0.20643165467625899
+      },
+      "model_skip_weak_watchlist": {
+        "trades": 117,
+        "selected_market_hit_rate": 0.3076923076923077,
+        "total_stake": 27.34675,
+        "total_pnl": 8.65325,
+        "roi_on_stake": 0.3164269977236783,
+        "avg_execution_price": 0.21508547008547008
+      },
+      "model_skip_celsius_active_unclassified": {
+        "trades": 214,
+        "selected_market_hit_rate": 0.2803738317757009,
+        "total_stake": 53.291000000000004,
+        "total_pnl": 6.709,
+        "roi_on_stake": 0.12589367810699742,
+        "avg_execution_price": 0.22683177570093457
+      },
+      "model_skip_opposed_and_celsius_active_unclassified": {
+        "trades": 209,
+        "selected_market_hit_rate": 0.28708133971291866,
+        "total_stake": 52.6575,
+        "total_pnl": 7.342499999999999,
+        "roi_on_stake": 0.13943882637800883,
+        "avg_execution_price": 0.22988516746411483
+      }
+    },
+    "deltas_vs_model_current": {
+      "model_skip_opposed": {
+        "trades_delta": -5,
+        "hit_rate_delta": 0.006206703239498679,
+        "pnl_delta": 0.6334999999999997,
+        "roi_delta": 0.01340024259113154
+      },
+      "model_skip_silent": {
+        "trades_delta": -82,
+        "hit_rate_delta": 0.01038593903638152,
+        "pnl_delta": 1.371500000000001,
+        "roi_delta": 0.13932282734294
+      },
+      "model_skip_opposed_and_silent": {
+        "trades_delta": -87,
+        "hit_rate_delta": 0.020627745591137725,
+        "pnl_delta": 2.005000000000001,
+        "roi_delta": 0.16506074443010527
+      },
+      "model_skip_weak_watchlist": {
+        "trades_delta": -109,
+        "hit_rate_delta": 0.03335602450646702,
+        "pnl_delta": 1.1102500000000006,
+        "roi_delta": 0.17791404254803517
+      },
+      "model_skip_celsius_active_unclassified": {
+        "trades_delta": -12,
+        "hit_rate_delta": 0.00603754858986022,
+        "pnl_delta": -0.8339999999999996,
+        "roi_delta": -0.01261927706864574
+      },
+      "model_skip_opposed_and_celsius_active_unclassified": {
+        "trades_delta": -17,
+        "hit_rate_delta": 0.01274505652707797,
+        "pnl_delta": -0.2004999999999999,
+        "roi_delta": 0.0009258712023656746
+      }
+    },
+    "best_strategy_by_pnl": "model_skip_opposed_and_silent",
+    "best_strategy_by_roi": "model_skip_weak_watchlist"
+  }
+}
